@@ -87,7 +87,7 @@ export default function SocialMediaPage() {
       </div>
 
       {/* Digital Location Overlaps Section */}
-      <Card className="space-y-4 border-slate-300 bg-white">
+      <Card className="space-y-4 border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
         <div className="flex items-center justify-between border-b border-slate-200 pb-3">
           <div>
             <h3 className="text-sm font-bold font-mono text-slate-900 flex items-center gap-2">
@@ -169,7 +169,7 @@ export default function SocialMediaPage() {
         {/* Selected Suspect Digital Footprint Details */}
         <div className="lg:col-span-2 space-y-4">
           {selectedSuspect ? (
-            <Card className="space-y-4 border-slate-300 bg-white">
+            <Card className="space-y-4 border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
               <div className="flex items-center justify-between border-b border-slate-200 pb-3">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900">{selectedSuspect.suspect_name}</h3>

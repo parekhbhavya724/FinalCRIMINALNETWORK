@@ -23,10 +23,10 @@
 
 [data-theme="light"],
 .light {
-  --bg: #EAEFF5;
-  --surface: #F8FAFC;
-  --surface-2: #E2E8F0;
-  --border: #CBD5E1;
+  --bg: #CDCDCD;
+  --surface: #E3E8EC;
+  --surface-2: #D1D7DC;
+  --border: #A0AAB2;
   --text: #0F172A;
   --text-muted: #334155;
   --accent: #0284C7;

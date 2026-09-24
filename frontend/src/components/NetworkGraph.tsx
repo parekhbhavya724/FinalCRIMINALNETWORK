@@ -293,7 +293,7 @@ export function NetworkGraph({
   return (
     <div className="space-y-4">
       {/* Top Controls Toolbar */}
-      <Card className="border-slate-300 bg-white p-4">
+      <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)] p-4">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           {/* Search Focus Form */}
           <form onSubmit={handleSearchSubmit} className="flex flex-wrap items-center gap-2 flex-1 max-w-lg">
@@ -611,7 +611,7 @@ export function NetworkGraph({
         {/* Selected Suspect Inspector Panel (1 Col) */}
         <div className="lg:col-span-1 space-y-4">
           {selectedNode ? (
-            <Card className="border-slate-300 bg-white p-5 h-full flex flex-col justify-between">
+            <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)] p-5 h-full flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="flex items-start justify-between gap-2 border-b border-slate-200 pb-3">
                   <div>
@@ -722,7 +722,7 @@ export function NetworkGraph({
               </div>
             </Card>
           ) : (
-            <Card className="border-slate-300 bg-white p-6 h-full flex flex-col items-center justify-center text-center text-slate-500 text-xs font-mono">
+            <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)] p-6 h-full flex flex-col items-center justify-center text-center text-slate-500 text-xs font-mono">
               <User className="w-8 h-8 text-slate-300 mb-2" />
               <p>Click any suspect or company node on the canvas to inspect forensic connections.</p>
             </Card>

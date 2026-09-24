@@ -133,7 +133,7 @@ export default function CriminalHistoryPage() {
       {/* ── KPI Summary Cards Bar ── */}
       {summary && (
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 font-mono text-xs">
-          <Card className="p-3 bg-white border-slate-300 shadow-sm flex flex-col justify-between">
+          <Card className="p-3 bg-[var(--surface)] border-[var(--border)] text-[var(--text)] shadow-sm flex flex-col justify-between">
             <span className="text-[10px] text-slate-500 uppercase font-bold">Total Ingested</span>
             <div className="flex items-baseline justify-between mt-1">
               <span className="text-xl font-bold text-slate-900">{summary.total_records}</span>
@@ -199,7 +199,7 @@ export default function CriminalHistoryPage() {
       {summary && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Top Repeat Offenders */}
-          <Card className="p-4 bg-white border-slate-300 shadow-sm space-y-3">
+          <Card className="p-4 bg-[var(--surface)] border-[var(--border)] text-[var(--text)] shadow-sm space-y-3">
             <div className="flex items-center justify-between border-b border-slate-200 pb-2">
               <h3 className="text-xs font-bold font-mono uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
                 <AlertTriangle className="w-4 h-4 text-red-600" /> Top Repeat Offenders
@@ -231,7 +231,7 @@ export default function CriminalHistoryPage() {
           </Card>
 
           {/* Offence Distribution */}
-          <Card className="p-4 bg-white border-slate-300 shadow-sm space-y-3">
+          <Card className="p-4 bg-[var(--surface)] border-[var(--border)] text-[var(--text)] shadow-sm space-y-3">
             <div className="flex items-center justify-between border-b border-slate-200 pb-2">
               <h3 className="text-xs font-bold font-mono uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
                 <Gavel className="w-4 h-4 text-slate-700" /> Prior Offence Breakdown
@@ -259,7 +259,7 @@ export default function CriminalHistoryPage() {
           </Card>
 
           {/* Police Station Breakdown */}
-          <Card className="p-4 bg-white border-slate-300 shadow-sm space-y-3">
+          <Card className="p-4 bg-[var(--surface)] border-[var(--border)] text-[var(--text)] shadow-sm space-y-3">
             <div className="flex items-center justify-between border-b border-slate-200 pb-2">
               <h3 className="text-xs font-bold font-mono uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
                 <Building className="w-4 h-4 text-slate-700" /> Police Station Jurisdiction
@@ -293,7 +293,7 @@ export default function CriminalHistoryPage() {
       )}
 
       {/* ── Search & Filter Controls Bar ── */}
-      <Card className="p-4 bg-white border-slate-300 shadow-sm space-y-3">
+      <Card className="p-4 bg-[var(--surface)] border-[var(--border)] text-[var(--text)] shadow-sm space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
           {/* Search box */}
           <div className="relative flex-1 min-w-[260px]">
@@ -397,7 +397,7 @@ export default function CriminalHistoryPage() {
       </Card>
 
       {/* ── Records Table ── */}
-      <Card className="bg-white border-slate-300 shadow-sm overflow-hidden">
+      <Card className="bg-[var(--surface)] border-[var(--border)] text-[var(--text)] shadow-sm overflow-hidden">
         <div className="p-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between font-mono text-xs">
           <span className="font-bold text-slate-800 uppercase tracking-wider">
             Criminal History Registry ({filteredRecords.length} records matching)
@@ -536,7 +536,7 @@ export default function CriminalHistoryPage() {
       {/* ── Record Detail Modal ── */}
       {selectedRecord && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white border border-slate-300 rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-4 font-mono max-h-[90vh] overflow-y-auto">
+          <div className="bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-4 font-mono max-h-[90vh] overflow-y-auto">
             <div className="flex items-start justify-between border-b border-slate-200 pb-3">
               <div>
                 <div className="flex items-center gap-2">

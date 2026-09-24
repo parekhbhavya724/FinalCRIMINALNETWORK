@@ -231,7 +231,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                 className={`flex items-center gap-2 px-4 py-2.5 text-xs font-mono font-bold rounded-lg transition-all whitespace-nowrap ${
                   isActive
                     ? "bg-slate-900 text-white shadow-sm"
-                    : "text-slate-600 bg-white border border-slate-200 hover:bg-slate-100 hover:text-slate-900"
+                    : "text-slate-600 bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] hover:bg-slate-100 hover:text-slate-900"
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
@@ -252,7 +252,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
           />
 
           {/* Simulator Control Panel */}
-          <Card className="border-slate-300 bg-white">
+          <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
             <div className="flex items-center justify-between gap-2 mb-4">
               <div className="flex items-center gap-2">
                 <SlidersHorizontal className="w-4 h-4 text-slate-800" />
@@ -275,7 +275,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                 <div key={w.key} className="bg-slate-50 border border-slate-200 rounded-lg p-3 space-y-2">
                   <div className="flex items-center justify-between gap-1">
                     <span className="text-xs font-mono font-bold text-slate-900 truncate">{w.label}</span>
-                    <span className="px-1.5 py-0.5 rounded bg-white border border-slate-200 font-mono text-[11px] font-bold text-slate-800 shrink-0">
+                    <span className="px-1.5 py-0.5 rounded bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] font-mono text-[11px] font-bold text-slate-800 shrink-0">
                       {(weights as any)[w.key]}%
                     </span>
                   </div>
@@ -339,7 +339,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                     className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all whitespace-nowrap ${
                       scoreViewMode === 'standard'
                         ? 'bg-emerald-700 text-white shadow-sm'
-                        : 'bg-white text-slate-700 border border-slate-300 hover:bg-slate-100'
+                        : 'bg-[var(--surface-2)] text-[var(--text)] border border-slate-300 hover:bg-slate-100'
                     }`}
                   >
                     Standard Score Index
@@ -349,7 +349,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                     className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all whitespace-nowrap ${
                       scoreViewMode === 'distribution'
                         ? 'bg-emerald-700 text-white shadow-sm'
-                        : 'bg-white text-slate-700 border border-slate-300 hover:bg-slate-100'
+                        : 'bg-[var(--surface-2)] text-[var(--text)] border border-slate-300 hover:bg-slate-100'
                     }`}
                   >
                     Factor Dominance & Attribution
@@ -407,7 +407,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Filter by suspect name or phone number..."
-                    className="w-full bg-white border border-slate-300 rounded-lg pl-9 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 font-mono shadow-sm focus:outline-none focus:ring-1 focus:ring-slate-900"
+                    className="w-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg pl-9 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 font-mono shadow-sm focus:outline-none focus:ring-1 focus:ring-slate-900"
                   />
                 </div>
                 <span className="text-xs font-mono text-slate-600 font-medium whitespace-nowrap">
@@ -417,7 +417,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
 
               {/* Leaderboard Table */}
               {scoreViewMode === 'standard' ? (
-                <Card className="overflow-hidden p-0 border-slate-300 bg-white shadow-sm">
+                <Card className="overflow-hidden p-0 border-[var(--border)] bg-[var(--surface)] text-[var(--text)] shadow-sm">
                   <div className="overflow-x-auto">
                     <table className="w-full text-left text-xs font-mono">
                       <thead className="bg-slate-100 text-slate-600 border-b border-slate-200 uppercase tracking-wider text-[10px]">
@@ -473,7 +473,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                   </div>
                 </Card>
               ) : (
-                <Card className="overflow-hidden p-0 border-slate-300 bg-white shadow-sm">
+                <Card className="overflow-hidden p-0 border-[var(--border)] bg-[var(--surface)] text-[var(--text)] shadow-sm">
                   <div className="overflow-x-auto">
                     <table className="w-full text-left text-xs font-mono">
                       <thead className="bg-slate-100 text-slate-600 border-b border-slate-200 uppercase tracking-wider text-[10px]">
@@ -584,7 +584,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
           />
 
           {/* FIR Input Card */}
-          <Card className="border-slate-300 bg-white">
+          <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
             <div className="flex items-center gap-2 mb-4">
               <FileText className="w-4 h-4 text-slate-800" />
               <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">FIR Input</h3>
@@ -597,7 +597,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                   value={firNumber}
                   onChange={(e) => setFirNumber(e.target.value)}
                   placeholder="e.g., FIR-0254/2026"
-                  className="w-full bg-white border border-slate-300 rounded-lg pl-3 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 font-mono shadow-sm"
+                  className="w-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg pl-3 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 font-mono shadow-sm"
                 />
               </div>
               <div className="space-y-2">
@@ -607,7 +607,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                   onChange={(e) => setFirNarrative(e.target.value)}
                   placeholder="Paste FIR narrative here..."
                   rows={6}
-                  className="w-full font-mono bg-white border border-slate-300 rounded-lg pl-3 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 shadow-sm resize-none"
+                  className="w-full font-mono bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg pl-3 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 shadow-sm resize-none"
                 />
               </div>
               <div className="flex justify-end">
@@ -685,7 +685,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
 
               {/* ── Accused Persons & Suspect Details ── */}
               {(extractedData.suspect_details?.length > 0 || extractedData.suspects?.length > 0) && (
-                <Card className="border-slate-300 bg-white">
+                <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
                   <div className="flex items-center gap-2 mb-3">
                     <Copy className="w-4 h-4 text-slate-800" />
                     <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">
@@ -715,7 +715,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
 
               {/* ── IPC/BNS Statutes ── */}
               {extractedData.statutes?.length > 0 && (
-                <Card className="border-slate-300 bg-white">
+                <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
                   <div className="flex items-center gap-2 mb-3">
                     <Zap className="w-4 h-4 text-slate-800" />
                     <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">
@@ -784,7 +784,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
 
               {/* ── Crime Locations ── */}
               {extractedData.locations?.length > 0 && (
-                <Card className="border-slate-300 bg-white">
+                <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
                   <div className="flex items-center gap-2 mb-3">
                     <MapPin className="w-4 h-4 text-slate-800" />
                     <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">Crime Locations</h3>
@@ -801,7 +801,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
 
               {/* ── Weapons & Ordnance ── */}
               {extractedData.weapons?.length > 0 && (
-                <Card className="border-slate-300 bg-white">
+                <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
                   <div className="flex items-center gap-2 mb-3">
                     <AlertTriangle className="w-4 h-4 text-red-700" />
                     <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">Weapons & Ordnance</h3>
@@ -818,7 +818,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
 
               {/* ── Vehicles & Logistics ── */}
               {extractedData.vehicles?.length > 0 && (
-                <Card className="border-slate-300 bg-white">
+                <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
                   <div className="flex items-center gap-2 mb-3">
                     <ExternalLink className="w-4 h-4 text-slate-700" />
                     <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">Vehicles & Logistics</h3>
@@ -835,7 +835,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
 
               {/* ── Financial Amounts & Contraband ── */}
               {extractedData.financial_amounts?.length > 0 && (
-                <Card className="border-slate-300 bg-white">
+                <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
                   <div className="flex items-center gap-2 mb-3">
                     <TrendingUp className="w-4 h-4 text-slate-700" />
                     <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">Financial Amounts & Contraband</h3>
@@ -852,7 +852,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
 
               {/* ── Modus Operandi ── */}
               {extractedData.modus_operandi?.length > 0 && (
-                <Card className="border-slate-300 bg-white">
+                <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
                   <div className="flex items-center gap-2 mb-3">
                     <BarChart3 className="w-4 h-4 text-slate-800" />
                     <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">Modus Operandi Classification</h3>
@@ -883,7 +883,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
 
               {/* ── Entity Relationship Graph ── */}
               {extractedData.relationships?.length > 0 && (
-                <Card className="border-slate-300 bg-white">
+                <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
                   <div className="flex items-center gap-2 mb-3">
                     <GitGraph className="w-4 h-4 text-slate-800" />
                     <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">
@@ -939,7 +939,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
 
           <div className="grid gap-6 md:grid-cols-2">
             {/* Gaussian Z-Score Nocturnal Anomaly Detector */}
-            <Card className="border-slate-300 bg-white">
+            <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
               <div className="flex items-center gap-2 mb-4">
                 <Activity className="w-4 h-4 text-slate-800" />
                 <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">Gaussian Z-Score Nocturnal Anomaly Detector</h3>
@@ -1012,7 +1012,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
             </Card>
 
             {/* IQR Financial Outliers */}
-            <Card className="border-slate-300 bg-white">
+            <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
               <div className="flex items-center gap-2 mb-4">
                 <TrendingUp className="w-4 h-4 text-slate-800" />
                 <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">IQR Financial Outliers</h3>
@@ -1064,7 +1064,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
           </div>
 
           {/* Big-Data Scalability Stress-Tester */}
-          <Card className="border-slate-300 bg-white">
+          <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
             <div className="flex items-center gap-2 mb-4">
               <Zap className="w-4 h-4 text-slate-800" />
               <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">Big-Data Scalability Stress-Tester</h3>

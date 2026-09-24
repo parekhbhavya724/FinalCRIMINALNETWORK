@@ -34,7 +34,7 @@ function FIRParserTool() {
   }
 
   return (
-    <Card className="space-y-4 border-slate-300 bg-white">
+    <Card className="space-y-4 border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
       <div className="border-b border-slate-200 pb-3">
         <h3 className="text-sm font-bold font-mono text-slate-900 flex items-center gap-2">
           <FileText className="w-4 h-4 text-purple-600" />
@@ -50,7 +50,7 @@ function FIRParserTool() {
             value={firNumber}
             onChange={(e) => setFirNumber(e.target.value)}
             placeholder="FIR Number e.g. FIR-0254/2026"
-            className="w-1/3 bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-900 font-mono shadow-sm"
+            className="w-1/3 bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg px-3 py-1.5 text-xs text-slate-900 font-mono shadow-sm"
           />
           <Button type="submit" disabled={loading} size="sm">
             {loading ? "Parsing NLP..." : "Extract Entities & Co-Accused"}
@@ -61,7 +61,7 @@ function FIRParserTool() {
           value={firText}
           onChange={(e) => setFirText(e.target.value)}
           placeholder="Paste raw FIR narrative or witness statement text here..."
-          className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-xs text-slate-900 font-mono shadow-sm"
+          className="w-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg p-2.5 text-xs text-slate-900 font-mono shadow-sm"
         />
       </form>
 
@@ -124,7 +124,7 @@ function EnhancedForensicTimeline({ suspectName }: { suspectName: string }) {
 
   if (loading) {
     return (
-      <Card className="p-4 border-slate-300 bg-white text-xs font-mono text-slate-500">
+      <Card className="p-4 border-[var(--border)] bg-[var(--surface)] text-[var(--text)] text-xs font-mono text-slate-500">
         Loading multi-source forensic timeline for {suspectName}...
       </Card>
     );
@@ -132,7 +132,7 @@ function EnhancedForensicTimeline({ suspectName }: { suspectName: string }) {
 
   if (!timeline || timeline.events.length === 0) {
     return (
-      <Card className="p-4 border-slate-300 bg-white text-xs font-mono text-slate-500">
+      <Card className="p-4 border-[var(--border)] bg-[var(--surface)] text-[var(--text)] text-xs font-mono text-slate-500">
         No forensic timeline events recorded for {suspectName}.
       </Card>
     );
@@ -148,7 +148,7 @@ function EnhancedForensicTimeline({ suspectName }: { suspectName: string }) {
     : sortedEvents.filter(e => e.source_module === activeFilter);
 
   return (
-    <Card className="space-y-4 border-slate-300 bg-white">
+    <Card className="space-y-4 border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
         <div>
           <h3 className="text-sm font-bold font-mono text-slate-900 flex items-center gap-2">
@@ -240,7 +240,7 @@ function EnhancedDossierCard({ dossier }: { dossier: SuspectDossierDetails }) {
   };
 
   return (
-    <Card className="border-slate-300 bg-white">
+    <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
       {/* Header with threat score badge */}
       <div className="flex items-center justify-between border-b border-slate-200 pb-4">
         <div>
@@ -764,7 +764,7 @@ function DossiersContent() {
       />
 
       {/* Multi-Search Bar */}
-      <Card className="border-slate-300 bg-white">
+      <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
         <div className="grid gap-4 md:grid-cols-2">
           {/* Suspect Search */}
           <div className="space-y-3">
@@ -779,7 +779,7 @@ function DossiersContent() {
                   value={suspectSearchQuery}
                   onChange={(e) => setSuspectSearchQuery(e.target.value)}
                   placeholder="Enter suspect name or phone number..."
-                  className="w-full bg-white border border-slate-300 rounded-lg pl-3 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 font-mono shadow-sm"
+                  className="w-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg pl-3 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 font-mono shadow-sm"
                 />
                 <Button type="submit" disabled={suspectSearchLoading} size="sm">
                   {suspectSearchLoading ? "Searching..." : "Search"}
@@ -862,7 +862,7 @@ function DossiersContent() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search across FIRs, CDR call logs, and CCTV sightings (e.g. Byculla, Bhalla)..."
-                  className="w-full bg-white border border-slate-300 rounded-lg pl-9 pr-3 py-2 text-xs text-slate-900 placeholder-slate-400 font-mono shadow-sm"
+                  className="w-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg pl-9 pr-3 py-2 text-xs text-slate-900 placeholder-slate-400 font-mono shadow-sm"
                 />
                 <Button type="submit">Execute Query</Button>
               </div>
@@ -888,7 +888,7 @@ function DossiersContent() {
 
       {/* All Suspects Overview */}
       {!allSuspectsLoading && allSuspects.length > 0 && (
-        <Card className="border-slate-300 bg-white">
+        <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-bold font-mono text-slate-900">
               All Suspects Overview ({allSuspects.length} total)
@@ -1011,7 +1011,7 @@ function DossiersContent() {
 
         {/* FIR Parser Tool (condensed version) */}
         {!dossier && (
-          <Card className="border-slate-300 bg-white">
+          <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
             <h3 className="text-sm font-bold font-mono text-slate-900">
               <FileText className="w-4 h-4 text-purple-600" />
               Quick FIR Parser
