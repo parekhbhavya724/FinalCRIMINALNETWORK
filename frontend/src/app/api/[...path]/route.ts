@@ -59,14 +59,19 @@ export async function POST(
   const resolvedParams = await params;
   const path = resolvedParams.path.join("/");
 
+  let body: any = {};
+  try {
+    body = await request.json().catch(() => ({}));
+  } catch (e) {}
+
+  const prompt = body?.prompt || body?.query || "";
+
   const backendBase =
     process.env.NEXT_PUBLIC_API_URL ||
     process.env.BACKEND_URL ||
     "http://127.0.0.1:8080";
 
   try {
-    const body = await request.json().catch(() => ({}));
-
     // If request is to core-ai copilot query, attempt backend call first
     const backendRes = await fetch(`${backendBase}/api/${path}`, {
       method: "POST",
@@ -81,27 +86,12 @@ export async function POST(
       const data = await backendRes.json();
       return NextResponse.json(data);
     }
-
-    // Backend offline response for copilot query endpoint
-    if (path.includes("copilot")) {
-      const prompt = body?.prompt || body?.query || "";
-      const { answer, suggested_queries, entities } = generateCopilotResponse(prompt);
-      return NextResponse.json({
-        status: "SUCCESS",
-        query: prompt,
-        answer: answer,
-        answer_markdown: answer,
-        suggested_queries,
-        metadata: { entities, suggestedActions: suggested_queries }
-      });
-    }
   } catch (err) {
     // Backend offline or unreachable
   }
 
-  // Fallback for copilot route when backend fetch throws exception
+  // Fallback for copilot route when backend is offline or throws exception
   if (path.includes("copilot")) {
-    const prompt = "";
     const { answer, suggested_queries, entities } = generateCopilotResponse(prompt);
     return NextResponse.json({
       status: "SUCCESS",
