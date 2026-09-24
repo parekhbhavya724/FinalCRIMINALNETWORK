@@ -1638,17 +1638,17 @@ export default function CDRNetworkPage() {
 
           {/* NEW PANEL: Tower Co-Location & Cross-Domain Convergence (Cols 3) */}
           <div className="lg:col-span-3 space-y-4">
-            <Card className="bg-slate-900 border-slate-800 text-white space-y-4 p-4 shadow-xl">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-3 font-mono">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-slate-200">
+            <Card className="bg-[var(--surface)] border-[var(--border)] text-[var(--text)] space-y-4 p-4 shadow-xl">
+              <div className="flex items-center justify-between border-b border-[var(--border)] pb-3 font-mono">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-[var(--text)]">
                   ADVANCED ANALYTICS
                 </h3>
-                <span className="text-[10px] text-blue-400">● ANALYSIS ENGINE</span>
+                <span className="text-[10px] text-blue-500 font-bold">● ANALYSIS ENGINE</span>
               </div>
 
               {/* Tower Co-Location Section */}
               {towerLoading ? (
-                <div className="text-center p-4 text-xs font-mono text-slate-500">
+                <div className="text-center p-4 text-xs font-mono text-[var(--text-muted)]">
                   Loading tower co-location data...
                 </div>
               ) : towerError ? (
@@ -1658,44 +1658,44 @@ export default function CDRNetworkPage() {
               ) : (
                 <>
                   <div className="space-y-3">
-                    <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-                      <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-                        <MapPin className="h-4 w-4 text-blue-400" />
+                    <div className="flex items-center justify-between border-b border-[var(--border)] pb-2">
+                      <h3 className="text-sm font-semibold text-[var(--text)] flex items-center gap-2">
+                        <MapPin className="h-4 w-4 text-blue-500" />
                         Cell Tower Co-Location Timeline
                       </h3>
-                      <span className="text-xs text-slate-400">
+                      <span className="text-xs text-[var(--text-muted)]">
                         {towerCoLocations.length} co-location events detected
                       </span>
                     </div>
                     <div className="space-y-2">
                       {towerCoLocations.map((tower, idx) => (
-                        <div key={tower.tower_id} className="p-3 bg-slate-950 border border-slate-800 rounded">
-                          <div className="flex items-center justify-between mb-2">
-                            <span className="font-bold text-white">{tower.tower_location}</span>
-                            <span className="text-xs text-slate-400">
+                        <div key={tower.tower_id} className="p-3 bg-[var(--surface-2)] border border-[var(--border)] rounded-lg space-y-1.5">
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="font-bold text-[var(--text)] text-xs">{tower.tower_location}</span>
+                            <span className="text-[10px] text-[var(--text-muted)] font-mono">
                               {tower.duration_minutes} min window
                             </span>
                           </div>
-                          <div className="space-y-1 text-xs font-mono">
-                            <div className="justify-between">
+                          <div className="space-y-1 text-xs font-mono text-[var(--text-muted)]">
+                            <div className="flex justify-between">
                               <span>Start Time (IST):</span>
-                              <span className="font-mono">{new Date(tower.start_time).toLocaleTimeString('en-IN', {hour12: false})}</span>
+                              <span className="font-mono text-[var(--text)] font-bold">{new Date(tower.start_time).toLocaleTimeString('en-IN', {hour12: false})}</span>
                             </div>
-                            <div className="justify-between">
+                            <div className="flex justify-between">
                               <span>End Time (IST):</span>
-                              <span className="font-mono">{new Date(tower.end_time).toLocaleTimeString('en-IN', {hour12: false})}</span>
+                              <span className="font-mono text-[var(--text)] font-bold">{new Date(tower.end_time).toLocaleTimeString('en-IN', {hour12: false})}</span>
                             </div>
-                            <div className="justify-between">
+                            <div className="flex justify-between">
                               <span>Coordinates:</span>
-                              <span className="font-mono">({tower.lat.toFixed(4)}, {tower.lng.toFixed(4)})</span>
+                              <span className="font-mono text-[var(--text)]">({tower.lat.toFixed(4)}, {tower.lng.toFixed(4)})</span>
                             </div>
-                            <div className="justify-between">
+                            <div className="flex justify-between">
                               <span>Suspects Involved:</span>
-                              <span className="font-mono">{tower.suspects.join(", ")}</span>
+                              <span className="font-mono text-blue-600 dark:text-blue-400 font-bold">{tower.suspects.join(", ")}</span>
                             </div>
-                            <div className="justify-between">
+                            <div className="flex justify-between">
                               <span>Call Events:</span>
-                              <span className="font-mono text-emerald-600">{tower.call_count}</span>
+                              <span className="font-mono text-emerald-600 dark:text-emerald-400 font-bold">{tower.call_count}</span>
                             </div>
                           </div>
                           <div className="flex justify-end mt-2">
