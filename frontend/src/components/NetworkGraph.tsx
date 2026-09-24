@@ -575,21 +575,21 @@ export function NetworkGraph({
           <div className="absolute top-4 right-4 flex flex-col gap-1.5 z-20">
             <button
               onClick={handleZoomIn}
-              className="w-8 h-8 rounded-lg bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-200 flex items-center justify-center text-xs shadow-md transition-all"
+              className="w-8 h-8 rounded-lg bg-[var(--surface-2)] hover:bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] flex items-center justify-center text-xs shadow-md transition-all font-bold"
               title="Zoom In"
             >
               <ZoomInIcon className="w-4 h-4" />
             </button>
             <button
               onClick={handleZoomOut}
-              className="w-8 h-8 rounded-lg bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-200 flex items-center justify-center text-xs shadow-md transition-all"
+              className="w-8 h-8 rounded-lg bg-[var(--surface-2)] hover:bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] flex items-center justify-center text-xs shadow-md transition-all font-bold"
               title="Zoom Out"
             >
               <ZoomOutIcon className="w-4 h-4" />
             </button>
             <button
               onClick={handleResetView}
-              className="w-8 h-8 rounded-lg bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-200 flex items-center justify-center text-xs shadow-md transition-all"
+              className="w-8 h-8 rounded-lg bg-[var(--surface-2)] hover:bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] flex items-center justify-center text-xs shadow-md transition-all font-bold"
               title="Reset View"
             >
               <Maximize2 className="w-3.5 h-3.5" />
@@ -597,9 +597,9 @@ export function NetworkGraph({
           </div>
 
           {/* Map Legend Overlay */}
-          <div className="absolute bottom-3 left-3 bg-slate-900/90 backdrop-blur-sm border border-slate-800 rounded-lg p-2.5 text-[10px] font-mono text-slate-300 space-y-1.5 z-20">
-            <p className="font-bold text-slate-400 uppercase tracking-wider text-[9px]">Risk Classification</p>
-            <div className="flex items-center gap-3">
+          <div className="absolute bottom-3 left-3 bg-[var(--surface-2)]/95 backdrop-blur-sm border border-[var(--border)] rounded-lg p-2.5 text-[10px] font-mono text-slate-900 dark:text-slate-100 space-y-1.5 z-20 shadow-md">
+            <p className="font-extrabold text-slate-950 dark:text-slate-200 uppercase tracking-wider text-[9px]">Risk Classification</p>
+            <div className="flex items-center gap-3 font-bold text-slate-900 dark:text-slate-100">
               <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-500" /> Critical (80+)</span>
               <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-orange-500" /> High (60–79)</span>
               <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-yellow-500" /> Moderate (40–59)</span>

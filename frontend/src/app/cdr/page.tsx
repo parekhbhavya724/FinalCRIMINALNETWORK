@@ -1076,43 +1076,43 @@ export default function CDRNetworkPage() {
 
               {/* Syndicate Legend matching screenshot */}
               <div className="space-y-2 pt-2 border-t border-[var(--border)]">
-                <span className="text-[10px] font-mono font-bold text-slate-900 dark:text-slate-200 uppercase tracking-widest block">
+                <span className="text-[10px] font-mono font-black text-black dark:text-white uppercase tracking-widest block">
                   SYNDICATE LEGEND
                 </span>
-                <div className="space-y-1.5 font-mono text-[11px] text-slate-900 dark:text-slate-100 font-bold">
+                <div className="space-y-1.5 font-mono text-[11px]">
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-red-500 inline-block shadow-[0_0_6px_#ef4444]" />
-                    <span>NET_ALPHA (Hawala / Org)</span>
+                    <span className="text-slate-950 dark:text-white font-extrabold">NET_ALPHA (Hawala / Org)</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-orange-500 inline-block shadow-[0_0_6px_#f97316]" />
-                    <span>NET_BETA (Logistics / Cartel)</span>
+                    <span className="text-slate-950 dark:text-white font-extrabold">NET_BETA (Logistics / Cartel)</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-purple-500 inline-block shadow-[0_0_6px_#a855f7]" />
-                    <span>NET_GAMMA (Phishing / Mules)</span>
+                    <span className="text-slate-950 dark:text-white font-extrabold">NET_GAMMA (Phishing / Mules)</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-cyan-500 inline-block shadow-[0_0_6px_#06b6d4]" />
-                    <span>NET_DELTA (Arms / Extortion)</span>
+                    <span className="text-slate-950 dark:text-white font-extrabold">NET_DELTA (Arms / Extortion)</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-3.5 h-3.5 rounded-full border-2 border-amber-400 bg-amber-500/40 inline-block" />
-                    <span>Kingpin (Double Ring)</span>
+                    <span className="w-3.5 h-3.5 rounded-full border-2 border-amber-500 bg-amber-500/40 inline-block" />
+                    <span className="text-slate-950 dark:text-white font-extrabold">Kingpin (Double Ring)</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 border border-blue-400 bg-blue-500/30 inline-block" />
-                    <span>Bridge Connector</span>
+                    <span className="w-3 h-3 border border-blue-500 bg-blue-500/30 inline-block" />
+                    <span className="text-slate-950 dark:text-white font-extrabold">Bridge Connector</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-slate-500 inline-block" />
-                    <span>Uninvolved Civilian</span>
+                    <span className="w-3 h-3 rounded-full bg-slate-700 inline-block" />
+                    <span className="text-slate-950 dark:text-white font-extrabold">Uninvolved Civilian</span>
                   </div>
                 </div>
               </div>
 
               {/* Layout control buttons */}
-              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800 font-mono">
+              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-[var(--border)] font-mono">
                 <Button
                   variant="outline"
                   size="sm"
@@ -1125,7 +1125,7 @@ export default function CDRNetworkPage() {
                     setQuickPillFilter(null);
                     setRiskLevelFilter("ALL"); // Reset risk level filter too
                   }}
-                  className="w-full bg-slate-950 border-slate-800 text-slate-300 text-xs hover:bg-slate-800"
+                  className="w-full bg-[var(--surface-2)] border border-[var(--border)] text-slate-900 dark:text-slate-100 text-xs hover:bg-blue-500/10 font-bold"
                 >
                   <Maximize2 className="w-3 h-3 mr-1.5" /> Fit View
                 </Button>
@@ -1133,7 +1133,7 @@ export default function CDRNetworkPage() {
                   variant="outline"
                   size="sm"
                   onClick={() => setGraphData({ ...graphData! })}
-                  className="w-full bg-slate-950 border-slate-800 text-slate-300 text-xs hover:bg-slate-800"
+                  className="w-full bg-[var(--surface-2)] border border-[var(--border)] text-slate-900 dark:text-slate-100 text-xs hover:bg-blue-500/10 font-bold"
                 >
                   <RefreshCw className="w-3 h-3 mr-1.5" /> Relayout
                 </Button>
