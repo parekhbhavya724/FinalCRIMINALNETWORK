@@ -23,16 +23,16 @@
 
 [data-theme="light"],
 .light {
-  --bg: #F6F8FA;
+  --bg: #F8FAFC;
   --surface: #FFFFFF;
-  --surface-2: #F3F4F6;
-  --border: #D0D7DE;
-  --text: #1F2328;
-  --text-muted: #656D76;
-  --accent: #0969DA;
-  --accent-hover: #0550AE;
-  --danger: #CF222E;
-  --warn: #9A6700;
+  --surface-2: #F1F5F9;
+  --border: #CBD5E1;
+  --text: #0F172A;
+  --text-muted: #334155;
+  --accent: #0284C7;
+  --accent-hover: #0369A1;
+  --danger: #DC2626;
+  --warn: #D97706;
   --font-mono: 'JetBrains Mono', monospace;
   --font-sans: 'Inter', sans-serif;
 }

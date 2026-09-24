@@ -967,11 +967,11 @@ export default function CDRNetworkPage() {
 
               {/* Filter Syndicate Dropdown */}
               <div className="space-y-1">
-                <label className="block text-xs font-mono text-slate-400 uppercase tracking-wider">FILTER SYNDICATE</label>
+                <label className="block text-xs font-mono text-slate-900 dark:text-slate-200 font-bold uppercase tracking-wider">FILTER SYNDICATE</label>
                 <select
                   value={syndicateFilter}
                   onChange={(e) => setSyndicateFilter(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white font-mono focus:border-blue-500 focus:outline-none"
+                  className="w-full bg-[var(--surface-2)] border border-[var(--border)] rounded-lg px-3 py-2 text-xs text-slate-900 dark:text-slate-100 font-mono font-bold focus:border-blue-500 focus:outline-none"
                 >
                   <option value="ALL">All Syndicates (Alpha, Beta, Gamma, Delta)</option>
                   <option value="NET_ALPHA">NET_ALPHA (Hawala / Org)</option>
@@ -983,11 +983,11 @@ export default function CDRNetworkPage() {
 
               {/* Filter Gang Dropdown displaying Gang 1, Gang 2, etc. */}
               <div className="space-y-1">
-                <label className="block text-xs font-mono text-slate-400 uppercase tracking-wider">FILTER DETECTED GANG</label>
+                <label className="block text-xs font-mono text-slate-900 dark:text-slate-200 font-bold uppercase tracking-wider">FILTER DETECTED GANG</label>
                 <select
                   value={gangFilter}
                   onChange={(e) => setGangFilter(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-purple-300 font-mono font-bold focus:border-purple-500 focus:outline-none"
+                  className="w-full bg-[var(--surface-2)] border border-[var(--border)] rounded-lg px-3 py-2 text-xs text-purple-700 dark:text-purple-300 font-mono font-bold focus:border-purple-500 focus:outline-none"
                 >
                   <option value="ALL">All Detected Gangs ({gangsList.length})</option>
                   {gangsList.slice(0, 15).map((g) => (
@@ -1000,11 +1000,11 @@ export default function CDRNetworkPage() {
 
               {/* Filter Role Dropdown */}
               <div className="space-y-1">
-                <label className="block text-xs font-mono text-slate-400 uppercase tracking-wider">FILTER ROLE</label>
+                <label className="block text-xs font-mono text-slate-900 dark:text-slate-200 font-bold uppercase tracking-wider">FILTER ROLE</label>
                 <select
                   value={roleFilter}
                   onChange={(e) => setRoleFilter(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white font-mono focus:border-blue-500 focus:outline-none"
+                  className="w-full bg-[var(--surface-2)] border border-[var(--border)] rounded-lg px-3 py-2 text-xs text-slate-900 dark:text-slate-100 font-mono font-bold focus:border-blue-500 focus:outline-none"
                 >
                   <option value="ALL">All Detected Roles</option>
                   <option value="KINGPIN">Kingpin / Ring Leader</option>
@@ -1014,46 +1014,46 @@ export default function CDRNetworkPage() {
 
               {/* NEW: Tower Co-Location Time Window Slider */}
               <div className="space-y-2">
-                <div className="border-t border-slate-800 pt-3">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-                    <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-blue-400" />
+                <div className="border-t border-[var(--border)] pt-3">
+                  <div className="flex items-center justify-between border-b border-[var(--border)] pb-2">
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                      <MapPin className="h-4 w-4 text-blue-500" />
                       Cell Tower Co-Location Explorer
                     </h3>
-                    <span className="text-xs text-slate-400">
+                    <span className="text-xs font-mono font-bold text-slate-900 dark:text-slate-300">
                       {timeWindow} min window
                     </span>
                   </div>
                   <div className="space-y-2">
                     <div className="flex items-center">
-                      <span className="text-xs font-mono text-slate-400">Time Window:</span>
+                      <span className="text-xs font-mono font-bold text-slate-900 dark:text-slate-300">Time Window:</span>
                       <div className="flex space-x-2">
                         <button
                           onClick={() => setTimeWindow(15)}
-                          className={`px-3 py-1 rounded text-xs font-mono ${
+                          className={`px-3 py-1 rounded text-xs font-mono font-bold ${
                             timeWindow === 15
-                              ? "bg-blue-500/20 border-blue-400 text-blue-300"
-                              : "bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-700"
+                              ? "bg-blue-600 text-white shadow"
+                              : "bg-[var(--surface-2)] border border-[var(--border)] text-slate-900 dark:text-slate-200 hover:bg-blue-500/10"
                           }`}
                         >
                           15 min
                         </button>
                         <button
                           onClick={() => setTimeWindow(30)}
-                          className={`px-3 py-1 rounded text-xs font-mono ${
+                          className={`px-3 py-1 rounded text-xs font-mono font-bold ${
                             timeWindow === 30
-                              ? "bg-blue-500/20 border-blue-400 text-blue-300"
-                              : "bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-700"
+                              ? "bg-blue-600 text-white shadow"
+                              : "bg-[var(--surface-2)] border border-[var(--border)] text-slate-900 dark:text-slate-200 hover:bg-blue-500/10"
                           }`}
                         >
                           30 min
                         </button>
                         <button
                           onClick={() => setTimeWindow(60)}
-                          className={`px-3 py-1 rounded text-xs font-mono ${
+                          className={`px-3 py-1 rounded text-xs font-mono font-bold ${
                             timeWindow === 60
-                              ? "bg-blue-500/20 border-blue-400 text-blue-300"
-                              : "bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-700"
+                              ? "bg-blue-600 text-white shadow"
+                              : "bg-[var(--surface-2)] border border-[var(--border)] text-slate-900 dark:text-slate-200 hover:bg-blue-500/10"
                           }`}
                         >
                           60 min
@@ -1061,12 +1061,12 @@ export default function CDRNetworkPage() {
                       </div>
                     </div>
                     {towerLoading && (
-                      <div className="text-xs text-slate-400 text-center">
+                      <div className="text-xs text-slate-500 text-center font-bold">
                         Loading tower co-location data...
                       </div>
                     )}
                     {towerError && (
-                      <div className="bg-red-50 border-l-4 border-red-500 p-2 text-xs text-red-600">
+                      <div className="bg-red-50 border-l-4 border-red-500 p-2 text-xs text-red-600 font-bold">
                         {towerError}
                       </div>
                     )}
@@ -1075,11 +1075,11 @@ export default function CDRNetworkPage() {
               </div>
 
               {/* Syndicate Legend matching screenshot */}
-              <div className="space-y-2 pt-2 border-t border-slate-800">
-                <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">
+              <div className="space-y-2 pt-2 border-t border-[var(--border)]">
+                <span className="text-[10px] font-mono font-bold text-slate-900 dark:text-slate-200 uppercase tracking-widest block">
                   SYNDICATE LEGEND
                 </span>
-                <div className="space-y-1.5 font-mono text-[11px] text-slate-300">
+                <div className="space-y-1.5 font-mono text-[11px] text-slate-900 dark:text-slate-100 font-bold">
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-red-500 inline-block shadow-[0_0_6px_#ef4444]" />
                     <span>NET_ALPHA (Hawala / Org)</span>
@@ -1105,7 +1105,7 @@ export default function CDRNetworkPage() {
                     <span>Bridge Connector</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-slate-600 inline-block" />
+                    <span className="w-3 h-3 rounded-full bg-slate-500 inline-block" />
                     <span>Uninvolved Civilian</span>
                   </div>
                 </div>
