@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { api } from "@/lib/api";
+import { generateCopilotResponse } from "@/lib/copilotEngine";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -69,9 +70,16 @@ export function AICopilotDrawer() {
       // Call live backend Tactical Copilot API
       const res = await api.queryCopilot(query);
       
-      let replyText = res?.answer_markdown || "";
-      let suggested = res?.suggested_queries || [];
-      let entities: string[] = [];
+      let replyText = res?.answer_markdown || res?.answer || "";
+      let suggested = res?.suggested_queries || res?.metadata?.suggestedActions || [];
+      let entities: string[] = res?.metadata?.entities || [];
+
+      if (!replyText || replyText.includes("recorded in offline demonstration buffer")) {
+        const engineRes = generateCopilotResponse(query);
+        replyText = engineRes.answer;
+        if (suggested.length === 0) suggested = engineRes.suggested_queries;
+        if (entities.length === 0) entities = engineRes.entities;
+      }
 
       if (res?.suspect) {
         entities.push(res.suspect);
@@ -87,7 +95,7 @@ export function AICopilotDrawer() {
       const copilotMsg: Message = {
         id: `c-${Date.now()}`,
         sender: "copilot",
-        text: replyText || `Cross-referencing intelligence databases for "${query}". Found active correlations across CDR and CCTV logs.`,
+        text: replyText,
         timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
         metadata: {
           entities: entities.length > 0 ? Array.from(new Set(entities)).slice(0, 4) : undefined,
@@ -97,39 +105,16 @@ export function AICopilotDrawer() {
 
       setMessages((prev) => [...prev, copilotMsg]);
     } catch (err: any) {
-      // Conversational Intelligent Fallback
-      const q = query.toLowerCase().trim();
-      let fallbackReply = "";
-      let fallbackSuggestions: string[] = [
-        "Explain threat score for Md. Ranbir Bhalla",
-        "Who controls Zenith Horizon Mercantile?",
-        "Show nocturnal call anomalies"
-      ];
-
-      if (["hello", "hi", "hey", "good morning", "good evening", "namaste", "how are you"].some(w => q === w || q.startsWith(w + " "))) {
-        fallbackReply = "Hello Officer! 👮‍♂️ I am your Tactical Police Intelligence Copilot. How may I assist your investigation today?";
-      } else if (["who are you", "what can you do", "help", "commands"].some(w => q.includes(w))) {
-        fallbackReply = "I am the Brihanmumbai Police Tactical Intelligence Assistant. I can analyze suspect threat indices, trace Hawala money trails, detect nocturnal call bursts, and find shortest conspiracy paths.";
-      } else if (["thank", "thanks", "ok", "okay", "great"].some(w => q.includes(w))) {
-        fallbackReply = "You're welcome, Officer. Tactical monitoring remains active. Let me know if you need to run further queries.";
-      } else if (q.includes("zenith") || q.includes("shell") || q.includes("horizon")) {
-        fallbackReply = "Zenith Horizon Mercantile Pvt Ltd (ENT-SHL-01) is a critical shell entity registered at Nariman Point. True Beneficial Owner is Vikramaditya Singhania (ENT-KP-01), operating through nominee proxy director Rameshwar Chauhan (Peon). Attachment Notice issued under PMLA Section 5.";
-      } else if (q.includes("mule") || q.includes("smurfing")) {
-        fallbackReply = "Identified 8 active mule accounts (students, delivery workers, drivers) processing sub-₹50,000 bursts from virtual payment gateways. Primary funnel leads directly to Singhania's master HDFC account.";
-      } else if (q.includes("asset") || q.includes("seize") || q.includes("penthouse") || q.includes("attachment")) {
-        fallbackReply = "Total PMLA Section 5 provisional attachment value is ₹39.25 Crores across 5 prime assets: Worli Sea Face Penthouse (₹12.5Cr), Nariman Point Office Suite (₹4.8Cr), Mercedes-Maybach (₹3.2Cr), Bullion Gold (₹11.25Cr), and Alibaug Farmhouse (₹7.5Cr).";
-      } else if (q.includes("singhania") || q.includes("kingpin")) {
-        fallbackReply = "Vikramaditya 'Bhai' Singhania (ENT-KP-01) is the syndicate kingpin with a Composite Threat Score of 98.2. Controls 3 shell corporations, 8 mule accounts, and 2 Angadia hawala desks in Zaveri Bazaar.";
-      } else {
-        fallbackReply = `Cross-referencing intelligence databases for "${query}". Found 14 matching call records, 3 co-location sightings in South Mumbai, and 2 linked UPI payments. Recommended action: Issue Section 91 CrPC notice for bank statements.`;
-      }
-
+      const engineRes = generateCopilotResponse(query);
       const copilotMsg: Message = {
         id: `c-${Date.now()}`,
         sender: "copilot",
-        text: fallbackReply,
+        text: engineRes.answer,
         timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-        metadata: { suggestedActions: fallbackSuggestions }
+        metadata: {
+          entities: engineRes.entities,
+          suggestedActions: engineRes.suggested_queries.slice(0, 3)
+        }
       };
 
       setMessages((prev) => [...prev, copilotMsg]);

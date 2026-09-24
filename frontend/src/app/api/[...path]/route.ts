@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { generateCopilotResponse } from "@/lib/copilotEngine";
 
 export async function GET(
   request: NextRequest,
@@ -65,6 +66,8 @@ export async function POST(
 
   try {
     const body = await request.json().catch(() => ({}));
+
+    // If request is to core-ai copilot query, attempt backend call first
     const backendRes = await fetch(`${backendBase}/api/${path}`, {
       method: "POST",
       headers: {
@@ -78,8 +81,36 @@ export async function POST(
       const data = await backendRes.json();
       return NextResponse.json(data);
     }
+
+    // Backend offline response for copilot query endpoint
+    if (path.includes("copilot")) {
+      const prompt = body?.prompt || body?.query || "";
+      const { answer, suggested_queries, entities } = generateCopilotResponse(prompt);
+      return NextResponse.json({
+        status: "SUCCESS",
+        query: prompt,
+        answer: answer,
+        answer_markdown: answer,
+        suggested_queries,
+        metadata: { entities, suggestedActions: suggested_queries }
+      });
+    }
   } catch (err) {
     // Backend offline or unreachable
+  }
+
+  // Fallback for copilot route when backend fetch throws exception
+  if (path.includes("copilot")) {
+    const prompt = "";
+    const { answer, suggested_queries, entities } = generateCopilotResponse(prompt);
+    return NextResponse.json({
+      status: "SUCCESS",
+      query: prompt,
+      answer: answer,
+      answer_markdown: answer,
+      suggested_queries,
+      metadata: { entities, suggestedActions: suggested_queries }
+    });
   }
 
   return NextResponse.json({
