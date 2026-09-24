@@ -213,7 +213,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
   return (
     <div className="space-y-6">
       {/* Tab Navigation */}
-      <div className="border-b border-slate-200 pb-2 overflow-x-auto no-scrollbar">
+      <div className="border-b border-[var(--border)] pb-2 overflow-x-auto no-scrollbar">
         <div className="flex space-x-2 min-w-max">
           {[
             { id: 0, label: "1. Threat Index & Simulator", icon: SlidersHorizontal },
@@ -231,7 +231,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                 className={`flex items-center gap-2 px-4 py-2.5 text-xs font-mono font-bold rounded-lg transition-all whitespace-nowrap ${
                   isActive
                     ? "bg-slate-900 text-white shadow-sm"
-                    : "text-slate-600 bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] hover:bg-slate-100 hover:text-slate-900"
+                    : "text-[var(--text-muted)] bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] hover:bg-[var(--surface-2)] hover:text-[var(--text)]"
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
@@ -255,10 +255,10 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
           <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
             <div className="flex items-center justify-between gap-2 mb-4">
               <div className="flex items-center gap-2">
-                <SlidersHorizontal className="w-4 h-4 text-slate-800" />
-                <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">Dynamic Weight Simulator</h3>
+                <SlidersHorizontal className="w-4 h-4 text-[var(--text)]" />
+                <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-[var(--text)]">Dynamic Weight Simulator</h3>
               </div>
-              <span className="text-xs font-mono text-slate-600">
+              <span className="text-xs font-mono text-[var(--text-muted)]">
                 Total Weight: <strong className="text-emerald-700 font-bold">{Object.values(weights).reduce((a, b) => a + b, 0)}%</strong>
               </span>
             </div>
@@ -272,28 +272,28 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                 { key: "financial_weight", label: "💸 Financial Trail", desc: "PMLA / Hawala Flows", max: 10 },
                 { key: "surveillance_weight", label: "👁️ Surveillance", desc: "Field Observations", max: 10 },
               ].map((w) => (
-                <div key={w.key} className="bg-slate-50 border border-slate-200 rounded-lg p-3 space-y-2">
+                <div key={w.key} className="bg-[var(--surface-2)] border border-[var(--border)] rounded-lg p-3 space-y-2">
                   <div className="flex items-center justify-between gap-1">
-                    <span className="text-xs font-mono font-bold text-slate-900 truncate">{w.label}</span>
-                    <span className="px-1.5 py-0.5 rounded bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] font-mono text-[11px] font-bold text-slate-800 shrink-0">
+                    <span className="text-xs font-mono font-bold text-[var(--text)] truncate">{w.label}</span>
+                    <span className="px-1.5 py-0.5 rounded bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] font-mono text-[11px] font-bold text-[var(--text)] shrink-0">
                       {(weights as any)[w.key]}%
                     </span>
                   </div>
-                  <p className="text-[10px] font-mono text-slate-500 truncate">{w.desc}</p>
+                  <p className="text-[10px] font-mono text-[var(--text-muted)] truncate">{w.desc}</p>
                   <input
                     type="range"
                     min="0"
                     max={w.max}
                     value={(weights as any)[w.key]}
                     onChange={(e) => setWeights({ ...weights, [w.key]: parseFloat(e.target.value) })}
-                    className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-900"
+                    className="w-full h-1.5 bg-[var(--surface-2)] rounded-lg appearance-none cursor-pointer accent-slate-900"
                   />
                 </div>
               ))}
             </div>
 
-            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-3">
-              <span className="text-xs font-mono text-slate-500">
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-[var(--border)] pt-3">
+              <span className="text-xs font-mono text-[var(--text-muted)]">
                 Adjust the risk vector sliders above and recalculate to simulate scenario shifts.
               </span>
               <Button size="sm" onClick={handleSimulate} disabled={simulating} className="font-mono text-xs">
@@ -306,13 +306,13 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
           <div className="mt-4 space-y-3">
             <div className="flex flex-wrap items-center justify-between gap-3">
               {/* Primary View Toggle: Table vs Interactive Graph */}
-              <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-lg border border-slate-200">
+              <div className="flex items-center gap-2 bg-[var(--surface-2)] p-1 rounded-lg border border-[var(--border)]">
                 <button
                   onClick={() => setCalculatorViewMode('table')}
                   className={`px-3 py-1.5 rounded text-xs font-mono font-bold transition-all whitespace-nowrap flex items-center gap-1.5 ${
                     calculatorViewMode === 'table'
                       ? 'bg-slate-900 text-white shadow-sm'
-                      : 'text-slate-600 hover:text-slate-900'
+                      : 'text-[var(--text-muted)] hover:text-[var(--text)]'
                   }`}
                 >
                   <BarChart3 className="w-3.5 h-3.5" />
@@ -323,7 +323,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                   className={`px-3 py-1.5 rounded text-xs font-mono font-bold transition-all whitespace-nowrap flex items-center gap-1.5 ${
                     calculatorViewMode === 'graph'
                       ? 'bg-slate-900 text-white shadow-sm'
-                      : 'text-slate-600 hover:text-slate-900'
+                      : 'text-[var(--text-muted)] hover:text-[var(--text)]'
                   }`}
                 >
                   <GitGraph className="w-3.5 h-3.5" />
@@ -339,7 +339,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                     className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all whitespace-nowrap ${
                       scoreViewMode === 'standard'
                         ? 'bg-emerald-700 text-white shadow-sm'
-                        : 'bg-[var(--surface-2)] text-[var(--text)] border border-slate-300 hover:bg-slate-100'
+                        : 'bg-[var(--surface-2)] text-[var(--text)] border border-[var(--border)] hover:bg-[var(--surface-2)]'
                     }`}
                   >
                     Standard Score Index
@@ -349,7 +349,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                     className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all whitespace-nowrap ${
                       scoreViewMode === 'distribution'
                         ? 'bg-emerald-700 text-white shadow-sm'
-                        : 'bg-[var(--surface-2)] text-[var(--text)] border border-slate-300 hover:bg-slate-100'
+                        : 'bg-[var(--surface-2)] text-[var(--text)] border border-[var(--border)] hover:bg-[var(--surface-2)]'
                     }`}
                   >
                     Factor Dominance & Attribution
@@ -361,7 +361,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
             {/* Factor Driver Filter Chips */}
             {calculatorViewMode === 'table' && (
               <div className="flex flex-wrap items-center gap-1.5 pt-1">
-                <span className="text-xs font-mono text-slate-500 font-medium mr-1">Filter Driver:</span>
+                <span className="text-xs font-mono text-[var(--text-muted)] font-medium mr-1">Filter Driver:</span>
                 {[
                   { id: 'all', label: 'All Drivers' },
                   { id: 'cctv', label: '📹 CCTV' },
@@ -377,7 +377,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                     className={`px-2.5 py-1 rounded-md text-[11px] font-mono font-medium transition-all whitespace-nowrap ${
                       primaryDriverFilter === id
                         ? 'bg-slate-900 text-white shadow-sm'
-                        : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-slate-900'
+                        : 'bg-white text-[var(--text-muted)] border border-[var(--border)] hover:bg-[var(--surface-2)] hover:text-[var(--text)]'
                     }`}
                   >
                     {label}
@@ -407,10 +407,10 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Filter by suspect name or phone number..."
-                    className="w-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg pl-9 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 font-mono shadow-sm focus:outline-none focus:ring-1 focus:ring-slate-900"
+                    className="w-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg pl-9 pr-3 py-1.5 text-xs text-[var(--text)] placeholder-slate-400 font-mono shadow-sm focus:outline-none focus:ring-1 focus:ring-slate-900"
                   />
                 </div>
-                <span className="text-xs font-mono text-slate-600 font-medium whitespace-nowrap">
+                <span className="text-xs font-mono text-[var(--text-muted)] font-medium whitespace-nowrap">
                   Showing <strong>{filtered.length}</strong> of <strong>{data?.total_suspects || 0}</strong> suspects
                 </span>
               </div>
@@ -420,47 +420,47 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                 <Card className="overflow-hidden p-0 border-[var(--border)] bg-[var(--surface)] text-[var(--text)] shadow-sm">
                   <div className="overflow-x-auto">
                     <table className="w-full text-left text-xs font-mono">
-                      <thead className="bg-slate-100 text-slate-600 border-b border-slate-200 uppercase tracking-wider text-[10px]">
+                      <thead className="bg-[var(--surface-2)] text-[var(--text)] font-bold border-b border-[var(--border)] uppercase tracking-wider text-[11px]">
                         <tr>
-                          <th className="p-3 whitespace-nowrap">Rank</th>
-                          <th className="p-3 whitespace-nowrap">Suspect Name</th>
-                          <th className="p-3 whitespace-nowrap">Phone</th>
-                          <th className="p-3 text-right whitespace-nowrap">Threat Score</th>
-                          <th className="p-3 text-right whitespace-nowrap">CCTV</th>
-                          <th className="p-3 text-right whitespace-nowrap">CDR</th>
-                          <th className="p-3 text-right whitespace-nowrap">FIR</th>
-                          <th className="p-3 text-right whitespace-nowrap">Criminal</th>
-                          <th className="p-3 text-right whitespace-nowrap">Financial</th>
-                          <th className="p-3 text-right whitespace-nowrap">Surveillance</th>
-                          <th className="p-3 text-center whitespace-nowrap">Actions</th>
+                          <th className="p-3 whitespace-nowrap text-[var(--text)]">Rank</th>
+                          <th className="p-3 whitespace-nowrap text-[var(--text)]">Suspect Name</th>
+                          <th className="p-3 whitespace-nowrap text-[var(--text)]">Phone</th>
+                          <th className="p-3 text-right whitespace-nowrap text-[var(--text)]">Threat Score</th>
+                          <th className="p-3 text-right whitespace-nowrap text-[var(--text)]">CCTV</th>
+                          <th className="p-3 text-right whitespace-nowrap text-[var(--text)]">CDR</th>
+                          <th className="p-3 text-right whitespace-nowrap text-[var(--text)]">FIR</th>
+                          <th className="p-3 text-right whitespace-nowrap text-[var(--text)]">Criminal</th>
+                          <th className="p-3 text-right whitespace-nowrap text-[var(--text)]">Financial</th>
+                          <th className="p-3 text-right whitespace-nowrap text-[var(--text)]">Surveillance</th>
+                          <th className="p-3 text-center whitespace-nowrap text-[var(--text)]">Actions</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-200">
+                      <tbody className="divide-y divide-[var(--border)]">
                         {filtered.map((item, idx) => {
                           const isTop = idx === 0;
                           return (
-                            <tr key={item.suspect_name} className={isTop ? "bg-red-50/60" : "hover:bg-slate-50 transition-colors"}>
-                              <td className="p-3 font-bold text-slate-500 whitespace-nowrap">#{idx + 1}</td>
-                              <td className="p-3 font-bold text-slate-900 whitespace-nowrap">
+                            <tr key={item.suspect_name} className={isTop ? "bg-red-500/10 dark:bg-red-950/40 border-l-4 border-red-500 hover:bg-red-500/20" : "hover:bg-[var(--surface-2)] transition-colors"}>
+                              <td className="p-3 font-extrabold text-[var(--text)] whitespace-nowrap">#{idx + 1}</td>
+                              <td className="p-3 font-bold text-[var(--text)] whitespace-nowrap">
                                 <div className="inline-flex items-center gap-2">
-                                  <span>{item.suspect_name}</span>
+                                  <span className="text-[var(--text)] font-extrabold">{item.suspect_name}</span>
                                   {isTop && <Badge variant="critical">TOP TARGET</Badge>}
                                 </div>
                               </td>
-                              <td className="p-3 text-slate-600 whitespace-nowrap">{item.phone_number}</td>
-                              <td className="p-3 text-right font-bold text-red-700 text-sm whitespace-nowrap">{item.total_threat_score.toFixed(1)}</td>
-                              <td className="p-3 text-right text-slate-700 whitespace-nowrap">{item.cctv_meeting_score.toFixed(1)}</td>
-                              <td className="p-3 text-right text-slate-700 whitespace-nowrap">{item.cdr_network_score.toFixed(1)}</td>
-                              <td className="p-3 text-right text-slate-700 whitespace-nowrap">{item.fir_severity_score.toFixed(1)}</td>
-                              <td className="p-3 text-right text-slate-700 whitespace-nowrap">{item.criminal_history_score.toFixed(1)}</td>
-                              <td className="p-3 text-right text-slate-700 whitespace-nowrap">{item.financial_risk_score.toFixed(1)}</td>
-                              <td className="p-3 text-right text-slate-700 whitespace-nowrap">{item.surveillance_score.toFixed(1)}</td>
+                              <td className="p-3 text-[var(--text)] font-mono font-medium whitespace-nowrap">{item.phone_number}</td>
+                              <td className="p-3 text-right font-extrabold text-red-600 dark:text-red-400 text-sm whitespace-nowrap">{item.total_threat_score.toFixed(1)}</td>
+                              <td className="p-3 text-right font-bold text-[var(--text)] whitespace-nowrap">{item.cctv_meeting_score.toFixed(1)}</td>
+                              <td className="p-3 text-right font-bold text-[var(--text)] whitespace-nowrap">{item.cdr_network_score.toFixed(1)}</td>
+                              <td className="p-3 text-right font-bold text-[var(--text)] whitespace-nowrap">{item.fir_severity_score.toFixed(1)}</td>
+                              <td className="p-3 text-right font-bold text-[var(--text)] whitespace-nowrap">{item.criminal_history_score.toFixed(1)}</td>
+                              <td className="p-3 text-right font-bold text-[var(--text)] whitespace-nowrap">{item.financial_risk_score.toFixed(1)}</td>
+                              <td className="p-3 text-right font-bold text-[var(--text)] whitespace-nowrap">{item.surveillance_score.toFixed(1)}</td>
                               <td className="p-3 text-center whitespace-nowrap">
                                 <Button
                                   size="sm"
                                   variant="outline"
                                   onClick={() => openModal(item)}
-                                  className="text-xs font-mono"
+                                  className="text-xs font-mono font-bold bg-[var(--surface-2)] border-[var(--border)] text-[var(--text)] hover:bg-blue-600 hover:text-white"
                                 >
                                   Inspect AI Reasoning
                                 </Button>
@@ -476,18 +476,18 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                 <Card className="overflow-hidden p-0 border-[var(--border)] bg-[var(--surface)] text-[var(--text)] shadow-sm">
                   <div className="overflow-x-auto">
                     <table className="w-full text-left text-xs font-mono">
-                      <thead className="bg-slate-100 text-slate-600 border-b border-slate-200 uppercase tracking-wider text-[10px]">
+                      <thead className="bg-[var(--surface-2)] text-[var(--text)] font-bold border-b border-[var(--border)] uppercase tracking-wider text-[11px]">
                         <tr>
-                          <th className="p-3 whitespace-nowrap">Rank</th>
-                          <th className="p-3 whitespace-nowrap">Suspect Name</th>
-                          <th className="p-3 whitespace-nowrap">Phone</th>
-                          <th className="p-3 text-right whitespace-nowrap">Threat Score</th>
-                          <th className="p-3 text-center whitespace-nowrap">Factor Distribution</th>
-                          <th className="p-3 text-center whitespace-nowrap">Primary Driver</th>
-                          <th className="p-3 text-center whitespace-nowrap">Actions</th>
+                          <th className="p-3 whitespace-nowrap text-[var(--text)]">Rank</th>
+                          <th className="p-3 whitespace-nowrap text-[var(--text)]">Suspect Name</th>
+                          <th className="p-3 whitespace-nowrap text-[var(--text)]">Phone</th>
+                          <th className="p-3 text-right whitespace-nowrap text-[var(--text)]">Threat Score</th>
+                          <th className="p-3 text-center whitespace-nowrap text-[var(--text)]">Factor Distribution</th>
+                          <th className="p-3 text-center whitespace-nowrap text-[var(--text)]">Primary Driver</th>
+                          <th className="p-3 text-center whitespace-nowrap text-[var(--text)]">Actions</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-200">
+                      <tbody className="divide-y divide-[var(--border)]">
                         {filtered.map((item, idx) => {
                           const isTop = idx === 0;
                           const scores: Record<string, number> = {
@@ -522,19 +522,19 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                           const primaryDriverPercentage = percentages[primaryDriverKey] || 0;
 
                           return (
-                            <tr key={item.suspect_name} className={isTop ? "bg-red-50/60" : "hover:bg-slate-50 transition-colors"}>
-                              <td className="p-3 font-bold text-slate-500 whitespace-nowrap">#{idx + 1}</td>
-                              <td className="p-3 font-bold text-slate-900 whitespace-nowrap">
+                            <tr key={item.suspect_name} className={isTop ? "bg-red-500/10 dark:bg-red-950/40 border-l-4 border-red-500 hover:bg-red-500/20" : "hover:bg-[var(--surface-2)] transition-colors"}>
+                              <td className="p-3 font-extrabold text-[var(--text)] whitespace-nowrap">#{idx + 1}</td>
+                              <td className="p-3 font-bold text-[var(--text)] whitespace-nowrap">
                                 <div className="inline-flex items-center gap-2">
-                                  <span>{item.suspect_name}</span>
+                                  <span className="text-[var(--text)] font-extrabold">{item.suspect_name}</span>
                                   {isTop && <Badge variant="critical">TOP TARGET</Badge>}
                                 </div>
                               </td>
-                              <td className="p-3 text-slate-600 whitespace-nowrap">{item.phone_number}</td>
-                              <td className="p-3 text-right font-bold text-red-700 text-sm whitespace-nowrap">{item.total_threat_score.toFixed(1)}</td>
+                              <td className="p-3 text-[var(--text)] font-mono font-medium whitespace-nowrap">{item.phone_number}</td>
+                              <td className="p-3 text-right font-extrabold text-red-600 dark:text-red-400 text-sm whitespace-nowrap">{item.total_threat_score.toFixed(1)}</td>
                               <td className="p-3 text-center whitespace-nowrap">
                                 <div className="flex items-center justify-center gap-2">
-                                  <div className="w-36 h-3.5 rounded bg-slate-200 overflow-hidden flex shrink-0">
+                                  <div className="w-36 h-3.5 rounded bg-[var(--surface-2)] overflow-hidden flex shrink-0">
                                     <div style={{ width: `${percentages.cctv || 0}%` }} className="bg-emerald-500 h-full" title={`CCTV: ${(percentages.cctv || 0).toFixed(0)}%`} />
                                     <div style={{ width: `${percentages.cdr || 0}%` }} className="bg-blue-500 h-full" title={`CDR: ${(percentages.cdr || 0).toFixed(0)}%`} />
                                     <div style={{ width: `${percentages.fir || 0}%` }} className="bg-red-500 h-full" title={`FIR: ${(percentages.fir || 0).toFixed(0)}%`} />
@@ -542,13 +542,13 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                                     <div style={{ width: `${percentages.financial || 0}%` }} className="bg-amber-500 h-full" title={`Financial: ${(percentages.financial || 0).toFixed(0)}%`} />
                                     <div style={{ width: `${percentages.surveillance || 0}%` }} className="bg-teal-500 h-full" title={`Surveillance: ${(percentages.surveillance || 0).toFixed(0)}%`} />
                                   </div>
-                                  <span className="text-[11px] font-mono text-slate-600 font-bold whitespace-nowrap">
+                                  <span className="text-[11px] font-mono text-[var(--text)] font-bold whitespace-nowrap">
                                     {primaryDriverPercentage.toFixed(0)}% {primaryDriverLabel}
                                   </span>
                                 </div>
                               </td>
                               <td className="p-3 text-center whitespace-nowrap">
-                                <span className="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-xs font-mono font-medium text-slate-800">
+                                <span className="px-2 py-0.5 rounded bg-[var(--surface-2)] border border-[var(--border)] text-xs font-mono font-bold text-[var(--text)]">
                                   {primaryDriverLabel}
                                 </span>
                               </td>
@@ -557,7 +557,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                                   size="sm"
                                   variant="outline"
                                   onClick={() => openModal(item)}
-                                  className="text-xs font-mono"
+                                  className="text-xs font-mono font-bold bg-[var(--surface-2)] border-[var(--border)] text-[var(--text)] hover:bg-blue-600 hover:text-white"
                                 >
                                   Inspect AI Reasoning
                                 </Button>
@@ -586,28 +586,28 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
           {/* FIR Input Card */}
           <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
             <div className="flex items-center gap-2 mb-4">
-              <FileText className="w-4 h-4 text-slate-800" />
-              <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">FIR Input</h3>
+              <FileText className="w-4 h-4 text-[var(--text)]" />
+              <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-[var(--text)]">FIR Input</h3>
             </div>
             <div className="space-y-4">
               <div className="space-y-2">
-                <label className="text-xs font-mono font-medium text-slate-700">FIR Number</label>
+                <label className="text-xs font-mono font-medium text-[var(--text-muted)]">FIR Number</label>
                 <input
                   type="text"
                   value={firNumber}
                   onChange={(e) => setFirNumber(e.target.value)}
                   placeholder="e.g., FIR-0254/2026"
-                  className="w-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg pl-3 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 font-mono shadow-sm"
+                  className="w-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg pl-3 pr-3 py-1.5 text-xs text-[var(--text)] placeholder-slate-400 font-mono shadow-sm"
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-xs font-mono font-medium text-slate-700">FIR Narrative</label>
+                <label className="text-xs font-mono font-medium text-[var(--text-muted)]">FIR Narrative</label>
                 <textarea
                   value={firNarrative}
                   onChange={(e) => setFirNarrative(e.target.value)}
                   placeholder="Paste FIR narrative here..."
                   rows={6}
-                  className="w-full font-mono bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg pl-3 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 shadow-sm resize-none"
+                  className="w-full font-mono bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg pl-3 pr-3 py-1.5 text-xs text-[var(--text)] placeholder-slate-400 shadow-sm resize-none"
                 />
               </div>
               <div className="flex justify-end">
@@ -667,18 +667,18 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                   <Card className={`border-l-4 ${tierColor[tier] || tierColor.LOW} bg-white`}>
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <AlertTriangle className="w-4 h-4 text-slate-700" />
-                        <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">Case Severity Assessment</h3>
+                        <AlertTriangle className="w-4 h-4 text-[var(--text-muted)]" />
+                        <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-[var(--text)]">Case Severity Assessment</h3>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-2xl font-black font-mono text-slate-900">{score.toFixed(0)}<span className="text-xs font-normal">/100</span></span>
+                        <span className="text-2xl font-black font-mono text-[var(--text)]">{score.toFixed(0)}<span className="text-xs font-normal">/100</span></span>
                         <span className={`text-xs font-mono font-bold px-2 py-1 rounded ${tierBadge[tier] || tierBadge.LOW}`}>{tier}</span>
                       </div>
                     </div>
-                    <div className="w-full bg-slate-200 rounded-full h-1.5 mb-2">
+                    <div className="w-full bg-[var(--surface-2)] rounded-full h-1.5 mb-2">
                       <div className="h-1.5 rounded-full bg-slate-800" style={{ width: `${score}%` }} />
                     </div>
-                    <p className="text-xs font-mono text-slate-600 italic">{extractedData.summary_verdict}</p>
+                    <p className="text-xs font-mono text-[var(--text-muted)] italic">{extractedData.summary_verdict}</p>
                   </Card>
                 );
               })()}
@@ -687,22 +687,22 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
               {(extractedData.suspect_details?.length > 0 || extractedData.suspects?.length > 0) && (
                 <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
                   <div className="flex items-center gap-2 mb-3">
-                    <Copy className="w-4 h-4 text-slate-800" />
-                    <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">
+                    <Copy className="w-4 h-4 text-[var(--text)]" />
+                    <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-[var(--text)]">
                       Accused Persons & Co-Accused
-                      <span className="ml-2 text-[10px] font-normal text-slate-500">({(extractedData.suspect_details?.length || extractedData.suspects?.length)} identified)</span>
+                      <span className="ml-2 text-[10px] font-normal text-[var(--text-muted)]">({(extractedData.suspect_details?.length || extractedData.suspects?.length)} identified)</span>
                     </h3>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {(extractedData.suspect_details?.length > 0 ? extractedData.suspect_details : extractedData.suspects.map(s => ({ name: s, raw_mention: s, matched_in_database: false, confidence: 0.8, phone_number: "N/A", inferred_role: "Unknown" }))).map((s, idx) => (
-                      <div key={idx} className="p-2.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
+                      <div key={idx} className="p-2.5 bg-[var(--surface-2)] rounded-lg border border-[var(--border)] space-y-1">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold font-mono text-slate-900">{s.name}</span>
-                          <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${s.matched_in_database ? "bg-red-100 text-red-800" : "bg-slate-100 text-slate-600"}`}>
+                          <span className="text-xs font-bold font-mono text-[var(--text)]">{s.name}</span>
+                          <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${s.matched_in_database ? "bg-red-100 text-red-800" : "bg-[var(--surface-2)] text-[var(--text-muted)]"}`}>
                             {s.matched_in_database ? "⚠ IN DATABASE" : "NOT MATCHED"}
                           </span>
                         </div>
-                        <div className="flex items-center justify-between text-[10px] font-mono text-slate-500">
+                        <div className="flex items-center justify-between text-[10px] font-mono text-[var(--text-muted)]">
                           <span className="bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded">{s.inferred_role}</span>
                           <span>{s.phone_number !== "N/A" && s.phone_number ? `📞 ${s.phone_number}` : ""}</span>
                           <span className="text-slate-400">{Math.round((s.confidence || 0) * 100)}% conf.</span>
@@ -717,10 +717,10 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
               {extractedData.statutes?.length > 0 && (
                 <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
                   <div className="flex items-center gap-2 mb-3">
-                    <Zap className="w-4 h-4 text-slate-800" />
-                    <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">
+                    <Zap className="w-4 h-4 text-[var(--text)]" />
+                    <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-[var(--text)]">
                       Extracted IPC/BNS Statutory Violations
-                      <span className="ml-2 text-[10px] font-normal text-slate-500">({extractedData.statutes.length} charges)</span>
+                      <span className="ml-2 text-[10px] font-normal text-[var(--text-muted)]">({extractedData.statutes.length} charges)</span>
                     </h3>
                   </div>
                   <div className="grid grid-cols-1 gap-2">
@@ -739,7 +739,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                         </div>
                         <div className="flex items-center justify-between text-[10px] font-mono">
                           <span className="text-blue-700">⟶ {st.bns_equivalent}</span>
-                          <span className="text-slate-500">{st.category} · {Math.round(st.confidence * 100)}% conf.</span>
+                          <span className="text-[var(--text-muted)]">{st.category} · {Math.round(st.confidence * 100)}% conf.</span>
                         </div>
                       </div>
                     ))}
@@ -786,8 +786,8 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
               {extractedData.locations?.length > 0 && (
                 <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
                   <div className="flex items-center gap-2 mb-3">
-                    <MapPin className="w-4 h-4 text-slate-800" />
-                    <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">Crime Locations</h3>
+                    <MapPin className="w-4 h-4 text-[var(--text)]" />
+                    <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-[var(--text)]">Crime Locations</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {extractedData.locations.map((location, idx) => (
@@ -804,7 +804,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                 <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
                   <div className="flex items-center gap-2 mb-3">
                     <AlertTriangle className="w-4 h-4 text-red-700" />
-                    <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">Weapons & Ordnance</h3>
+                    <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-[var(--text)]">Weapons & Ordnance</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {extractedData.weapons.map((w, idx) => (
@@ -820,8 +820,8 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
               {extractedData.vehicles?.length > 0 && (
                 <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
                   <div className="flex items-center gap-2 mb-3">
-                    <ExternalLink className="w-4 h-4 text-slate-700" />
-                    <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">Vehicles & Logistics</h3>
+                    <ExternalLink className="w-4 h-4 text-[var(--text-muted)]" />
+                    <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-[var(--text)]">Vehicles & Logistics</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {extractedData.vehicles.map((v, idx) => (
@@ -837,8 +837,8 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
               {extractedData.financial_amounts?.length > 0 && (
                 <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
                   <div className="flex items-center gap-2 mb-3">
-                    <TrendingUp className="w-4 h-4 text-slate-700" />
-                    <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">Financial Amounts & Contraband</h3>
+                    <TrendingUp className="w-4 h-4 text-[var(--text-muted)]" />
+                    <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-[var(--text)]">Financial Amounts & Contraband</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {extractedData.financial_amounts.map((amt, idx) => (
@@ -854,25 +854,25 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
               {extractedData.modus_operandi?.length > 0 && (
                 <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
                   <div className="flex items-center gap-2 mb-3">
-                    <BarChart3 className="w-4 h-4 text-slate-800" />
-                    <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">Modus Operandi Classification</h3>
+                    <BarChart3 className="w-4 h-4 text-[var(--text)]" />
+                    <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-[var(--text)]">Modus Operandi Classification</h3>
                   </div>
                   <div className="space-y-2">
                     {extractedData.modus_operandi.map((mo, idx) => (
-                      <div key={idx} className="p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                      <div key={idx} className="p-2.5 bg-[var(--surface-2)] rounded-lg border border-[var(--border)]">
                         <div className="flex items-center justify-between mb-1">
-                          <span className="text-xs font-bold font-mono text-slate-900">{mo.crime_category}</span>
-                          <span className="text-[10px] font-mono text-slate-500">{Math.round(mo.confidence * 100)}% confidence · {mo.count} indicators</span>
+                          <span className="text-xs font-bold font-mono text-[var(--text)]">{mo.crime_category}</span>
+                          <span className="text-[10px] font-mono text-[var(--text-muted)]">{Math.round(mo.confidence * 100)}% confidence · {mo.count} indicators</span>
                         </div>
-                        <div className="w-full bg-slate-200 rounded-full h-1 mb-1.5">
+                        <div className="w-full bg-[var(--surface-2)] rounded-full h-1 mb-1.5">
                           <div className="h-1 rounded-full bg-slate-700" style={{ width: `${mo.confidence * 100}%` }} />
                         </div>
                         <div className="flex flex-wrap gap-1">
                           {mo.matched_indicators.slice(0, 6).map((ind, i) => (
-                            <span key={i} className="text-[10px] font-mono bg-slate-200 text-slate-700 px-1.5 py-0.5 rounded">{ind}</span>
+                            <span key={i} className="text-[10px] font-mono bg-[var(--surface-2)] text-[var(--text-muted)] px-1.5 py-0.5 rounded">{ind}</span>
                           ))}
                           {mo.matched_indicators.length > 6 && (
-                            <span className="text-[10px] font-mono text-slate-500">+{mo.matched_indicators.length - 6} more</span>
+                            <span className="text-[10px] font-mono text-[var(--text-muted)]">+{mo.matched_indicators.length - 6} more</span>
                           )}
                         </div>
                       </div>
@@ -885,10 +885,10 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
               {extractedData.relationships?.length > 0 && (
                 <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
                   <div className="flex items-center gap-2 mb-3">
-                    <GitGraph className="w-4 h-4 text-slate-800" />
-                    <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">
+                    <GitGraph className="w-4 h-4 text-[var(--text)]" />
+                    <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-[var(--text)]">
                       Entity Relationship Graph
-                      <span className="ml-2 text-[10px] font-normal text-slate-500">({extractedData.relationships.length} directed edges)</span>
+                      <span className="ml-2 text-[10px] font-normal text-[var(--text-muted)]">({extractedData.relationships.length} directed edges)</span>
                     </h3>
                   </div>
                   <div className="space-y-1.5">
@@ -900,16 +900,16 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                         USED_VEHICLE: "text-purple-700",
                         COMMANDED: "text-blue-700",
                         FINANCED: "text-yellow-700",
-                        HID_AT: "text-slate-700",
-                        BASED_AT: "text-slate-700",
+                        HID_AT: "text-[var(--text-muted)]",
+                        BASED_AT: "text-[var(--text-muted)]",
                       };
                       return (
-                        <div key={idx} className="flex items-center gap-1.5 text-[10px] font-mono bg-slate-50 rounded px-2 py-1.5 border border-slate-100">
-                          <span className="text-slate-800 font-semibold truncate max-w-[140px]">{rel.source}</span>
+                        <div key={idx} className="flex items-center gap-1.5 text-[10px] font-mono bg-[var(--surface-2)] rounded px-2 py-1.5 border border-slate-100">
+                          <span className="text-[var(--text)] font-semibold truncate max-w-[140px]">{rel.source}</span>
                           <span className="text-slate-400">──</span>
-                          <span className={`font-bold ${relColor[rel.relation_type] || "text-slate-600"}`}>{rel.relation_type}</span>
+                          <span className={`font-bold ${relColor[rel.relation_type] || "text-[var(--text-muted)]"}`}>{rel.relation_type}</span>
                           <span className="text-slate-400">──▶</span>
-                          <span className="text-slate-800 font-semibold truncate max-w-[140px]">{rel.target}</span>
+                          <span className="text-[var(--text)] font-semibold truncate max-w-[140px]">{rel.target}</span>
                           {rel.confidence && (
                             <span className="ml-auto text-slate-400 shrink-0">{Math.round((rel.confidence || 0) * 100)}%</span>
                           )}
@@ -941,12 +941,12 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
             {/* Gaussian Z-Score Nocturnal Anomaly Detector */}
             <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
               <div className="flex items-center gap-2 mb-4">
-                <Activity className="w-4 h-4 text-slate-800" />
-                <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">Gaussian Z-Score Nocturnal Anomaly Detector</h3>
+                <Activity className="w-4 h-4 text-[var(--text)]" />
+                <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-[var(--text)]">Gaussian Z-Score Nocturnal Anomaly Detector</h3>
               </div>
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <label className="text-xs font-mono font-medium text-slate-700">Z-Score Threshold (σ)</label>
+                  <label className="text-xs font-mono font-medium text-[var(--text-muted)]">Z-Score Threshold (σ)</label>
                   <div className="flex items-center">
                     <input
                       type="range"
@@ -955,18 +955,18 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                       step="0.1"
                       value={zScoreThreshold}
                       onChange={(e) => setZScoreThreshold(parseFloat(e.target.value))}
-                      className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-900"
+                      className="w-full h-1.5 bg-[var(--surface-2)] rounded-lg appearance-none cursor-pointer accent-slate-900"
                     />
-                    <span className="ml-2 font-mono text-xs text-slate-600">{zScoreThreshold.toFixed(1)}σ</span>
+                    <span className="ml-2 font-mono text-xs text-[var(--text-muted)]">{zScoreThreshold.toFixed(1)}σ</span>
                   </div>
-                  <p className="text-xs font-mono text-slate-500">
+                  <p className="text-xs font-mono text-[var(--text-muted)]">
                     Higher thresholds = fewer but stronger anomalies. Range: 1.5σ to 3.5σ
                   </p>
                 </div>
                 {/* Anomalies Table */}
                 <div className="overflow-hidden">
                   <table className="w-full text-left text-xs font-mono">
-                    <thead className="bg-slate-100 text-slate-600 border-b border-slate-200 uppercase tracking-wider text-[10px]">
+                    <thead className="bg-[var(--surface-2)] text-[var(--text-muted)] border-b border-[var(--border)] uppercase tracking-wider text-[10px]">
                       <tr>
                         <th className="p-3">Time (IST)</th>
                         <th className="p-3">Caller</th>
@@ -976,7 +976,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                         <th className="p-3">Location</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-200">
+                    <tbody className="divide-y divide-[var(--border)]">
                       {nocturnalAnomalies ? (
                         nocturnalAnomalies.calls
                           .filter(call => {
@@ -1002,7 +1002,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                           })
                         ) : (
                           <tr>
-                            <td colSpan={6} className="p-3 text-center text-slate-500 font-mono">Loading nocturnal data...</td>
+                            <td colSpan={6} className="p-3 text-center text-[var(--text-muted)] font-mono">Loading nocturnal data...</td>
                           </tr>
                         )}
                     </tbody>
@@ -1014,19 +1014,19 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
             {/* IQR Financial Outliers */}
             <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
               <div className="flex items-center gap-2 mb-4">
-                <TrendingUp className="w-4 h-4 text-slate-800" />
-                <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">IQR Financial Outliers</h3>
+                <TrendingUp className="w-4 h-4 text-[var(--text)]" />
+                <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-[var(--text)]">IQR Financial Outliers</h3>
               </div>
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <p className="text-xs font-mono text-slate-600">
+                  <p className="text-xs font-mono text-[var(--text-muted)]">
                     Detecting sub-threshold smurfing transactions (&lt; ₹50,000) that may indicate structuring.
                   </p>
                 </div>
                 {/* Financial Outliers Table */}
                 <div className="overflow-hidden">
                   <table className="w-full text-left text-xs font-mono">
-                    <thead className="bg-slate-100 text-slate-600 border-b border-slate-200 uppercase tracking-wider text-[10px]">
+                    <thead className="bg-[var(--surface-2)] text-[var(--text-muted)] border-b border-[var(--border)] uppercase tracking-wider text-[10px]">
                       <tr>
                         <th className="p-3">Transaction ID</th>
                         <th className="p-3">Sender</th>
@@ -1036,7 +1036,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                         <th className="p-3">Timestamp</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-200">
+                    <tbody className="divide-y divide-[var(--border)]">
                       {financialOutliers ? (
                         financialOutliers.transactions
                           .filter(txn => txn.amount_inr < 50000) // Sub-threshold
@@ -1053,7 +1053,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                           ))
                         ) : (
                           <tr>
-                            <td colSpan={6} className="p-3 text-center text-slate-500 font-mono">Loading financial data...</td>
+                            <td colSpan={6} className="p-3 text-center text-[var(--text-muted)] font-mono">Loading financial data...</td>
                           </tr>
                         )}
                     </tbody>
@@ -1066,8 +1066,8 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
           {/* Big-Data Scalability Stress-Tester */}
           <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
             <div className="flex items-center gap-2 mb-4">
-              <Zap className="w-4 h-4 text-slate-800" />
-              <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-slate-900">Big-Data Scalability Stress-Tester</h3>
+              <Zap className="w-4 h-4 text-[var(--text)]" />
+              <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-[var(--text)]">Big-Data Scalability Stress-Tester</h3>
             </div>
             <div className="space-y-4">
               <div className="flex flex-wrap gap-4">
@@ -1107,28 +1107,28 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
               )}
               {benchmarkData && (
                 <div className="grid gap-4">
-                  <div className="bg-slate-50 p-4 rounded">
-                    <h4 className="text-xs font-mono font-medium text-slate-700 mb-2">Throughput</h4>
-                    <p className="text-lg font-bold font-mono text-slate-900">
+                  <div className="bg-[var(--surface-2)] p-4 rounded">
+                    <h4 className="text-xs font-mono font-medium text-[var(--text-muted)] mb-2">Throughput</h4>
+                    <p className="text-lg font-bold font-mono text-[var(--text)]">
                       {benchmarkData.throughput.toLocaleString()} records/sec
                     </p>
                   </div>
-                  <div className="bg-slate-50 p-4 rounded">
-                    <h4 className="text-xs font-mono font-medium text-slate-700 mb-2">Execution Latency</h4>
-                    <p className="text-lg font-bold font-mono text-slate-900">
+                  <div className="bg-[var(--surface-2)] p-4 rounded">
+                    <h4 className="text-xs font-mono font-medium text-[var(--text-muted)] mb-2">Execution Latency</h4>
+                    <p className="text-lg font-bold font-mono text-[var(--text)]">
                       {benchmarkData.latency} ms
                     </p>
                   </div>
-                  <div className="bg-slate-50 p-4 rounded">
-                    <h4 className="text-xs font-mono font-medium text-slate-700 mb-2">Graph Memory Footprint</h4>
-                    <p className="text-lg font-bold font-mono text-slate-900">
+                  <div className="bg-[var(--surface-2)] p-4 rounded">
+                    <h4 className="text-xs font-mono font-medium text-[var(--text-muted)] mb-2">Graph Memory Footprint</h4>
+                    <p className="text-lg font-bold font-mono text-[var(--text)]">
                       {benchmarkData.memory} MB
                     </p>
                   </div>
                 </div>
               )}
               {!benchmarkData && !runningBenchmark && (
-                <p className="text-xs font-mono text-slate-600 text-center">
+                <p className="text-xs font-mono text-[var(--text-muted)] text-center">
                   Click a benchmark button to test system scalability with synthetic intelligence data.
                 </p>
               )}
@@ -1164,7 +1164,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
           {loadingInsights ? (
             <div className="text-center py-12">
               <Loader2 className="mx-auto h-6 w-6 animate-spin text-emerald-500" />
-              <p className="mt-2 text-sm font-mono text-slate-600">Loading intelligence insights...</p>
+              <p className="mt-2 text-sm font-mono text-[var(--text-muted)]">Loading intelligence insights...</p>
             </div>
           ) : insightsError ? (
             <div className="bg-red-50 border-l-4 border-red-500 p-4">
@@ -1178,7 +1178,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
             <div className="space-y-6">
               {/* Critical Alerts Section */}
               <section>
-                <h3 className="text-lg font-mono font-bold text-slate-900 flex items-center">
+                <h3 className="text-lg font-mono font-bold text-[var(--text)] flex items-center">
                   <AlertTriangle className="mr-2 h-4 w-4 text-red-500" />
                   🔴 Critical Alerts
                 </h3>
@@ -1197,8 +1197,8 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                             {alert.severity}
                           </span>
                         </div>
-                        <p className="text-xs font-mono text-slate-700 mb-2">{alert.description}</p>
-                        <div className="grid gap-2 text-xs font-mono text-slate-600">
+                        <p className="text-xs font-mono text-[var(--text-muted)] mb-2">{alert.description}</p>
+                        <div className="grid gap-2 text-xs font-mono text-[var(--text-muted)]">
                           <div>Risk Score: <span className="font-bold">{alert.risk_score}</span></div>
                           <div>Confidence: <span className="font-bold">{alert.confidence_score}</span></div>
                           <div>Entities Involved: <span className="font-bold">{alert.entities_involved.join(', ')}</span></div>
@@ -1207,14 +1207,14 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                       </div>
                     ))
                   ) : (
-                    <p className="text-xs font-mono text-slate-500 text-center py-4">No critical alerts detected at this time.</p>
+                    <p className="text-xs font-mono text-[var(--text-muted)] text-center py-4">No critical alerts detected at this time.</p>
                   )}
                 </div>
               </section>
 
               {/* Key Influencers Section */}
               <section>
-                <h3 className="text-lg font-mono font-bold text-slate-900 flex items-center">
+                <h3 className="text-lg font-mono font-bold text-[var(--text)] flex items-center">
                   <SlidersHorizontal className="mr-2 h-4 w-4 text-blue-500" />
                   👤 Key Influencers
                 </h3>
@@ -1233,8 +1233,8 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                             {influencer.risk_tier}
                           </span>
                         </div>
-                        <p className="text-xs font-mono text-slate-700 mb-2">Network influence score: {influencer.influence_score}</p>
-                        <div className="grid gap-2 text-xs font-mono text-slate-600">
+                        <p className="text-xs font-mono text-[var(--text-muted)] mb-2">Network influence score: {influencer.influence_score}</p>
+                        <div className="grid gap-2 text-xs font-mono text-[var(--text-muted)]">
                           <div>PageRank: <span className="font-bold">{influencer.centrality_breakdown.pagerank}</span></div>
                           <div>Betweenness: <span className="font-bold">{influencer.centrality_breakdown.betweenness}</span></div>
                           <div>Inflow: <span className="font-bold">₹{influencer.total_inflow.toLocaleString()}</span></div>
@@ -1243,14 +1243,14 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                       </div>
                     ))
                   ) : (
-                    <p className="text-xs font-mono text-slate-500 text-center py-4">No key influencers identified.</p>
+                    <p className="text-xs font-mono text-[var(--text-muted)] text-center py-4">No key influencers identified.</p>
                   )}
                 </div>
               </section>
 
               {/* Investigative Leads Section */}
               <section>
-                <h3 className="text-lg font-mono font-bold text-slate-900 flex items-center">
+                <h3 className="text-lg font-mono font-bold text-[var(--text)] flex items-center">
                   <Zap className="mr-2 h-4 w-4 text-yellow-500" />
                   🕵️‍♂️ Investigative Leads
                 </h3>
@@ -1268,14 +1268,14 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                             {lead.priority}
                           </span>
                         </div>
-                        <p className="text-xs font-mono text-slate-700 mb-2">{lead.description}</p>
+                        <p className="text-xs font-mono text-[var(--text-muted)] mb-2">{lead.description}</p>
                         <div className="space-y-2">
-                          <p className="text-xs font-mono font-medium text-slate-600">Confidence: <span className="font-bold">{lead.confidence_score}</span></p>
-                          <p className="text-xs font-mono font-medium text-slate-600">Evidence: <span className="font-bold">{lead.evidence_summary}</span></p>
+                          <p className="text-xs font-mono font-medium text-[var(--text-muted)]">Confidence: <span className="font-bold">{lead.confidence_score}</span></p>
+                          <p className="text-xs font-mono font-medium text-[var(--text-muted)]">Evidence: <span className="font-bold">{lead.evidence_summary}</span></p>
                         </div>
                         <div className="mt-2">
-                          <p className="text-xs font-mono font-medium text-slate-600">Recommended Actions:</p>
-                          <ul className="list-disc list-inside text-xs font-mono text-slate-700 mt-1">
+                          <p className="text-xs font-mono font-medium text-[var(--text-muted)]">Recommended Actions:</p>
+                          <ul className="list-disc list-inside text-xs font-mono text-[var(--text-muted)] mt-1">
                             {lead.recommended_actions.map((action, actionIndex) => (
                               <li key={actionIndex}>{action}</li>
                             ))}
@@ -1284,14 +1284,14 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                       </div>
                     ))
                   ) : (
-                    <p className="text-xs font-mono text-slate-500 text-center py-4">No investigative leads generated.</p>
+                    <p className="text-xs font-mono text-[var(--text-muted)] text-center py-4">No investigative leads generated.</p>
                   )}
                 </div>
               </section>
 
               {/* Trend Analysis Section */}
               <section>
-                <h3 className="text-lg font-mono font-bold text-slate-900 flex items-center">
+                <h3 className="text-lg font-mono font-bold text-[var(--text)] flex items-center">
                   <TrendingUp className="mr-2 h-4 w-4 text-green-500" />
                   📈 Trend Analysis
                 </h3>
@@ -1309,10 +1309,10 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                             {trend.trend_direction} ({trend.change_percentage}%)
                           </span>
                         </div>
-                        <p className="text-xs font-mono text-slate-700 mb-2">Time Period: {trend.time_period}</p>
+                        <p className="text-xs font-mono text-[var(--text-muted)] mb-2">Time Period: {trend.time_period}</p>
                         <div className="mt-2">
                           {/* Simple sparkline chart using divs */}
-                          <div className="h-16 w-full bg-slate-200 rounded relative overflow-hidden">
+                          <div className="h-16 w-full bg-[var(--surface-2)] rounded relative overflow-hidden">
                             {trend.data_points.map((point, pointIndex) => {
                               const percentage = (point.value / 100) * 100; // Assuming values are 0-100
                               const left = (pointIndex / (trend.data_points.length - 1)) * 100;
@@ -1329,14 +1329,14 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                       </div>
                     ))
                   ) : (
-                    <p className="text-xs font-mono text-slate-500 text-center py-4">No trend data available.</p>
+                    <p className="text-xs font-mono text-[var(--text-muted)] text-center py-4">No trend data available.</p>
                   )}
                 </div>
               </section>
 
               {/* Geographic Hotspots Section */}
               <section>
-                <h3 className="text-lg font-mono font-bold text-slate-900 flex items-center">
+                <h3 className="text-lg font-mono font-bold text-[var(--text)] flex items-center">
                   <MapPin className="mr-2 h-4 w-4 text-red-500" />
                   🗺️ Geographic Hotspots
                 </h3>
@@ -1354,8 +1354,8 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                             {hotspot.risk_level}
                           </span>
                         </div>
-                        <p className="text-xs font-mono text-slate-700 mb-2">{hotspot.incident_count} incidents</p>
-                        <div className="grid gap-2 text-xs font-mono text-slate-600">
+                        <p className="text-xs font-mono text-[var(--text-muted)] mb-2">{hotspot.incident_count} incidents</p>
+                        <div className="grid gap-2 text-xs font-mono text-[var(--text-muted)]">
                           <div>Latitude: <span className="font-bold">{hotspot.latitude}</span></div>
                           <div>Longitude: <span className="font-bold">{hotspot.longitude}</span></div>
                           <div>Primary Crimes: <span className="font-bold">{hotspot.primary_crime_types.join(', ')}</span></div>
@@ -1363,14 +1363,14 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                       </div>
                     ))
                   ) : (
-                    <p className="text-xs font-mono text-slate-500 text-center py-4">No geographic hotspots detected.</p>
+                    <p className="text-xs font-mono text-[var(--text-muted)] text-center py-4">No geographic hotspots detected.</p>
                   )}
                 </div>
               </section>
 
               {/* Network Analytics Section */}
               <section>
-                <h3 className="text-lg font-mono font-bold text-slate-900 flex items-center">
+                <h3 className="text-lg font-mono font-bold text-[var(--text)] flex items-center">
                   <Activity className="mr-2 h-4 w-4 text-purple-500" />
                   📊 Network Analytics
                 </h3>
@@ -1378,7 +1378,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                   <div className="grid gap-4">
                     <div className="border-l-4 border-purple-400 pl-4 py-3 bg-purple-50">
                       <h4 className="font-mono font-bold text-purple-800 mb-2">Network Overview</h4>
-                      <div className="space-y-1 text-xs font-mono text-slate-600">
+                      <div className="space-y-1 text-xs font-mono text-[var(--text-muted)]">
                         <div>Density: <span className="font-bold">{intelligenceInsights.network_analytics.network_metrics.density}</span></div>
                         <div>Clustering: <span className="font-bold">{intelligenceInsights.network_analytics.network_metrics.average_clustering}</span></div>
                         <div>Components: <span className="font-bold">{intelligenceInsights.network_analytics.network_metrics.connected_components}</span></div>
@@ -1387,7 +1387,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                     </div>
                     <div className="border-l-4 border-purple-400 pl-4 py-3 bg-purple-50">
                       <h4 className="font-mono font-bold text-purple-800 mb-2">Communities Detected</h4>
-                      <div className="space-y-1 text-xs font-mono text-slate-600">
+                      <div className="space-y-1 text-xs font-mono text-[var(--text-muted)]">
                         <div>Count: <span className="font-bold">{intelligenceInsights.network_analytics.communities.length}</span></div>
                         {intelligenceInsights.network_analytics.communities.map((community, commIndex) => (
                           <div key={commIndex} className="mt-2">
@@ -1412,7 +1412,7 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
               </section>
             </div>
           ) : (
-            <p className="text-xs font-mono text-slate-500 text-center py-4">Loading intelligence insights...</p>
+            <p className="text-xs font-mono text-[var(--text-muted)] text-center py-4">Loading intelligence insights...</p>
           )}
         </>
       )}

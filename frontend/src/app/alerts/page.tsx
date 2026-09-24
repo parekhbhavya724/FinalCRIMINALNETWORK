@@ -189,7 +189,7 @@ export default function AlertsPage() {
       <div className="space-y-3">
         {filteredAlerts.length === 0 ? (
           <div className="p-12 text-center bg-[#111826] border border-[#1F2A3D] rounded-lg">
-            <ShieldAlert className="w-12 h-12 text-slate-500 mx-auto mb-3" />
+            <ShieldAlert className="w-12 h-12 text-[var(--text-muted)] mx-auto mb-3" />
             <p className="text-slate-300 font-sans text-sm font-semibold">No active alerts matching filter</p>
             <p className="text-slate-400 text-xs mt-1">All early warning telemetry criteria are currently within standard baseline parameters.</p>
           </div>
@@ -258,7 +258,7 @@ export default function AlertsPage() {
 
                       <div className="flex items-center gap-4 mt-2 text-[11px] font-sans text-slate-400">
                         <span className="flex items-center gap-1">
-                          <Clock className="w-3 h-3 text-slate-500" />
+                          <Clock className="w-3 h-3 text-[var(--text-muted)]" />
                           <span className="font-mono">{alert.timestamp || "Live stream"}</span>
                         </span>
                         <span>•</span>

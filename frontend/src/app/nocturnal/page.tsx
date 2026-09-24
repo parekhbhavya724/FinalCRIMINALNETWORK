@@ -60,14 +60,14 @@ export default function NocturnalAnomaliesPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Cell Tower Hotspots */}
-        <Card className="lg:col-span-1 space-y-4 border-slate-300">
-          <h3 className="text-sm font-bold font-mono text-slate-900 flex items-center gap-2">
+        <Card className="lg:col-span-1 space-y-4 border-[var(--border)]">
+          <h3 className="text-sm font-bold font-mono text-[var(--text)] flex items-center gap-2">
             <Radio className="w-4 h-4 text-amber-700" /> Cell Tower Hotspots
           </h3>
           <div className="space-y-2">
             {data?.towers.map((t, idx) => (
-              <div key={idx} className="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs">
-                <span className="text-slate-800 font-medium truncate">{t.cell_tower_location}</span>
+              <div key={idx} className="flex items-center justify-between p-2.5 bg-[var(--surface-2)] rounded-lg border border-[var(--border)] font-mono text-xs">
+                <span className="text-[var(--text)] font-medium truncate">{t.cell_tower_location}</span>
                 <span className="font-bold text-amber-900 bg-amber-100 px-2 py-0.5 rounded border border-amber-300">
                   {t.nocturnal_call_count} calls
                 </span>
@@ -77,13 +77,13 @@ export default function NocturnalAnomaliesPage() {
         </Card>
 
         {/* Nocturnal Calls Log */}
-        <Card className="lg:col-span-2 overflow-hidden p-0 border-slate-300">
-          <div className="p-4 border-b border-slate-200 bg-slate-50">
-            <h3 className="text-sm font-bold font-mono text-slate-900">Midnight Communication Log</h3>
+        <Card className="lg:col-span-2 overflow-hidden p-0 border-[var(--border)]">
+          <div className="p-4 border-b border-[var(--border)] bg-[var(--surface-2)]">
+            <h3 className="text-sm font-bold font-mono text-[var(--text)]">Midnight Communication Log</h3>
           </div>
           <div className="overflow-x-auto max-h-[500px]">
             <table className="w-full text-left text-xs font-mono">
-              <thead className="bg-slate-100 text-slate-600 border-b border-slate-200 uppercase tracking-wider text-[10px] sticky top-0">
+              <thead className="bg-[var(--surface-2)] text-[var(--text-muted)] border-b border-[var(--border)] uppercase tracking-wider text-[10px] sticky top-0">
                 <tr>
                   <th className="p-3">Caller</th>
                   <th className="p-3">Receiver</th>
@@ -92,12 +92,12 @@ export default function NocturnalAnomaliesPage() {
                   <th className="p-3 text-right">Timestamp</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-200">
+              <tbody className="divide-y divide-[var(--border)]">
                 {data?.calls.map((c, idx) => (
-                  <tr key={idx} className="hover:bg-slate-50 transition-colors">
-                    <td className="p-3 font-bold text-slate-900">{c.caller_name}</td>
-                    <td className="p-3 font-bold text-slate-900">{c.receiver_name}</td>
-                    <td className="p-3 text-slate-600">{c.cell_tower_location}</td>
+                  <tr key={idx} className="hover:bg-[var(--surface-2)] transition-colors">
+                    <td className="p-3 font-bold text-[var(--text)]">{c.caller_name}</td>
+                    <td className="p-3 font-bold text-[var(--text)]">{c.receiver_name}</td>
+                    <td className="p-3 text-[var(--text-muted)]">{c.cell_tower_location}</td>
                     <td className="p-3 text-right font-bold text-cyan-700">{c.duration_seconds}s</td>
                     <td className="p-3 text-right text-amber-700">{c.timestamp}</td>
                   </tr>

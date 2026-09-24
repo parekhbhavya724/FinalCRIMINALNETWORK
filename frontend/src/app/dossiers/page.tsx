@@ -35,12 +35,12 @@ function FIRParserTool() {
 
   return (
     <Card className="space-y-4 border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
-      <div className="border-b border-slate-200 pb-3">
-        <h3 className="text-sm font-bold font-mono text-slate-900 flex items-center gap-2">
+      <div className="border-b border-[var(--border)] pb-3">
+        <h3 className="text-sm font-bold font-mono text-[var(--text)] flex items-center gap-2">
           <FileText className="w-4 h-4 text-purple-600" />
           NLP FIR Entity & Co-Accused Extractor
         </h3>
-        <p className="text-[11px] font-mono text-slate-500">Paste FIR narrative text to automatically extract suspects, co-accused, locations, M.O. crime categories & IPC sections</p>
+        <p className="text-[11px] font-mono text-[var(--text-muted)]">Paste FIR narrative text to automatically extract suspects, co-accused, locations, M.O. crime categories & IPC sections</p>
       </div>
 
       <form onSubmit={handleExtract} className="space-y-3 font-mono text-xs">
@@ -50,7 +50,7 @@ function FIRParserTool() {
             value={firNumber}
             onChange={(e) => setFirNumber(e.target.value)}
             placeholder="FIR Number e.g. FIR-0254/2026"
-            className="w-1/3 bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg px-3 py-1.5 text-xs text-slate-900 font-mono shadow-sm"
+            className="w-1/3 bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg px-3 py-1.5 text-xs text-[var(--text)] font-mono shadow-sm"
           />
           <Button type="submit" disabled={loading} size="sm">
             {loading ? "Parsing NLP..." : "Extract Entities & Co-Accused"}
@@ -61,12 +61,12 @@ function FIRParserTool() {
           value={firText}
           onChange={(e) => setFirText(e.target.value)}
           placeholder="Paste raw FIR narrative or witness statement text here..."
-          className="w-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg p-2.5 text-xs text-slate-900 font-mono shadow-sm"
+          className="w-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg p-2.5 text-xs text-[var(--text)] font-mono shadow-sm"
         />
       </form>
 
       {result && (
-        <div className="space-y-3 pt-3 border-t border-slate-200 font-mono text-xs">
+        <div className="space-y-3 pt-3 border-t border-[var(--border)] font-mono text-xs">
           <div className="flex flex-wrap gap-2">
             <span className="px-2 py-1 bg-purple-50 text-purple-700 border border-purple-200 rounded font-bold">
               Primary Suspects ({result.suspects.length}): {result.suspects.join(", ") || "None"}
@@ -85,9 +85,9 @@ function FIRParserTool() {
           {/* Extracted Entities Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
             {result.entities.map((e, idx) => (
-              <div key={idx} className="p-2 bg-slate-50 rounded border border-slate-200 space-y-0.5 text-[11px]">
-                <span className="text-[9px] font-bold text-slate-500 uppercase">{e.category}</span>
-                <p className="font-bold text-slate-900 truncate">{e.text}</p>
+              <div key={idx} className="p-2 bg-[var(--surface-2)] rounded border border-[var(--border)] space-y-0.5 text-[11px]">
+                <span className="text-[9px] font-bold text-[var(--text-muted)] uppercase">{e.category}</span>
+                <p className="font-bold text-[var(--text)] truncate">{e.text}</p>
                 <span className="text-[9px] text-emerald-600">{(e.confidence * 100).toFixed(0)}% Match</span>
               </div>
             ))}
@@ -124,7 +124,7 @@ function EnhancedForensicTimeline({ suspectName }: { suspectName: string }) {
 
   if (loading) {
     return (
-      <Card className="p-4 border-[var(--border)] bg-[var(--surface)] text-[var(--text)] text-xs font-mono text-slate-500">
+      <Card className="p-4 border-[var(--border)] bg-[var(--surface)] text-[var(--text)] text-xs font-mono text-[var(--text-muted)]">
         Loading multi-source forensic timeline for {suspectName}...
       </Card>
     );
@@ -132,7 +132,7 @@ function EnhancedForensicTimeline({ suspectName }: { suspectName: string }) {
 
   if (!timeline || timeline.events.length === 0) {
     return (
-      <Card className="p-4 border-[var(--border)] bg-[var(--surface)] text-[var(--text)] text-xs font-mono text-slate-500">
+      <Card className="p-4 border-[var(--border)] bg-[var(--surface)] text-[var(--text)] text-xs font-mono text-[var(--text-muted)]">
         No forensic timeline events recorded for {suspectName}.
       </Card>
     );
@@ -149,13 +149,13 @@ function EnhancedForensicTimeline({ suspectName }: { suspectName: string }) {
 
   return (
     <Card className="space-y-4 border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border)] pb-3">
         <div>
-          <h3 className="text-sm font-bold font-mono text-slate-900 flex items-center gap-2">
+          <h3 className="text-sm font-bold font-mono text-[var(--text)] flex items-center gap-2">
             <Clock className="w-4 h-4 text-blue-600" />
             Unified Chronological Timeline ({filteredEvents.length} events)
           </h3>
-          <p className="text-[11px] font-mono text-slate-500">Chronological multi-source activity sequence: FIR → Nocturnal → CCTV → Financial → Surveillance</p>
+          <p className="text-[11px] font-mono text-[var(--text-muted)]">Chronological multi-source activity sequence: FIR → Nocturnal → CCTV → Financial → Surveillance</p>
         </div>
         {/* Source Filter Buttons */}
         <div className="flex flex-wrap gap-1">
@@ -166,7 +166,7 @@ function EnhancedForensicTimeline({ suspectName }: { suspectName: string }) {
               className={`px-2 py-1 rounded text-[10px] font-mono font-semibold transition-colors ${
                 activeFilter === mod
                   ? "bg-slate-900 text-white shadow-sm"
-                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  : "bg-[var(--surface-2)] text-[var(--text-muted)] hover:bg-[var(--surface-2)]"
               }`}
             >
               {mod}
@@ -176,7 +176,7 @@ function EnhancedForensicTimeline({ suspectName }: { suspectName: string }) {
       </div>
 
       {/* Timeline Stream */}
-      <div className="relative pl-4 space-y-3 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-slate-200 max-h-[500px] overflow-y-auto">
+      <div className="relative pl-4 space-y-3 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-[var(--surface-2)] max-h-[500px] overflow-y-auto">
         {filteredEvents.map((evt) => {
           const isExpanded = expandedEventId === evt.event_id;
           return (
@@ -188,7 +188,7 @@ function EnhancedForensicTimeline({ suspectName }: { suspectName: string }) {
               />
               <div
                 onClick={() => setExpandedEventId(isExpanded ? null : evt.event_id)}
-                className="p-3 bg-slate-50 hover:bg-slate-100/80 rounded-lg border border-slate-200 cursor-pointer transition-colors space-y-1 font-mono text-xs"
+                className="p-3 bg-[var(--surface-2)] hover:bg-[var(--surface-2)]/80 rounded-lg border border-[var(--border)] cursor-pointer transition-colors space-y-1 font-mono text-xs"
               >
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
@@ -198,20 +198,20 @@ function EnhancedForensicTimeline({ suspectName }: { suspectName: string }) {
                     >
                       {evt.source_module}
                     </span>
-                    <strong className="text-slate-900 font-semibold">{evt.title}</strong>
+                    <strong className="text-[var(--text)] font-semibold">{evt.title}</strong>
                   </div>
-                  <span className="text-[10px] text-slate-500 flex items-center gap-1 shrink-0">
+                  <span className="text-[10px] text-[var(--text-muted)] flex items-center gap-1 shrink-0">
                     {evt.timestamp}
                     {isExpanded ? <ChevronUp className="w-3 h-3 text-slate-400" /> : <ChevronDown className="w-3 h-3 text-slate-400" />}
                   </span>
                 </div>
-                <p className="text-[11px] font-sans text-slate-600">{evt.description}</p>
+                <p className="text-[11px] font-sans text-[var(--text-muted)]">{evt.description}</p>
 
                 {/* Expanded metadata with better formatting */}
                 {isExpanded && evt.metadata && Object.keys(evt.metadata).length > 0 && (
-                  <div className="mt-3 pt-3 border-t border-slate-200 bg-slate-50 p-3 rounded text-[10px] space-y-2">
-                    <span className="font-bold text-slate-700">Event Forensic Details:</span>
-                    <pre className="text-[10px] text-slate-800 bg-slate-400 p-2 rounded overflow-x-auto">
+                  <div className="mt-3 pt-3 border-t border-[var(--border)] bg-[var(--surface-2)] p-3 rounded text-[10px] space-y-2">
+                    <span className="font-bold text-[var(--text-muted)]">Event Forensic Details:</span>
+                    <pre className="text-[10px] text-[var(--text)] bg-slate-400 p-2 rounded overflow-x-auto">
                       {JSON.stringify(evt.metadata, null, 2)}
                     </pre>
                   </div>
@@ -242,13 +242,13 @@ function EnhancedDossierCard({ dossier }: { dossier: SuspectDossierDetails }) {
   return (
     <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
       {/* Header with threat score badge */}
-      <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+      <div className="flex items-center justify-between border-b border-[var(--border)] pb-4">
         <div>
           <Badge variant="critical" className="mb-1">CONFIDENTIAL DOSSIER</Badge>
-          <h2 className="text-xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-xl font-bold text-[var(--text)] tracking-tight">
             {dossier.suspect_name}
           </h2>
-          <p className="text-xs font-mono text-slate-600">
+          <p className="text-xs font-mono text-[var(--text-muted)]">
             {dossier.phone_number} · Threat Score: <strong className="text-red-700 font-bold">{dossier.threat_score?.toFixed(1) ?? "N/A"}</strong>/100
           </p>
         </div>
@@ -267,14 +267,14 @@ function EnhancedDossierCard({ dossier }: { dossier: SuspectDossierDetails }) {
       {/* Demographics & Digital Identifiers Section */}
       <div className="space-y-4">
         <div className="space-y-2">
-          <h3 className="text-sm font-bold font-mono text-slate-900 flex items-center gap-2">
+          <h3 className="text-sm font-bold font-mono text-[var(--text)] flex items-center gap-2">
             <Users className="w-4 h-4 text-blue-600" />
             Identity & Digital Fingerprints
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {/* Primary Identifiers */}
-            <div className="bg-slate-50 p-3 rounded border border-slate-200">
-              <h4 className="text-xs font-mono font-medium text-slate-700 mb-2">Primary Identifiers</h4>
+            <div className="bg-[var(--surface-2)] p-3 rounded border border-[var(--border)]">
+              <h4 className="text-xs font-mono font-medium text-[var(--text-muted)] mb-2">Primary Identifiers</h4>
               <div className="space-y-1 text-xs">
                 <div className="justify-between">
                   <span>Name:</span>
@@ -292,8 +292,8 @@ function EnhancedDossierCard({ dossier }: { dossier: SuspectDossierDetails }) {
             </div>
 
             {/* Financial & Digital Identifiers */}
-            <div className="bg-slate-50 p-3 rounded border border-slate-200">
-              <h4 className="text-xs font-mono font-medium text-slate-700 mb-2">Financial & Digital</h4>
+            <div className="bg-[var(--surface-2)] p-3 rounded border border-[var(--border)]">
+              <h4 className="text-xs font-mono font-medium text-[var(--text-muted)] mb-2">Financial & Digital</h4>
               <div className="space-y-1 text-xs">
                 <div className="justify-between">
                   <span>PAN:</span>
@@ -311,8 +311,8 @@ function EnhancedDossierCard({ dossier }: { dossier: SuspectDossierDetails }) {
             </div>
 
             {/* Associated Entities */}
-            <div className="bg-slate-50 p-3 rounded border border-slate-200">
-              <h4 className="text-xs font-mono font-medium text-slate-700 mb-2">Associated Entities</h4>
+            <div className="bg-[var(--surface-2)] p-3 rounded border border-[var(--border)]">
+              <h4 className="text-xs font-mono font-medium text-[var(--text-muted)] mb-2">Associated Entities</h4>
               <div className="space-y-1 text-xs">
                 <div className="justify-between">
                   <span>CCTV Matches:</span>
@@ -337,7 +337,7 @@ function EnhancedDossierCard({ dossier }: { dossier: SuspectDossierDetails }) {
 
         {/* Syndicate & Network Tags */}
         <div className="space-y-3">
-          <h3 className="text-sm font-bold font-mono text-slate-900 flex items-center gap-2">
+          <h3 className="text-sm font-bold font-mono text-[var(--text)] flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-purple-600" />
             Syndicate & Network Affiliation
           </h3>
@@ -360,23 +360,23 @@ function EnhancedDossierCard({ dossier }: { dossier: SuspectDossierDetails }) {
 
       {/* Dossier Markdown View */}
       <div className="space-y-4">
-        <h3 className="text-sm font-bold font-mono text-slate-900 flex items-center gap-2">
+        <h3 className="text-sm font-bold font-mono text-[var(--text)] flex items-center gap-2">
           <FileText className="w-4 h-4 text-blue-600" />
           Comprehensive Intelligence Summary
         </h3>
-        <div className="prose max-w-none text-xs font-mono bg-slate-50 p-4 rounded-xl border border-slate-200 overflow-y-auto max-h-[300px] whitespace-pre-wrap text-slate-800">
+        <div className="prose max-w-none text-xs font-mono bg-[var(--surface-2)] p-4 rounded-xl border border-[var(--border)] overflow-y-auto max-h-[300px] whitespace-pre-wrap text-[var(--text)]">
           {dossier.dossier_markdown || "Loading dossier content..."}
         </div>
       </div>
 
       {/* Export Action Section */}
-      <div className="space-y-4 pt-3 border-t border-slate-200">
+      <div className="space-y-4 pt-3 border-t border-[var(--border)]">
         <div className="flex items-center justify-between">
           <div className="space-y-1">
-            <h4 className="text-sm font-bold font-mono text-slate-900">
+            <h4 className="text-sm font-bold font-mono text-[var(--text)]">
               Court-Admissible Evidence Package
             </h4>
-            <p className="text-xs font-mono text-slate-500">
+            <p className="text-xs font-mono text-[var(--text-muted)]">
               Export as certified legal briefing with BMPD header, evidence seal, and signature block
             </p>
           </div>
@@ -768,7 +768,7 @@ function DossiersContent() {
         <div className="grid gap-4 md:grid-cols-2">
           {/* Suspect Search */}
           <div className="space-y-3">
-            <h3 className="text-sm font-bold font-mono text-slate-900 flex items-center gap-2">
+            <h3 className="text-sm font-bold font-mono text-[var(--text)] flex items-center gap-2">
               <Search className="w-4 h-4 text-purple-600" />
               Search Suspects
             </h3>
@@ -779,7 +779,7 @@ function DossiersContent() {
                   value={suspectSearchQuery}
                   onChange={(e) => setSuspectSearchQuery(e.target.value)}
                   placeholder="Enter suspect name or phone number..."
-                  className="w-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg pl-3 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 font-mono shadow-sm"
+                  className="w-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg pl-3 pr-3 py-1.5 text-xs text-[var(--text)] placeholder-slate-400 font-mono shadow-sm"
                 />
                 <Button type="submit" disabled={suspectSearchLoading} size="sm">
                   {suspectSearchLoading ? "Searching..." : "Search"}
@@ -789,11 +789,11 @@ function DossiersContent() {
 
             {/* Suspect Search Results */}
             {suspectSearchLoading && (
-              <p className="text-xs font-mono text-slate-500">Searching suspects...</p>
+              <p className="text-xs font-mono text-[var(--text-muted)]">Searching suspects...</p>
             )}
             {!suspectSearchLoading && suspectSearchResults !== null && suspectSearchResults.length > 0 && (
               <div className="mt-3">
-                <p className="text-xs font-mono text-slate-600 font-medium">
+                <p className="text-xs font-mono text-[var(--text-muted)] font-medium">
                   {suspectSearchResults.length} suspect(s) found:
                 </p>
                 <div className="mt-2 space-y-1 max-h-[400px] overflow-y-auto">
@@ -804,14 +804,14 @@ function DossiersContent() {
                         setSelectedSuspect(suspect.name);
                         setSuspectSearchResults(null); // Clear results after selection
                       }}
-                      className="p-3 bg-slate-50 rounded border border-slate-200 cursor-hover hover:bg-slate-100 transition-colors font-mono text-xs"
+                      className="p-3 bg-[var(--surface-2)] rounded border border-[var(--border)] cursor-hover hover:bg-[var(--surface-2)] transition-colors font-mono text-xs"
                     >
                       <div className="flex justify-between">
                         <span className="font-mono">{suspect.name}</span>
-                        <span className="font-mono text-slate-600">{suspect.phone}</span>
+                        <span className="font-mono text-[var(--text-muted)]">{suspect.phone}</span>
                       </div>
                       <div className="flex justify-between mt-1">
-                        <span className="text-[9px] font-mono text-slate-500">Threat Score:</span>
+                        <span className="text-[9px] font-mono text-[var(--text-muted)]">Threat Score:</span>
                         <span className="font-mono text-red-600">{suspect.threatScore.toFixed(1)}</span>
                       </div>
                       {/* Threat score breakdown bars */}
@@ -826,7 +826,7 @@ function DossiersContent() {
                         ].map((factor, index) => (
                           <div key={index} className="flex items-center gap-2">
                             <span className="w-20 text-[9px] font-mono">{factor.label}:</span>
-                            <div className="flex-1 bg-slate-200 rounded h-1.5">
+                            <div className="flex-1 bg-[var(--surface-2)] rounded h-1.5">
                               <div
                                 className={`h-full bg-${factor.color}-500`}
                                 style={{ width: `${Math.min(100, (factor.value / factor.max) * 100)}%` }}
@@ -844,13 +844,13 @@ function DossiersContent() {
               </div>
             )}
             {!suspectSearchLoading && suspectSearchResults !== null && suspectSearchResults.length === 0 && (
-              <p className="text-xs font-mono text-slate-500 mt-3">No suspects found. Try a different search term.</p>
+              <p className="text-xs font-mono text-[var(--text-muted)] mt-3">No suspects found. Try a different search term.</p>
             )}
           </div>
 
           {/* Intelligence Search */}
           <div className="space-y-3">
-            <h3 className="text-sm font-bold font-mono text-slate-900 flex items-center gap-2">
+            <h3 className="text-sm font-bold font-mono text-[var(--text)] flex items-center gap-2">
               <FileText className="w-4 h-4 text-blue-600" />
               Search Intelligence
             </h3>
@@ -862,7 +862,7 @@ function DossiersContent() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search across FIRs, CDR call logs, and CCTV sightings (e.g. Byculla, Bhalla)..."
-                  className="w-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg pl-9 pr-3 py-2 text-xs text-slate-900 placeholder-slate-400 font-mono shadow-sm"
+                  className="w-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-lg pl-9 pr-3 py-2 text-xs text-[var(--text)] placeholder-slate-400 font-mono shadow-sm"
                 />
                 <Button type="submit">Execute Query</Button>
               </div>
@@ -870,15 +870,15 @@ function DossiersContent() {
 
             {/* Search Results Display */}
             {searchResults && (
-              <div className="mt-4 pt-4 border-t border-slate-200 space-y-2">
-                <div className="flex justify-between items-center text-xs font-mono text-slate-600">
-                  <span>Query: <strong className="text-slate-900">"{searchResults.query}"</strong></span>
+              <div className="mt-4 pt-4 border-t border-[var(--border)] space-y-2">
+                <div className="flex justify-between items-center text-xs font-mono text-[var(--text-muted)]">
+                  <span>Query: <strong className="text-[var(--text)]">"{searchResults.query}"</strong></span>
                   <span>Total Matches: <strong className="text-emerald-700 font-bold">{searchResults.total_matches}</strong></span>
                 </div>
                 <div className="grid grid-cols-3 gap-2 text-xs font-mono">
-                  <div className="p-2 bg-slate-50 rounded border border-slate-200">FIR Matches: {searchResults.fir_matches.length}</div>
-                  <div className="p-2 bg-slate-50 rounded border border-slate-200">CDR Matches: {searchResults.cdr_matches.length}</div>
-                  <div className="p-2 bg-slate-50 rounded border border-slate-200">CCTV Matches: {searchResults.cctv_matches.length}</div>
+                  <div className="p-2 bg-[var(--surface-2)] rounded border border-[var(--border)]">FIR Matches: {searchResults.fir_matches.length}</div>
+                  <div className="p-2 bg-[var(--surface-2)] rounded border border-[var(--border)]">CDR Matches: {searchResults.cdr_matches.length}</div>
+                  <div className="p-2 bg-[var(--surface-2)] rounded border border-[var(--border)]">CCTV Matches: {searchResults.cctv_matches.length}</div>
                 </div>
               </div>
             )}
@@ -890,7 +890,7 @@ function DossiersContent() {
       {!allSuspectsLoading && allSuspects.length > 0 && (
         <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-sm font-bold font-mono text-slate-900">
+            <h3 className="text-sm font-bold font-mono text-[var(--text)]">
               All Suspects Overview ({allSuspects.length} total)
             </h3>
             <Button
@@ -908,7 +908,7 @@ function DossiersContent() {
           <div className="overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs font-mono">
-                <thead className="bg-slate-100 text-slate-600 border-b border-slate-200 uppercase tracking-wider text-[10px]">
+                <thead className="bg-[var(--surface-2)] text-[var(--text-muted)] border-b border-[var(--border)] uppercase tracking-wider text-[10px]">
                   <tr>
                     <th className="p-3">#</th>
                     <th className="p-3">Suspect Name</th>
@@ -922,21 +922,21 @@ function DossiersContent() {
                     <th className="p-3 text-center">Surveillance</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-200">
+                <tbody className="divide-y divide-[var(--border)]">
                   {allSuspects.slice(0, 50).map((suspect, idx) => (
                     <tr
                       key={suspect.name}
                       onClick={() => {
                         setSelectedSuspect(suspect.name);
                       }}
-                      className="hover:bg-slate-50 transition-colors cursor-pointer"
+                      className="hover:bg-[var(--surface-2)] transition-colors cursor-pointer"
                     >
                       <td className="p-3">{idx + 1}</td>
                       <td className="p-3 font-mono">{suspect.name}</td>
-                      <td className="p-3 text-slate-600">{suspect.phone}</td>
+                      <td className="p-3 text-[var(--text-muted)]">{suspect.phone}</td>
                       <td className="p-3 text-right font-bold text-red-700">{suspect.threatScore.toFixed(1)}</td>
                       <td className="p-3 text-center">
-                        <div className="w-10 h-2 bg-slate-200 rounded">
+                        <div className="w-10 h-2 bg-[var(--surface-2)] rounded">
                           <div
                             className="h-full bg-emerald-500"
                             style={{ width: `${Math.min(100, (suspect.cctvScore / 30) * 100)}%` }}
@@ -945,7 +945,7 @@ function DossiersContent() {
                         <span className="text-[9px] font-mono">{suspect.cctvScore.toFixed(1)}</span>
                       </td>
                       <td className="p-3 text-center">
-                        <div className="w-10 h-2 bg-slate-200 rounded">
+                        <div className="w-10 h-2 bg-[var(--surface-2)] rounded">
                           <div
                             className="h-full bg-blue-500"
                             style={{ width: `${Math.min(100, (suspect.cdrScore / 20) * 100)}%` }}
@@ -954,7 +954,7 @@ function DossiersContent() {
                         <span className="text-[9px] font-mono">{suspect.cdrScore.toFixed(1)}</span>
                       </td>
                       <td className="p-3 text-center">
-                        <div className="w-10 h-2 bg-slate-200 rounded">
+                        <div className="w-10 h-2 bg-[var(--surface-2)] rounded">
                           <div
                             className="h-full bg-red-500"
                             style={{ width: `${Math.min(100, (suspect.firScore / 15) * 100)}%` }}
@@ -963,7 +963,7 @@ function DossiersContent() {
                         <span className="text-[9px] font-mono">{suspect.firScore.toFixed(1)}</span>
                       </td>
                       <td className="p-3 text-center">
-                        <div className="w-10 h-2 bg-slate-200 rounded">
+                        <div className="w-10 h-2 bg-[var(--surface-2)] rounded">
                           <div
                             className="h-full bg-purple-500"
                             style={{ width: `${Math.min(100, (suspect.criminalScore / 15) * 100)}%` }}
@@ -972,7 +972,7 @@ function DossiersContent() {
                         <span className="text-[9px] font-mono">{suspect.criminalScore.toFixed(1)}</span>
                       </td>
                       <td className="p-3 text-center">
-                        <div className="w-10 h-2 bg-slate-200 rounded">
+                        <div className="w-10 h-2 bg-[var(--surface-2)] rounded">
                           <div
                             className="h-full bg-orange-500"
                             style={{ width: `${Math.min(100, (suspect.financialScore / 10) * 100)}%` }}
@@ -981,7 +981,7 @@ function DossiersContent() {
                         <span className="text-[9px] font-mono">{suspect.financialScore.toFixed(1)}</span>
                       </td>
                       <td className="p-3 text-center">
-                        <div className="w-10 h-2 bg-slate-200 rounded">
+                        <div className="w-10 h-2 bg-[var(--surface-2)] rounded">
                           <div
                             className="h-full bg-teal-500"
                             style={{ width: `${Math.min(100, (suspect.surveillanceScore / 10) * 100)}%` }}
@@ -1012,7 +1012,7 @@ function DossiersContent() {
         {/* FIR Parser Tool (condensed version) */}
         {!dossier && (
           <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
-            <h3 className="text-sm font-bold font-mono text-slate-900">
+            <h3 className="text-sm font-bold font-mono text-[var(--text)]">
               <FileText className="w-4 h-4 text-purple-600" />
               Quick FIR Parser
             </h3>
@@ -1023,20 +1023,20 @@ function DossiersContent() {
         {/* Right Column: Real-Time Police Alert Feed */}
         <div className="lg:col-span-1 space-y-4">
           <Card className="space-y-4 border-amber-300 bg-white">
-            <div className="flex items-center gap-2 border-b border-slate-200 pb-3">
+            <div className="flex items-center gap-2 border-b border-[var(--border)] pb-3">
               <Bell className="w-4 h-4 text-amber-700 animate-bounce" />
-              <h3 className="text-sm font-bold font-mono text-slate-900">Police Alert Feed</h3>
+              <h3 className="text-sm font-bold font-mono text-[var(--text)]">Police Alert Feed</h3>
             </div>
 
             <div className="space-y-3 max-h-[500px] overflow-y-auto pr-1">
               {alerts?.alerts.map((a) => (
-                <div key={a.id} className="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1 font-mono text-xs">
+                <div key={a.id} className="p-3 bg-[var(--surface-2)] rounded-xl border border-[var(--border)] space-y-1 font-mono text-xs">
                   <div className="flex items-center justify-between">
                     <Badge variant={a.severity === "CRITICAL" ? "critical" : "high"}>{a.severity}</Badge>
-                    <span className="text-[10px] text-slate-500">{a.timestamp}</span>
+                    <span className="text-[10px] text-[var(--text-muted)]">{a.timestamp}</span>
                   </div>
-                  <h4 className="font-bold text-slate-900 mt-1">{a.title}</h4>
-                  <p className="text-[11px] text-slate-600 font-sans leading-relaxed">{a.message}</p>
+                  <h4 className="font-bold text-[var(--text)] mt-1">{a.title}</h4>
+                  <p className="text-[11px] text-[var(--text-muted)] font-sans leading-relaxed">{a.message}</p>
                 </div>
               ))}
             </div>

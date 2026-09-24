@@ -444,15 +444,15 @@ export function UnifiedTacticalMap({
   }
 
   return (
-    <Card className="space-y-4 border-slate-300 bg-white">
+    <Card className="space-y-4 border-[var(--border)] bg-white">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--border)] pb-4">
         <div>
-          <h3 className="text-sm font-bold font-mono text-slate-900 flex items-center gap-2">
+          <h3 className="text-sm font-bold font-mono text-[var(--text)] flex items-center gap-2">
             <Map className="w-4 h-4 text-emerald-600" />
             {title}
           </h3>
-          <p className="text-[11px] font-mono text-slate-500">{subtitle}</p>
+          <p className="text-[11px] font-mono text-[var(--text-muted)]">{subtitle}</p>
         </div>
 
         {/* Layer Controls */}
@@ -490,7 +490,7 @@ export function UnifiedTacticalMap({
 
       {/* Loading/Error States */}
       {Object.values(layerLoading).some(loading => loading) && (
-        <div className="text-center p-4 text-xs font-mono text-slate-500">
+        <div className="text-center p-4 text-xs font-mono text-[var(--text-muted)]">
           Loading tactical map layers...
         </div>
       )}
@@ -512,7 +512,7 @@ export function UnifiedTacticalMap({
       <div
         ref={mapRef}
         style={{ height, width: "100%" }}
-        className="rounded-xl border border-slate-200 shadow-inner"
+        className="rounded-xl border border-[var(--border)] shadow-inner"
       />
     </Card>
   );

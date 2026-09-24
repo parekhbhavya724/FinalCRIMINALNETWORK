@@ -251,14 +251,14 @@ export default function GangsPage() {
                     <strong className="text-amber-400 truncate block text-xs">{gang.ring_leader}</strong>
                   </div>
                   <div className="text-right">
-                    <span className="text-[10px] text-slate-500 block">Agg. Threat</span>
+                    <span className="text-[10px] text-[var(--text-muted)] block">Agg. Threat</span>
                     <strong className="text-red-400 text-sm">{gang.aggregate_threat_score.toFixed(1)}/100</strong>
                   </div>
                 </div>
 
                 {/* Member Roster Tags */}
                 <div className="font-mono text-xs space-y-1">
-                  <span className="text-[10px] text-slate-500 uppercase tracking-widest block">Roster Entities</span>
+                  <span className="text-[10px] text-[var(--text-muted)] uppercase tracking-widest block">Roster Entities</span>
                   <div className="flex flex-wrap gap-1">
                     {gang.members.slice(0, 5).map((m, idx) => (
                       <span key={idx} className="px-2 py-0.5 bg-slate-800 border border-slate-700 rounded text-[10px] text-slate-300">
@@ -266,7 +266,7 @@ export default function GangsPage() {
                       </span>
                     ))}
                     {gang.members.length > 5 && (
-                      <span className="px-2 py-0.5 bg-slate-800/60 rounded text-[10px] text-slate-500">
+                      <span className="px-2 py-0.5 bg-slate-800/60 rounded text-[10px] text-[var(--text-muted)]">
                         +{gang.members.length - 5} more
                       </span>
                     )}
@@ -300,7 +300,7 @@ export default function GangsPage() {
                     )}
                   </div>
 
-                  <span className="text-[10px] text-slate-500">Detected {gang.date_first_detected}</span>
+                  <span className="text-[10px] text-[var(--text-muted)]">Detected {gang.date_first_detected}</span>
                 </div>
 
                 {/* Inline Rename Form */}

@@ -304,7 +304,7 @@ export function NetworkGraph({
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 placeholder="Search suspect, shell company or PAN ID..."
-                className="w-full bg-slate-50 border border-slate-300 rounded-lg pl-9 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 font-mono shadow-sm focus:outline-none focus:ring-1 focus:ring-slate-900"
+                className="w-full bg-[var(--surface-2)] border border-[var(--border)] rounded-lg pl-9 pr-3 py-1.5 text-xs text-[var(--text)] placeholder-slate-400 font-mono shadow-sm focus:outline-none focus:ring-1 focus:ring-slate-900"
               />
             </div>
             <Button size="sm" type="submit" className="text-xs font-mono whitespace-nowrap">
@@ -327,8 +327,8 @@ export function NetworkGraph({
 
           {/* Layout & Filter Controls */}
           <div className="flex flex-wrap items-center gap-2">
-            <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-lg border border-slate-200 text-xs font-mono">
-              <span className="text-slate-500 px-2 font-medium">Layout:</span>
+            <div className="flex items-center gap-1 bg-[var(--surface-2)] p-1 rounded-lg border border-[var(--border)] text-xs font-mono">
+              <span className="text-[var(--text-muted)] px-2 font-medium">Layout:</span>
               {(['force-directed', 'hierarchical', 'circular'] as const).map((mode) => (
                 <button
                   key={mode}
@@ -336,7 +336,7 @@ export function NetworkGraph({
                   className={`px-2.5 py-1 rounded transition-colors uppercase text-[10px] font-bold ${
                     layoutType === mode
                       ? 'bg-slate-900 text-white shadow-sm'
-                      : 'text-slate-600 hover:text-slate-900'
+                      : 'text-[var(--text-muted)] hover:text-[var(--text)]'
                   }`}
                 >
                   {mode.replace('-directed', '')}
@@ -344,9 +344,9 @@ export function NetworkGraph({
               ))}
             </div>
 
-            <div className="flex items-center gap-2 text-xs font-mono bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200">
-              <span className="text-slate-600 font-medium">Hops:</span>
-              <span className="font-bold text-slate-900">{depth}</span>
+            <div className="flex items-center gap-2 text-xs font-mono bg-[var(--surface-2)] px-3 py-1.5 rounded-lg border border-[var(--border)]">
+              <span className="text-[var(--text-muted)] font-medium">Hops:</span>
+              <span className="font-bold text-[var(--text)]">{depth}</span>
               <input
                 type="range"
                 min="1"
@@ -373,7 +373,7 @@ export function NetworkGraph({
         {/* Relationship Type Filters */}
         <div className="mt-3 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-slate-500 font-medium mr-1">Filter Edges:</span>
+            <span className="text-[var(--text-muted)] font-medium mr-1">Filter Edges:</span>
             {[
               { id: 'financial', label: 'Financial Txns', color: 'bg-blue-500' },
               { id: 'communication', label: 'CDR Intercepts', color: 'bg-orange-500' },
@@ -394,7 +394,7 @@ export function NetworkGraph({
                   className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md border text-[11px] font-medium transition-all ${
                     active
                       ? 'bg-slate-900 text-white border-slate-900'
-                      : 'bg-white text-slate-500 border-slate-200 hover:border-slate-300'
+                      : 'bg-white text-[var(--text-muted)] border-[var(--border)] hover:border-[var(--border)]'
                   }`}
                 >
                   <span className={`w-2 h-2 rounded-full ${color}`} />
@@ -404,9 +404,9 @@ export function NetworkGraph({
             })}
           </div>
 
-          <div className="flex items-center gap-4 text-[11px] text-slate-500">
-            <span>Nodes: <strong className="text-slate-900">{layoutNodes.length}</strong></span>
-            <span>Relationships: <strong className="text-slate-900">{visibleEdges.length}</strong></span>
+          <div className="flex items-center gap-4 text-[11px] text-[var(--text-muted)]">
+            <span>Nodes: <strong className="text-[var(--text)]">{layoutNodes.length}</strong></span>
+            <span>Relationships: <strong className="text-[var(--text)]">{visibleEdges.length}</strong></span>
           </div>
         </div>
       </Card>
@@ -597,9 +597,9 @@ export function NetworkGraph({
           </div>
 
           {/* Map Legend Overlay */}
-          <div className="absolute bottom-3 left-3 bg-[var(--surface-2)]/95 backdrop-blur-sm border border-[var(--border)] rounded-lg p-2.5 text-[10px] font-mono text-slate-900 dark:text-slate-100 space-y-1.5 z-20 shadow-md">
+          <div className="absolute bottom-3 left-3 bg-[var(--surface-2)]/95 backdrop-blur-sm border border-[var(--border)] rounded-lg p-2.5 text-[10px] font-mono text-[var(--text)] dark:text-slate-100 space-y-1.5 z-20 shadow-md">
             <p className="font-extrabold text-slate-950 dark:text-slate-200 uppercase tracking-wider text-[9px]">Risk Classification</p>
-            <div className="flex items-center gap-3 font-bold text-slate-900 dark:text-slate-100">
+            <div className="flex items-center gap-3 font-bold text-[var(--text)] dark:text-slate-100">
               <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-500" /> Critical (80+)</span>
               <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-orange-500" /> High (60–79)</span>
               <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-yellow-500" /> Moderate (40–59)</span>
@@ -613,12 +613,12 @@ export function NetworkGraph({
           {selectedNode ? (
             <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)] p-5 h-full flex flex-col justify-between">
               <div className="space-y-4">
-                <div className="flex items-start justify-between gap-2 border-b border-slate-200 pb-3">
+                <div className="flex items-start justify-between gap-2 border-b border-[var(--border)] pb-3">
                   <div>
-                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider font-semibold">
+                    <span className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-wider font-semibold">
                       Selected Entity
                     </span>
-                    <h4 className="text-sm font-bold font-mono text-slate-900 flex items-center gap-1.5 mt-0.5">
+                    <h4 className="text-sm font-bold font-mono text-[var(--text)] flex items-center gap-1.5 mt-0.5">
                       <User className="w-4 h-4 text-emerald-600 shrink-0" />
                       {selectedNode.label}
                     </h4>
@@ -637,8 +637,8 @@ export function NetworkGraph({
                 </div>
 
                 {/* Score & Key Metrics */}
-                <div className="bg-slate-50 border border-slate-200 rounded-lg p-3 text-center">
-                  <span className="text-[10px] font-mono text-slate-500 uppercase font-semibold">
+                <div className="bg-[var(--surface-2)] border border-[var(--border)] rounded-lg p-3 text-center">
+                  <span className="text-[10px] font-mono text-[var(--text-muted)] uppercase font-semibold">
                     Composite Threat Score
                   </span>
                   <div className="text-2xl font-bold font-mono text-red-600 mt-0.5">
@@ -647,29 +647,29 @@ export function NetworkGraph({
                 </div>
 
                 <div className="space-y-2.5 text-xs font-mono">
-                  <div className="flex justify-between items-center text-slate-600">
+                  <div className="flex justify-between items-center text-[var(--text-muted)]">
                     <span>Phone Record:</span>
-                    <span className="font-bold text-slate-900">{selectedNode.phone || "N/A"}</span>
+                    <span className="font-bold text-[var(--text)]">{selectedNode.phone || "N/A"}</span>
                   </div>
-                  <div className="flex justify-between items-center text-slate-600">
+                  <div className="flex justify-between items-center text-[var(--text-muted)]">
                     <span>Degree Centrality:</span>
-                    <span className="font-bold text-slate-900">
+                    <span className="font-bold text-[var(--text)]">
                       {(selectedNode.degree_centrality || 0).toFixed(3)}
                     </span>
                   </div>
-                  <div className="flex justify-between items-center text-slate-600">
+                  <div className="flex justify-between items-center text-[var(--text-muted)]">
                     <span>Betweenness Hub:</span>
-                    <span className="font-bold text-slate-900">
+                    <span className="font-bold text-[var(--text)]">
                       {(selectedNode.betweenness_centrality || 0).toFixed(3)}
                     </span>
                   </div>
-                  <div className="flex justify-between items-center text-slate-600">
+                  <div className="flex justify-between items-center text-[var(--text-muted)]">
                     <span>Connected Nodes:</span>
-                    <span className="font-bold text-slate-900">
+                    <span className="font-bold text-[var(--text)]">
                       {selectedNode.connected_entities_count || 0} entities
                     </span>
                   </div>
-                  <div className="flex justify-between items-center text-slate-600">
+                  <div className="flex justify-between items-center text-[var(--text-muted)]">
                     <span>Nocturnal Calls:</span>
                     <span className="font-bold text-red-600">
                       {selectedNode.nocturnal_calls_count || 0} calls
@@ -678,8 +678,8 @@ export function NetworkGraph({
                 </div>
 
                 {/* Direct Connections */}
-                <div className="space-y-1.5 pt-2 border-t border-slate-200">
-                  <p className="text-[11px] font-mono font-bold text-slate-800">
+                <div className="space-y-1.5 pt-2 border-t border-[var(--border)]">
+                  <p className="text-[11px] font-mono font-bold text-[var(--text)]">
                     Direct Network Links:
                   </p>
                   <div className="max-h-36 overflow-y-auto space-y-1 pr-1">
@@ -692,12 +692,12 @@ export function NetworkGraph({
                           <div
                             key={idx}
                             onClick={() => otherNode && setSelectedNode(otherNode)}
-                            className="flex items-center justify-between p-1.5 rounded bg-slate-50 hover:bg-slate-100 border border-slate-200 cursor-pointer transition-colors text-[10px] font-mono"
+                            className="flex items-center justify-between p-1.5 rounded bg-[var(--surface-2)] hover:bg-[var(--surface-2)] border border-[var(--border)] cursor-pointer transition-colors text-[10px] font-mono"
                           >
-                            <span className="truncate max-w-[120px] text-slate-800 font-medium">
+                            <span className="truncate max-w-[120px] text-[var(--text)] font-medium">
                               {otherNode?.label || otherId}
                             </span>
-                            <span className="text-slate-500">
+                            <span className="text-[var(--text-muted)]">
                               {e.total_calls} calls
                             </span>
                           </div>
@@ -708,7 +708,7 @@ export function NetworkGraph({
               </div>
 
               {/* Action Button */}
-              <div className="pt-3 border-t border-slate-200 mt-3">
+              <div className="pt-3 border-t border-[var(--border)] mt-3">
                 <Button
                   size="sm"
                   className="w-full text-xs font-mono"
@@ -722,7 +722,7 @@ export function NetworkGraph({
               </div>
             </Card>
           ) : (
-            <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)] p-6 h-full flex flex-col items-center justify-center text-center text-slate-500 text-xs font-mono">
+            <Card className="border-[var(--border)] bg-[var(--surface)] text-[var(--text)] p-6 h-full flex flex-col items-center justify-center text-center text-[var(--text-muted)] text-xs font-mono">
               <User className="w-8 h-8 text-slate-300 mb-2" />
               <p>Click any suspect or company node on the canvas to inspect forensic connections.</p>
             </Card>

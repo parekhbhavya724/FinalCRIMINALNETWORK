@@ -38,7 +38,7 @@ export const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
         ref={ref}
         type="range"
         className={cn(
-          "h-1.5 w-full bg-slate-200 rounded-full cursor-pointer",
+          "h-1.5 w-full bg-[var(--surface-2)] rounded-full cursor-pointer",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900",
           "disabled:cursor-not-allowed disabled:opacity-50",
           className

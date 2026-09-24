@@ -75,7 +75,7 @@ export function Sidebar() {
             {/* Brand Header */}
             <div className="flex items-center justify-between pb-4 mb-4 border-b border-[var(--border)]">
               <Link href="/" className="flex items-center gap-3 group">
-                <div className="w-9 h-9 rounded-lg overflow-hidden flex items-center justify-center shrink-0 bg-slate-900/10 dark:bg-slate-100/10 p-0.5 border border-[var(--border)]">
+                <div className="w-9 h-9 rounded-lg overflow-hidden flex items-center justify-center shrink-0 bg-slate-900/10 dark:bg-[var(--surface-2)]/10 p-0.5 border border-[var(--border)]">
                   <img src="/bp-logo.png" alt="Brihanmumbai Police Emblem" className="w-full h-full object-contain drop-shadow" />
                 </div>
                 {(!isCollapsed || isMobileOpen) && (

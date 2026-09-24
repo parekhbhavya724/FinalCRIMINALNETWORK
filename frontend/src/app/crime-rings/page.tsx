@@ -53,16 +53,16 @@ export default function CrimeRingsPage() {
               <Badge variant={ring.syndicate_id === "RING-01" ? "critical" : "default"}>
                 {ring.syndicate_id}
               </Badge>
-              <span className="text-xs font-mono text-slate-500 font-semibold">{ring.member_count} Members</span>
+              <span className="text-xs font-mono text-[var(--text-muted)] font-semibold">{ring.member_count} Members</span>
             </div>
             <div>
-              <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-semibold">Ring Leader</span>
-              <h4 className="text-base font-bold text-slate-900">{ring.ring_leader}</h4>
-              <p className="text-xs font-mono text-slate-600">{ring.leader_phone}</p>
+              <span className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-widest font-semibold">Ring Leader</span>
+              <h4 className="text-base font-bold text-[var(--text)]">{ring.ring_leader}</h4>
+              <p className="text-xs font-mono text-[var(--text-muted)]">{ring.leader_phone}</p>
             </div>
-            <div className="border-t border-slate-200 pt-2">
-              <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-semibold">Syndicate Roster</span>
-              <p className="text-xs font-sans text-slate-700 mt-1 line-clamp-2">{ring.members.join(", ")}</p>
+            <div className="border-t border-[var(--border)] pt-2">
+              <span className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-widest font-semibold">Syndicate Roster</span>
+              <p className="text-xs font-sans text-[var(--text-muted)] mt-1 line-clamp-2">{ring.members.join(", ")}</p>
             </div>
           </Card>
         ))}

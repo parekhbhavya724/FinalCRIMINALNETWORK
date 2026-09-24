@@ -134,9 +134,9 @@ export default function CriminalHistoryPage() {
       {summary && (
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 font-mono text-xs">
           <Card className="p-3 bg-[var(--surface)] border-[var(--border)] text-[var(--text)] shadow-sm flex flex-col justify-between">
-            <span className="text-[10px] text-slate-500 uppercase font-bold">Total Ingested</span>
+            <span className="text-[10px] text-[var(--text-muted)] uppercase font-bold">Total Ingested</span>
             <div className="flex items-baseline justify-between mt-1">
-              <span className="text-xl font-bold text-slate-900">{summary.total_records}</span>
+              <span className="text-xl font-bold text-[var(--text)]">{summary.total_records}</span>
               <span className="text-[10px] text-slate-400">Records</span>
             </div>
           </Card>
@@ -200,23 +200,23 @@ export default function CriminalHistoryPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Top Repeat Offenders */}
           <Card className="p-4 bg-[var(--surface)] border-[var(--border)] text-[var(--text)] shadow-sm space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-200 pb-2">
-              <h3 className="text-xs font-bold font-mono uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
+            <div className="flex items-center justify-between border-b border-[var(--border)] pb-2">
+              <h3 className="text-xs font-bold font-mono uppercase tracking-wider text-[var(--text)] flex items-center gap-1.5">
                 <AlertTriangle className="w-4 h-4 text-red-600" /> Top Repeat Offenders
               </h3>
-              <span className="text-[10px] font-mono text-slate-500">Ranked by Prior Convictions</span>
+              <span className="text-[10px] font-mono text-[var(--text-muted)]">Ranked by Prior Convictions</span>
             </div>
             <div className="space-y-2 max-h-64 overflow-y-auto pr-1">
               {summary.top_repeat_offenders.slice(0, 5).map((off, idx) => (
                 <div
                   key={idx}
                   onClick={() => setSelectedRecord(off)}
-                  className="p-2.5 bg-slate-50 rounded-lg border border-slate-200 hover:border-slate-400 cursor-pointer transition-all flex items-center justify-between text-xs font-mono"
+                  className="p-2.5 bg-[var(--surface-2)] rounded-lg border border-[var(--border)] hover:border-slate-400 cursor-pointer transition-all flex items-center justify-between text-xs font-mono"
                 >
                   <div className="space-y-0.5">
-                    <p className="font-bold text-slate-900">{off.suspect_name}</p>
-                    <p className="text-[10px] text-slate-500">
-                      Alias: <span className="text-slate-700">{off.known_aliases}</span> · PS: {off.previous_ps_name}
+                    <p className="font-bold text-[var(--text)]">{off.suspect_name}</p>
+                    <p className="text-[10px] text-[var(--text-muted)]">
+                      Alias: <span className="text-[var(--text-muted)]">{off.known_aliases}</span> · PS: {off.previous_ps_name}
                     </p>
                   </div>
                   <div className="text-right">
@@ -232,11 +232,11 @@ export default function CriminalHistoryPage() {
 
           {/* Offence Distribution */}
           <Card className="p-4 bg-[var(--surface)] border-[var(--border)] text-[var(--text)] shadow-sm space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-200 pb-2">
-              <h3 className="text-xs font-bold font-mono uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
-                <Gavel className="w-4 h-4 text-slate-700" /> Prior Offence Breakdown
+            <div className="flex items-center justify-between border-b border-[var(--border)] pb-2">
+              <h3 className="text-xs font-bold font-mono uppercase tracking-wider text-[var(--text)] flex items-center gap-1.5">
+                <Gavel className="w-4 h-4 text-[var(--text-muted)]" /> Prior Offence Breakdown
               </h3>
-              <span className="text-[10px] font-mono text-slate-500">Offence Types</span>
+              <span className="text-[10px] font-mono text-[var(--text-muted)]">Offence Types</span>
             </div>
             <div className="space-y-2 max-h-64 overflow-y-auto pr-1">
               {Object.entries(summary.offence_breakdown)
@@ -246,10 +246,10 @@ export default function CriminalHistoryPage() {
                   return (
                     <div key={idx} className="space-y-1 font-mono text-xs">
                       <div className="flex items-center justify-between">
-                        <span className="text-slate-800 font-semibold">{offence}</span>
-                        <span className="text-slate-500 text-[10px]">{count} cases ({pct}%)</span>
+                        <span className="text-[var(--text)] font-semibold">{offence}</span>
+                        <span className="text-[var(--text-muted)] text-[10px]">{count} cases ({pct}%)</span>
                       </div>
-                      <div className="w-full bg-slate-200 rounded-full h-1.5">
+                      <div className="w-full bg-[var(--surface-2)] rounded-full h-1.5">
                         <div className="bg-blue-600 h-1.5 rounded-full" style={{ width: `${Math.max(5, pct * 2)}%` }} />
                       </div>
                     </div>
@@ -260,11 +260,11 @@ export default function CriminalHistoryPage() {
 
           {/* Police Station Breakdown */}
           <Card className="p-4 bg-[var(--surface)] border-[var(--border)] text-[var(--text)] shadow-sm space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-200 pb-2">
-              <h3 className="text-xs font-bold font-mono uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
-                <Building className="w-4 h-4 text-slate-700" /> Police Station Jurisdiction
+            <div className="flex items-center justify-between border-b border-[var(--border)] pb-2">
+              <h3 className="text-xs font-bold font-mono uppercase tracking-wider text-[var(--text)] flex items-center gap-1.5">
+                <Building className="w-4 h-4 text-[var(--text-muted)]" /> Police Station Jurisdiction
               </h3>
-              <span className="text-[10px] font-mono text-slate-500">Historical Origin</span>
+              <span className="text-[10px] font-mono text-[var(--text-muted)]">Historical Origin</span>
             </div>
             <div className="space-y-2 max-h-64 overflow-y-auto pr-1">
               {Object.entries(summary.police_station_breakdown)
@@ -277,11 +277,11 @@ export default function CriminalHistoryPage() {
                       className={`p-2 rounded border cursor-pointer transition-all flex items-center justify-between font-mono text-xs ${
                         psFilter === ps
                           ? "bg-blue-100 border-blue-400 text-blue-900 font-bold"
-                          : "bg-slate-50 border-slate-200 hover:bg-slate-100 text-slate-700"
+                          : "bg-[var(--surface-2)] border-[var(--border)] hover:bg-[var(--surface-2)] text-[var(--text-muted)]"
                       }`}
                     >
                       <span className="truncate">{ps}</span>
-                      <span className="px-1.5 py-0.5 rounded bg-slate-200 text-slate-800 text-[10px] font-bold shrink-0 ml-2">
+                      <span className="px-1.5 py-0.5 rounded bg-[var(--surface-2)] text-[var(--text)] text-[10px] font-bold shrink-0 ml-2">
                         {count} records
                       </span>
                     </div>
@@ -303,7 +303,7 @@ export default function CriminalHistoryPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by suspect name, alias, UIDB-XXXXXX, FIR, or offence..."
-              className="w-full bg-slate-50 border border-slate-300 rounded-lg pl-9 pr-3 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-800"
+              className="w-full bg-[var(--surface-2)] border border-[var(--border)] rounded-lg pl-9 pr-3 py-2 text-xs text-[var(--text)] placeholder-slate-400 focus:outline-none focus:border-slate-800"
             />
           </div>
 
@@ -316,7 +316,7 @@ export default function CriminalHistoryPage() {
                 className={`px-3 py-1.5 rounded-lg border transition-all text-xs font-bold ${
                   statusFilter.toLowerCase() === st.toLowerCase()
                     ? "bg-slate-900 text-white border-slate-900 shadow"
-                    : "bg-slate-50 border-slate-300 text-slate-700 hover:bg-slate-100"
+                    : "bg-[var(--surface-2)] border-[var(--border)] text-[var(--text-muted)] hover:bg-[var(--surface-2)]"
                 }`}
               >
                 {st}
@@ -326,15 +326,15 @@ export default function CriminalHistoryPage() {
         </div>
 
         {/* Second Row: Police Station dropdown, Min Convictions, Sort */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-200 font-mono text-xs">
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[var(--border)] font-mono text-xs">
           <div className="flex items-center gap-4 flex-wrap">
             {/* Crime Category Dropdown */}
             <div className="flex items-center gap-2">
-              <span className="text-slate-500 text-[11px] uppercase font-bold">Category:</span>
+              <span className="text-[var(--text-muted)] text-[11px] uppercase font-bold">Category:</span>
               <select
                 value={categoryFilter}
                 onChange={(e) => setCategoryFilter(e.target.value)}
-                className="bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1 text-xs text-slate-800 focus:outline-none font-bold"
+                className="bg-[var(--surface-2)] border border-[var(--border)] rounded-lg px-2.5 py-1 text-xs text-[var(--text)] focus:outline-none font-bold"
               >
                 <option value="ALL">All Crime Categories</option>
                 <option value="ORGANIZED_CRIME">Organized Crime & MCOCA</option>
@@ -349,11 +349,11 @@ export default function CriminalHistoryPage() {
 
             {/* Police Station Dropdown */}
             <div className="flex items-center gap-2">
-              <span className="text-slate-500 text-[11px] uppercase font-bold">Police Station:</span>
+              <span className="text-[var(--text-muted)] text-[11px] uppercase font-bold">Police Station:</span>
               <select
                 value={psFilter}
                 onChange={(e) => setPsFilter(e.target.value)}
-                className="bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1 text-xs text-slate-800 focus:outline-none"
+                className="bg-[var(--surface-2)] border border-[var(--border)] rounded-lg px-2.5 py-1 text-xs text-[var(--text)] focus:outline-none"
               >
                 <option value="ALL">All Police Stations</option>
                 {uniquePoliceStations.map((ps) => (
@@ -364,7 +364,7 @@ export default function CriminalHistoryPage() {
 
             {/* Min Convictions Slider */}
             <div className="flex items-center gap-2">
-              <span className="text-slate-500 text-[11px] uppercase font-bold">Min Priors:</span>
+              <span className="text-[var(--text-muted)] text-[11px] uppercase font-bold">Min Priors:</span>
               <input
                 type="range"
                 min="0"
@@ -373,7 +373,7 @@ export default function CriminalHistoryPage() {
                 onChange={(e) => setMinConvictions(parseInt(e.target.value))}
                 className="w-20 h-1.5 bg-slate-300 rounded-lg appearance-none cursor-pointer accent-slate-900"
               />
-              <span className="px-1.5 py-0.5 rounded bg-slate-200 text-slate-900 font-bold text-[10px]">
+              <span className="px-1.5 py-0.5 rounded bg-[var(--surface-2)] text-[var(--text)] font-bold text-[10px]">
                 {minConvictions}+
               </span>
             </div>
@@ -381,12 +381,12 @@ export default function CriminalHistoryPage() {
 
           {/* Sort selector */}
           <div className="flex items-center gap-2">
-            <ArrowUpDown className="w-3.5 h-3.5 text-slate-500" />
-            <span className="text-slate-500 text-[11px] uppercase font-bold">Sort By:</span>
+            <ArrowUpDown className="w-3.5 h-3.5 text-[var(--text-muted)]" />
+            <span className="text-[var(--text-muted)] text-[11px] uppercase font-bold">Sort By:</span>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              className="bg-slate-50 border border-slate-300 rounded-lg px-2 py-1 text-xs text-slate-800 focus:outline-none font-bold"
+              className="bg-[var(--surface-2)] border border-[var(--border)] rounded-lg px-2 py-1 text-xs text-[var(--text)] focus:outline-none font-bold"
             >
               <option value="convictions">Prior Convictions (High to Low)</option>
               <option value="name">Suspect Name (A-Z)</option>
@@ -398,16 +398,16 @@ export default function CriminalHistoryPage() {
 
       {/* ── Records Table ── */}
       <Card className="bg-[var(--surface)] border-[var(--border)] text-[var(--text)] shadow-sm overflow-hidden">
-        <div className="p-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between font-mono text-xs">
-          <span className="font-bold text-slate-800 uppercase tracking-wider">
+        <div className="p-3 bg-[var(--surface-2)] border-b border-[var(--border)] flex items-center justify-between font-mono text-xs">
+          <span className="font-bold text-[var(--text)] uppercase tracking-wider">
             Criminal History Registry ({filteredRecords.length} records matching)
           </span>
-          <span className="text-slate-500 text-[11px]">Click any row for full judicial & MO profile</span>
+          <span className="text-[var(--text-muted)] text-[11px]">Click any row for full judicial & MO profile</span>
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full text-left font-mono text-xs">
-            <thead className="bg-slate-100 text-slate-600 uppercase text-[10px] tracking-wider border-b border-slate-200">
+            <thead className="bg-[var(--surface-2)] text-[var(--text-muted)] uppercase text-[10px] tracking-wider border-b border-[var(--border)]">
               <tr>
                 <th className="py-3 px-4">UIDB / MOB No.</th>
                 <th className="py-3 px-4">Suspect Name & Underworld Aliases</th>
@@ -419,11 +419,11 @@ export default function CriminalHistoryPage() {
                 <th className="py-3 px-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-200">
+            <tbody className="divide-y divide-[var(--border)]">
               {filteredRecords.length > 0 ? (
                 filteredRecords.map((r, idx) => {
                   const statusLow = r.case_status.toLowerCase();
-                  let statusCls = "bg-slate-100 text-slate-800 border-slate-300";
+                  let statusCls = "bg-[var(--surface-2)] text-[var(--text)] border-[var(--border)]";
                   if (statusLow.includes("trial") || statusLow.includes("custody")) {
                     statusCls = "bg-amber-100 text-amber-800 border-amber-300";
                   } else if (statusLow.includes("bail")) {
@@ -441,24 +441,24 @@ export default function CriminalHistoryPage() {
                     CYBER_FINANCIAL_FRAUD: "bg-cyan-100 text-cyan-700 border-cyan-300",
                     CONTRACT_KILLING_AND_ASSAULT: "bg-rose-100 text-rose-700 border-rose-300",
                     EXTORTION_AND_THREAT: "bg-amber-100 text-amber-700 border-amber-300",
-                    CLEAN: "bg-slate-100 text-slate-600 border-slate-300"
+                    CLEAN: "bg-[var(--surface-2)] text-[var(--text-muted)] border-[var(--border)]"
                   };
-                  const catBadge = categoryColors[r.crime_category || "ORGANIZED_CRIME"] || "bg-slate-100 text-slate-700";
+                  const catBadge = categoryColors[r.crime_category || "ORGANIZED_CRIME"] || "bg-[var(--surface-2)] text-[var(--text-muted)]";
 
                   return (
                     <tr
                       key={r.uidb_number + idx}
                       onClick={() => setSelectedRecord(r)}
-                      className="hover:bg-slate-50 cursor-pointer transition-colors"
+                      className="hover:bg-[var(--surface-2)] cursor-pointer transition-colors"
                     >
-                      <td className="py-3 px-4 font-bold text-slate-800">
+                      <td className="py-3 px-4 font-bold text-[var(--text)]">
                         <div>{r.uidb_number}</div>
                         {r.mob_number && r.mob_number !== "N/A" && (
                           <div className="text-[9px] text-slate-400 font-normal">{r.mob_number}</div>
                         )}
                       </td>
                       <td className="py-3 px-4">
-                        <div className="font-bold text-slate-900">{r.suspect_name}</div>
+                        <div className="font-bold text-[var(--text)]">{r.suspect_name}</div>
                         {r.known_aliases && r.known_aliases !== "N/A" && (
                           <div className="text-[10px] text-red-600 font-medium italic">a.k.a. {r.known_aliases}</div>
                         )}
@@ -470,7 +470,7 @@ export default function CriminalHistoryPage() {
                               ? "bg-red-600 text-white"
                               : r.prior_convictions_count > 0
                               ? "bg-amber-500 text-white"
-                              : "bg-slate-200 text-slate-700"
+                              : "bg-[var(--surface-2)] text-[var(--text-muted)]"
                           }`}
                         >
                           {r.prior_convictions_count}
@@ -484,7 +484,7 @@ export default function CriminalHistoryPage() {
                             </span>
                           )}
                         </div>
-                        <div className="font-semibold text-slate-800">
+                        <div className="font-semibold text-[var(--text)]">
                           <ExpandableText text={r.previous_offence} />
                         </div>
                         {r.act_and_sections && r.act_and_sections !== "N/A" && (
@@ -494,19 +494,19 @@ export default function CriminalHistoryPage() {
                           </div>
                         )}
                       </td>
-                      <td className="py-3 px-4 text-slate-700">
+                      <td className="py-3 px-4 text-[var(--text-muted)]">
                         <div className="font-medium">{r.previous_ps_name}</div>
                         {r.fir_number && r.fir_number !== "N/A" && (
                           <div className="text-[10px] text-slate-400">FIR #{r.fir_number}</div>
                         )}
                       </td>
-                      <td className="py-3 px-4 text-center text-slate-600">{r.case_year}</td>
+                      <td className="py-3 px-4 text-center text-[var(--text-muted)]">{r.case_year}</td>
                       <td className="py-3 px-4 text-center">
                         <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-bold border ${statusCls}`}>
                           {r.case_status}
                         </span>
                         {r.custody_location && r.custody_location !== "N/A" && (
-                          <div className="text-[9px] text-slate-500 mt-0.5">{r.custody_location}</div>
+                          <div className="text-[9px] text-[var(--text-muted)] mt-0.5">{r.custody_location}</div>
                         )}
                       </td>
                       <td className="py-3 px-4 text-right">
@@ -523,7 +523,7 @@ export default function CriminalHistoryPage() {
                 })
               ) : (
                 <tr>
-                  <td colSpan={8} className="p-8 text-center text-slate-500 font-mono">
+                  <td colSpan={8} className="p-8 text-center text-[var(--text-muted)] font-mono">
                     No criminal records found matching your filters.
                   </td>
                 </tr>
@@ -537,19 +537,19 @@ export default function CriminalHistoryPage() {
       {selectedRecord && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-4 font-mono max-h-[90vh] overflow-y-auto">
-            <div className="flex items-start justify-between border-b border-slate-200 pb-3">
+            <div className="flex items-start justify-between border-b border-[var(--border)] pb-3">
               <div>
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] font-bold text-blue-700 uppercase bg-blue-100 px-2 py-0.5 rounded">
                     {selectedRecord.uidb_number}
                   </span>
                   {selectedRecord.mob_number && selectedRecord.mob_number !== "N/A" && (
-                    <span className="text-[10px] font-bold text-slate-700 uppercase bg-slate-100 px-2 py-0.5 rounded">
+                    <span className="text-[10px] font-bold text-[var(--text-muted)] uppercase bg-[var(--surface-2)] px-2 py-0.5 rounded">
                       {selectedRecord.mob_number}
                     </span>
                   )}
                 </div>
-                <h2 className="text-xl font-bold text-slate-900 mt-1">{selectedRecord.suspect_name}</h2>
+                <h2 className="text-xl font-bold text-[var(--text)] mt-1">{selectedRecord.suspect_name}</h2>
                 {selectedRecord.known_aliases && selectedRecord.known_aliases !== "N/A" && (
                   <p className="text-xs text-red-600 font-semibold mt-0.5">
                     Underworld Aliases: {selectedRecord.known_aliases}
@@ -558,29 +558,29 @@ export default function CriminalHistoryPage() {
               </div>
               <button
                 onClick={() => setSelectedRecord(null)}
-                className="text-slate-400 hover:text-slate-700 text-lg font-bold px-2"
+                className="text-slate-400 hover:text-[var(--text-muted)] text-lg font-bold px-2"
               >
                 ✕
               </button>
             </div>
 
             <div className="grid grid-cols-2 gap-3 text-xs">
-              <div className="p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
-                <span className="text-[10px] text-slate-500 uppercase font-bold">Prior Convictions</span>
-                <p className="text-base font-bold text-slate-900">{selectedRecord.prior_convictions_count} Recorded Charges</p>
+              <div className="p-3 bg-[var(--surface-2)] rounded-lg border border-[var(--border)] space-y-1">
+                <span className="text-[10px] text-[var(--text-muted)] uppercase font-bold">Prior Convictions</span>
+                <p className="text-base font-bold text-[var(--text)]">{selectedRecord.prior_convictions_count} Recorded Charges</p>
               </div>
 
-              <div className="p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
-                <span className="text-[10px] text-slate-500 uppercase font-bold">Judicial & Custody Status</span>
-                <p className="text-sm font-bold text-slate-900">{selectedRecord.case_status}</p>
+              <div className="p-3 bg-[var(--surface-2)] rounded-lg border border-[var(--border)] space-y-1">
+                <span className="text-[10px] text-[var(--text-muted)] uppercase font-bold">Judicial & Custody Status</span>
+                <p className="text-sm font-bold text-[var(--text)]">{selectedRecord.case_status}</p>
                 {selectedRecord.custody_location && (
-                  <p className="text-[10px] text-slate-500 font-medium">Location: {selectedRecord.custody_location}</p>
+                  <p className="text-[10px] text-[var(--text-muted)] font-medium">Location: {selectedRecord.custody_location}</p>
                 )}
               </div>
 
-              <div className="col-span-2 p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
-                <span className="text-[10px] text-slate-500 uppercase font-bold">Previous Offence</span>
-                <p className="font-bold text-slate-900">{selectedRecord.previous_offence}</p>
+              <div className="col-span-2 p-3 bg-[var(--surface-2)] rounded-lg border border-[var(--border)] space-y-1">
+                <span className="text-[10px] text-[var(--text-muted)] uppercase font-bold">Previous Offence</span>
+                <p className="font-bold text-[var(--text)]">{selectedRecord.previous_offence}</p>
                 {selectedRecord.act_and_sections && selectedRecord.act_and_sections !== "N/A" && (
                   <p className="text-[11px] text-indigo-800 font-bold bg-indigo-50 p-1.5 rounded border border-indigo-200 mt-1">
                     Statutes Charged: {selectedRecord.act_and_sections}
@@ -597,22 +597,22 @@ export default function CriminalHistoryPage() {
                 </div>
               )}
 
-              <div className="p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
-                <span className="text-[10px] text-slate-500 uppercase font-bold">Police Station Jurisdiction</span>
-                <p className="font-semibold text-slate-900">{selectedRecord.previous_ps_name}</p>
-                <p className="text-[10px] text-slate-500">Case Incident Year: {selectedRecord.case_year}</p>
+              <div className="p-3 bg-[var(--surface-2)] rounded-lg border border-[var(--border)] space-y-1">
+                <span className="text-[10px] text-[var(--text-muted)] uppercase font-bold">Police Station Jurisdiction</span>
+                <p className="font-semibold text-[var(--text)]">{selectedRecord.previous_ps_name}</p>
+                <p className="text-[10px] text-[var(--text-muted)]">Case Incident Year: {selectedRecord.case_year}</p>
               </div>
 
-              <div className="p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
-                <span className="text-[10px] text-slate-500 uppercase font-bold">Crime Syndicate Classification</span>
-                <p className="font-bold text-slate-900 uppercase">
+              <div className="p-3 bg-[var(--surface-2)] rounded-lg border border-[var(--border)] space-y-1">
+                <span className="text-[10px] text-[var(--text-muted)] uppercase font-bold">Crime Syndicate Classification</span>
+                <p className="font-bold text-[var(--text)] uppercase">
                   {(selectedRecord.crime_category || "ORGANIZED_CRIME").replace(/_/g, " ")}
                 </p>
-                <p className="text-[10px] text-slate-500">Linked FIR: #{selectedRecord.fir_number}</p>
+                <p className="text-[10px] text-[var(--text-muted)]">Linked FIR: #{selectedRecord.fir_number}</p>
               </div>
             </div>
 
-            <div className="flex items-center justify-between pt-3 border-t border-slate-200">
+            <div className="flex items-center justify-between pt-3 border-t border-[var(--border)]">
               <Link href={`/threat`}>
                 <Button variant="outline" size="sm" className="text-xs font-mono">
                   Threat Index

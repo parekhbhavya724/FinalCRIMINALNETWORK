@@ -375,23 +375,23 @@ export default function FinancialIntelligencePage() {
 
                   <div className="space-y-1.5 text-xs font-mono bg-slate-950 p-2.5 rounded border border-slate-800">
                     <div className="flex justify-between text-slate-300">
-                      <span className="text-slate-500">True Beneficial Owner:</span>
+                      <span className="text-[var(--text-muted)]">True Beneficial Owner:</span>
                       <span className="text-rose-400 font-bold">{owner?.entity_name || "Singhania Syndicate"}</span>
                     </div>
                     <div className="flex justify-between text-slate-300">
-                      <span className="text-slate-500">Nominee/Proxy Director:</span>
+                      <span className="text-[var(--text-muted)]">Nominee/Proxy Director:</span>
                       <span className="text-amber-400 font-bold">{nominee?.entity_name || "Proxy Director"}</span>
                     </div>
                     <div className="flex justify-between text-slate-300">
-                      <span className="text-slate-500">Declared Annual Income:</span>
+                      <span className="text-[var(--text-muted)]">Declared Annual Income:</span>
                       <span className="text-emerald-400 font-bold">{formatINR(parseFloat(sh.declared_income_inr) || 0)}</span>
                     </div>
                     <div className="flex justify-between text-slate-300">
-                      <span className="text-slate-500">Associated Bank & IFSC:</span>
+                      <span className="text-[var(--text-muted)]">Associated Bank & IFSC:</span>
                       <span className="text-slate-200">{sh.associated_bank} ({sh.associated_ifsc})</span>
                     </div>
                     <div className="flex justify-between text-slate-300">
-                      <span className="text-slate-500">Virtual IP Binding:</span>
+                      <span className="text-[var(--text-muted)]">Virtual IP Binding:</span>
                       <span className="text-cyan-400">{sh.associated_ip || "TOR Exit Relay"}</span>
                     </div>
                   </div>
@@ -509,15 +509,15 @@ export default function FinancialIntelligencePage() {
 
                 <div className="space-y-1.5 text-xs font-mono bg-slate-950 p-2.5 rounded border border-slate-800">
                   <div className="flex justify-between text-slate-300">
-                    <span className="text-slate-500">Estimated Market Value:</span>
+                    <span className="text-[var(--text-muted)]">Estimated Market Value:</span>
                     <span className="text-emerald-400 font-bold text-sm">{formatINR(parseFloat(ast.estimated_asset_value_inr) || 0)}</span>
                   </div>
                   <div className="flex justify-between text-slate-300">
-                    <span className="text-slate-500">Beneficial Owner:</span>
+                    <span className="text-[var(--text-muted)]">Beneficial Owner:</span>
                     <span className="text-rose-400 font-bold">{ast.controlling_person_id || "Singhania Syndicate"}</span>
                   </div>
                   <div className="flex justify-between text-slate-300">
-                    <span className="text-slate-500">Executing Agency:</span>
+                    <span className="text-[var(--text-muted)]">Executing Agency:</span>
                     <span className="text-purple-400 font-bold">{ast.primary_agency || "Enforcement Directorate"}</span>
                   </div>
                 </div>
@@ -527,7 +527,7 @@ export default function FinancialIntelligencePage() {
                 </p>
 
                 <div className="pt-2 border-t border-slate-800 flex justify-between items-center">
-                  <span className="text-[10px] font-mono text-slate-500">Section 5(1) Notice Issued</span>
+                  <span className="text-[10px] font-mono text-[var(--text-muted)]">Section 5(1) Notice Issued</span>
                   <Button
                     size="sm"
                     variant="outline"
@@ -575,15 +575,15 @@ export default function FinancialIntelligencePage() {
 
                 <div className="space-y-1.5 text-xs font-mono bg-slate-950 p-2.5 rounded border border-slate-800">
                   <div className="flex justify-between text-slate-300">
-                    <span className="text-slate-500">Active Token Code:</span>
+                    <span className="text-[var(--text-muted)]">Active Token Code:</span>
                     <span className="text-amber-400 font-bold">{h.associated_account_no}</span>
                   </div>
                   <div className="flex justify-between text-slate-300">
-                    <span className="text-slate-500">Primary Hub:</span>
+                    <span className="text-[var(--text-muted)]">Primary Hub:</span>
                     <span className="text-slate-200">{h.registered_address}</span>
                   </div>
                   <div className="flex justify-between text-slate-300">
-                    <span className="text-slate-500">Seized Gold Bullion Value:</span>
+                    <span className="text-[var(--text-muted)]">Seized Gold Bullion Value:</span>
                     <span className="text-emerald-400 font-bold">{formatINR(parseFloat(h.estimated_asset_value_inr) || 0)}</span>
                   </div>
                 </div>
@@ -688,7 +688,7 @@ export default function FinancialIntelligencePage() {
                       {p.hops && p.hops.length > 0 && (
                         <div className="overflow-x-auto mt-2">
                           <table className="w-full text-left text-[11px] font-mono text-slate-300">
-                            <thead className="text-slate-500 border-b border-slate-800">
+                            <thead className="text-[var(--text-muted)] border-b border-slate-800">
                               <tr>
                                 <th className="py-1">Hop</th>
                                 <th className="py-1">From Node</th>
@@ -774,19 +774,19 @@ export default function FinancialIntelligencePage() {
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-900/60 p-3 rounded border border-slate-800">
                   <div>
-                    <span className="text-[10px] text-slate-500 uppercase">Certificate Ref ID</span>
+                    <span className="text-[10px] text-[var(--text-muted)] uppercase">Certificate Ref ID</span>
                     <p className="font-bold text-slate-200">{certData.certificate_id || `CERT-BSA-2026-${certEntityId}`}</p>
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-500 uppercase">Timestamp (IST)</span>
+                    <span className="text-[10px] text-[var(--text-muted)] uppercase">Timestamp (IST)</span>
                     <p className="font-bold text-slate-200">{certData.timestamp || new Date().toISOString().slice(0, 19)}</p>
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-500 uppercase">Target Entity</span>
+                    <span className="text-[10px] text-[var(--text-muted)] uppercase">Target Entity</span>
                     <p className="font-bold text-cyan-400">{certData.entity_name || certEntityId}</p>
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-500 uppercase">Tamper Status</span>
+                    <span className="text-[10px] text-[var(--text-muted)] uppercase">Tamper Status</span>
                     <p className="font-bold text-emerald-400 flex items-center gap-1">
                       <CheckCircle className="w-3.5 h-3.5" /> SHA-256 VERIFIED
                     </p>
@@ -803,7 +803,7 @@ export default function FinancialIntelligencePage() {
                 </div>
 
                 <div className="p-3 bg-slate-900 border border-slate-800 rounded font-mono text-[11px] break-all">
-                  <span className="text-slate-500 block mb-0.5 text-[10px] uppercase">SHA-256 Cryptographic Evidence Seal:</span>
+                  <span className="text-[var(--text-muted)] block mb-0.5 text-[10px] uppercase">SHA-256 Cryptographic Evidence Seal:</span>
                   <code className="text-emerald-400">{certData.sha256_hash || "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}</code>
                 </div>
               </div>

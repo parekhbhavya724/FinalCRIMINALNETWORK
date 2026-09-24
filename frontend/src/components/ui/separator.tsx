@@ -6,7 +6,7 @@ export const Separator = React.forwardRef<HTMLHRElement, React.HTMLAttributes<HT
     <hr
       ref={ref}
       className={cn(
-        "flex h-0.5 flex-1 bg-slate-200 dark:bg-slate-600",
+        "flex h-0.5 flex-1 bg-[var(--surface-2)] dark:bg-slate-600",
         className
       )}
       {...props}

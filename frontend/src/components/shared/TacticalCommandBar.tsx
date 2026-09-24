@@ -132,7 +132,7 @@ export function TacticalCommandBar() {
           {theme === "dark" ? (
             <Sun className="w-4 h-4 text-amber-400" />
           ) : (
-            <Moon className="w-4 h-4 text-slate-700" />
+            <Moon className="w-4 h-4 text-[var(--text-muted)]" />
           )}
         </button>
 

@@ -117,14 +117,14 @@ export function LeafletMapView({
   }
 
   return (
-    <Card className="space-y-3 border-slate-300 bg-white">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
+    <Card className="space-y-3 border-[var(--border)] bg-white">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border)] pb-3">
         <div>
-          <h3 className="text-sm font-bold font-mono text-slate-900 flex items-center gap-2">
+          <h3 className="text-sm font-bold font-mono text-[var(--text)] flex items-center gap-2">
             <MapPin className="w-4 h-4 text-emerald-600" />
             {title} ({points.length} GPS Markers)
           </h3>
-          <p className="text-[11px] font-mono text-slate-500">{subtitle}</p>
+          <p className="text-[11px] font-mono text-[var(--text-muted)]">{subtitle}</p>
         </div>
 
         {/* Filter Buttons */}
@@ -137,7 +137,7 @@ export function LeafletMapView({
               className={`px-2 py-1 rounded text-[10px] font-mono font-semibold transition-colors ${
                 activeCategory === cat
                   ? "bg-slate-900 text-white shadow-sm"
-                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  : "bg-[var(--surface-2)] text-[var(--text-muted)] hover:bg-[var(--surface-2)]"
               }`}
             >
               {cat}
@@ -150,7 +150,7 @@ export function LeafletMapView({
       <div
         ref={mapRef}
         style={{ height, width: "100%" }}
-        className="rounded-xl border border-slate-200 shadow-inner z-0 overflow-hidden"
+        className="rounded-xl border border-[var(--border)] shadow-inner z-0 overflow-hidden"
       />
     </Card>
   );

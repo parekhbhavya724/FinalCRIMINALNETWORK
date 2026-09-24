@@ -967,11 +967,11 @@ export default function CDRNetworkPage() {
 
               {/* Filter Syndicate Dropdown */}
               <div className="space-y-1">
-                <label className="block text-xs font-mono text-slate-900 dark:text-slate-200 font-bold uppercase tracking-wider">FILTER SYNDICATE</label>
+                <label className="block text-xs font-mono text-[var(--text)] dark:text-slate-200 font-bold uppercase tracking-wider">FILTER SYNDICATE</label>
                 <select
                   value={syndicateFilter}
                   onChange={(e) => setSyndicateFilter(e.target.value)}
-                  className="w-full bg-[var(--surface-2)] border border-[var(--border)] rounded-lg px-3 py-2 text-xs text-slate-900 dark:text-slate-100 font-mono font-bold focus:border-blue-500 focus:outline-none"
+                  className="w-full bg-[var(--surface-2)] border border-[var(--border)] rounded-lg px-3 py-2 text-xs text-[var(--text)] dark:text-slate-100 font-mono font-bold focus:border-blue-500 focus:outline-none"
                 >
                   <option value="ALL">All Syndicates (Alpha, Beta, Gamma, Delta)</option>
                   <option value="NET_ALPHA">NET_ALPHA (Hawala / Org)</option>
@@ -983,7 +983,7 @@ export default function CDRNetworkPage() {
 
               {/* Filter Gang Dropdown displaying Gang 1, Gang 2, etc. */}
               <div className="space-y-1">
-                <label className="block text-xs font-mono text-slate-900 dark:text-slate-200 font-bold uppercase tracking-wider">FILTER DETECTED GANG</label>
+                <label className="block text-xs font-mono text-[var(--text)] dark:text-slate-200 font-bold uppercase tracking-wider">FILTER DETECTED GANG</label>
                 <select
                   value={gangFilter}
                   onChange={(e) => setGangFilter(e.target.value)}
@@ -1000,11 +1000,11 @@ export default function CDRNetworkPage() {
 
               {/* Filter Role Dropdown */}
               <div className="space-y-1">
-                <label className="block text-xs font-mono text-slate-900 dark:text-slate-200 font-bold uppercase tracking-wider">FILTER ROLE</label>
+                <label className="block text-xs font-mono text-[var(--text)] dark:text-slate-200 font-bold uppercase tracking-wider">FILTER ROLE</label>
                 <select
                   value={roleFilter}
                   onChange={(e) => setRoleFilter(e.target.value)}
-                  className="w-full bg-[var(--surface-2)] border border-[var(--border)] rounded-lg px-3 py-2 text-xs text-slate-900 dark:text-slate-100 font-mono font-bold focus:border-blue-500 focus:outline-none"
+                  className="w-full bg-[var(--surface-2)] border border-[var(--border)] rounded-lg px-3 py-2 text-xs text-[var(--text)] dark:text-slate-100 font-mono font-bold focus:border-blue-500 focus:outline-none"
                 >
                   <option value="ALL">All Detected Roles</option>
                   <option value="KINGPIN">Kingpin / Ring Leader</option>
@@ -1016,24 +1016,24 @@ export default function CDRNetworkPage() {
               <div className="space-y-2">
                 <div className="border-t border-[var(--border)] pt-3">
                   <div className="flex items-center justify-between border-b border-[var(--border)] pb-2">
-                    <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                    <h3 className="text-sm font-bold text-[var(--text)] dark:text-slate-100 flex items-center gap-2">
                       <MapPin className="h-4 w-4 text-blue-500" />
                       Cell Tower Co-Location Explorer
                     </h3>
-                    <span className="text-xs font-mono font-bold text-slate-900 dark:text-slate-300">
+                    <span className="text-xs font-mono font-bold text-[var(--text)] dark:text-slate-300">
                       {timeWindow} min window
                     </span>
                   </div>
                   <div className="space-y-2">
                     <div className="flex items-center">
-                      <span className="text-xs font-mono font-bold text-slate-900 dark:text-slate-300">Time Window:</span>
+                      <span className="text-xs font-mono font-bold text-[var(--text)] dark:text-slate-300">Time Window:</span>
                       <div className="flex space-x-2">
                         <button
                           onClick={() => setTimeWindow(15)}
                           className={`px-3 py-1 rounded text-xs font-mono font-bold ${
                             timeWindow === 15
                               ? "bg-blue-600 text-white shadow"
-                              : "bg-[var(--surface-2)] border border-[var(--border)] text-slate-900 dark:text-slate-200 hover:bg-blue-500/10"
+                              : "bg-[var(--surface-2)] border border-[var(--border)] text-[var(--text)] dark:text-slate-200 hover:bg-blue-500/10"
                           }`}
                         >
                           15 min
@@ -1043,7 +1043,7 @@ export default function CDRNetworkPage() {
                           className={`px-3 py-1 rounded text-xs font-mono font-bold ${
                             timeWindow === 30
                               ? "bg-blue-600 text-white shadow"
-                              : "bg-[var(--surface-2)] border border-[var(--border)] text-slate-900 dark:text-slate-200 hover:bg-blue-500/10"
+                              : "bg-[var(--surface-2)] border border-[var(--border)] text-[var(--text)] dark:text-slate-200 hover:bg-blue-500/10"
                           }`}
                         >
                           30 min
@@ -1053,7 +1053,7 @@ export default function CDRNetworkPage() {
                           className={`px-3 py-1 rounded text-xs font-mono font-bold ${
                             timeWindow === 60
                               ? "bg-blue-600 text-white shadow"
-                              : "bg-[var(--surface-2)] border border-[var(--border)] text-slate-900 dark:text-slate-200 hover:bg-blue-500/10"
+                              : "bg-[var(--surface-2)] border border-[var(--border)] text-[var(--text)] dark:text-slate-200 hover:bg-blue-500/10"
                           }`}
                         >
                           60 min
@@ -1061,7 +1061,7 @@ export default function CDRNetworkPage() {
                       </div>
                     </div>
                     {towerLoading && (
-                      <div className="text-xs text-slate-500 text-center font-bold">
+                      <div className="text-xs text-[var(--text-muted)] text-center font-bold">
                         Loading tower co-location data...
                       </div>
                     )}
@@ -1125,7 +1125,7 @@ export default function CDRNetworkPage() {
                     setQuickPillFilter(null);
                     setRiskLevelFilter("ALL"); // Reset risk level filter too
                   }}
-                  className="w-full bg-[var(--surface-2)] border border-[var(--border)] text-slate-900 dark:text-slate-100 text-xs hover:bg-blue-500/10 font-bold"
+                  className="w-full bg-[var(--surface-2)] border border-[var(--border)] text-[var(--text)] dark:text-slate-100 text-xs hover:bg-blue-500/10 font-bold"
                 >
                   <Maximize2 className="w-3 h-3 mr-1.5" /> Fit View
                 </Button>
@@ -1133,7 +1133,7 @@ export default function CDRNetworkPage() {
                   variant="outline"
                   size="sm"
                   onClick={() => setGraphData({ ...graphData! })}
-                  className="w-full bg-[var(--surface-2)] border border-[var(--border)] text-slate-900 dark:text-slate-100 text-xs hover:bg-blue-500/10 font-bold"
+                  className="w-full bg-[var(--surface-2)] border border-[var(--border)] text-[var(--text)] dark:text-slate-100 text-xs hover:bg-blue-500/10 font-bold"
                 >
                   <RefreshCw className="w-3 h-3 mr-1.5" /> Relayout
                 </Button>
@@ -1719,7 +1719,7 @@ export default function CDRNetworkPage() {
               {/* Cross-Domain Convergence Section */}
               <div className="space-y-4 pt-3 border-t border-slate-800">
                 {convergenceLoading ? (
-                  <div className="text-center p-4 text-xs font-mono text-slate-500">
+                  <div className="text-center p-4 text-xs font-mono text-[var(--text-muted)]">
                     Loading convergence events...
                   </div>
                 ) : convergenceError ? (
@@ -1806,7 +1806,7 @@ export default function CDRNetworkPage() {
                               </div>
                             </div>
                             <div className="mt-2 p-2 bg-slate-900/30 rounded">
-                              <p className="text-xs font-mono text-slate-500">
+                              <p className="text-xs font-mono text-[var(--text-muted)]">
                                 <strong>Narrative:</strong> {event.description}
                               </p>
                             </div>
@@ -1866,7 +1866,7 @@ export default function CDRNetworkPage() {
                         </div>
                       </div>
                     ) : (
-                      <div className="text-center p-4 text-xs font-mono text-slate-500">
+                      <div className="text-center p-4 text-xs font-mono text-[var(--text-muted)]">
                         Select a node to view centrality analysis
                       </div>
                     )}
