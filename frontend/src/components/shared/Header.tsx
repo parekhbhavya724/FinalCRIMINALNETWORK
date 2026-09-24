@@ -20,7 +20,7 @@ export function Header({ title, subtitle }: { title: string; subtitle?: string }
       <div>
         <div className="flex items-center gap-2 mb-1">
           <span className="text-[10px] font-sans font-semibold text-[var(--text-muted)] uppercase tracking-wider bg-[var(--surface-2)] px-2 py-0.5 rounded border border-[var(--border)] flex items-center gap-1.5">
-            <ShieldAlert className="w-3 h-3 text-blue-500" />
+            <img src="/bp-logo.png" alt="BP Emblem" className="w-3.5 h-3.5 object-contain" />
             Brihanmumbai Police // Intel Ops
           </span>
         </div>

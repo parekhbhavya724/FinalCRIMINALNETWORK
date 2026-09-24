@@ -23,9 +23,9 @@
 
 [data-theme="light"],
 .light {
-  --bg: #F8FAFC;
-  --surface: #FFFFFF;
-  --surface-2: #F1F5F9;
+  --bg: #EAEFF5;
+  --surface: #F8FAFC;
+  --surface-2: #E2E8F0;
   --border: #CBD5E1;
   --text: #0F172A;
   --text-muted: #334155;
