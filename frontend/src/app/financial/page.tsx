@@ -308,13 +308,13 @@ export default function FinancialIntelligencePage() {
                   {data?.summaries
                     .filter((s) => s.suspect_name.toLowerCase().includes(searchQuery.toLowerCase()))
                     .map((s, idx) => (
-                      <tr key={idx} className="hover:bg-slate-800/60 transition-colors">
-                        <td className="p-3 font-bold text-slate-100">{s.suspect_name}</td>
-                        <td className="p-3 text-right text-slate-300">{s.total_transactions}</td>
-                        <td className="p-3 text-right font-bold text-emerald-400">{formatINR(s.total_volume_inr)}</td>
-                        <td className="p-3 text-right text-amber-400 font-bold">{formatINR(s.wine_shop_spent_inr || 0)}</td>
+                      <tr key={idx} className="hover:bg-[var(--surface-2)] transition-colors">
+                        <td className="p-3 font-bold text-[var(--text)]">{s.suspect_name}</td>
+                        <td className="p-3 text-right text-[var(--text)]">{s.total_transactions}</td>
+                        <td className="p-3 text-right font-bold text-emerald-600 dark:text-emerald-400">{formatINR(s.total_volume_inr)}</td>
+                        <td className="p-3 text-right text-amber-600 dark:text-amber-400 font-bold">{formatINR(s.wine_shop_spent_inr || 0)}</td>
                         <td className="p-3 text-center">
-                          <span className={`px-2 py-0.5 rounded text-[11px] ${s.failed_withdrawals ? "bg-rose-950 text-rose-300 font-bold" : "text-slate-500"}`}>
+                          <span className={`px-2 py-0.5 rounded text-[11px] ${s.failed_withdrawals ? "bg-rose-500/15 text-rose-600 dark:text-rose-300 font-bold" : "text-[var(--text-muted)]"}`}>
                             {s.failed_withdrawals || 0}
                           </span>
                         </td>
@@ -329,7 +329,7 @@ export default function FinancialIntelligencePage() {
                               setTraceSource(s.suspect_name);
                               setActiveTab("tracer");
                             }}
-                            className="text-xs text-cyan-400 hover:text-cyan-300 hover:underline flex items-center gap-1 justify-end"
+                            className="text-xs text-blue-600 dark:text-cyan-400 hover:text-blue-700 dark:hover:text-cyan-300 hover:underline flex items-center gap-1 justify-end font-semibold"
                           >
                             Trace Flow <ArrowRight className="w-3 h-3" />
                           </button>
