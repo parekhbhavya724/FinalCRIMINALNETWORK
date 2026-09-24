@@ -7,8 +7,8 @@ import { NavProvider } from "@/components/shared/NavContext";
 import { ThemeProvider } from "@/components/shared/ThemeContext";
 
 export const metadata: Metadata = {
-  title: "NetSentinel — Intelligence Operations Platform",
-  description: "Tactical Police Intelligence & Multi-Modal Crime Network Forensics Platform.",
+  title: "Brihanmumbai Police — Tactical Intelligence Platform",
+  description: "Brihanmumbai Police Special Intelligence Division & Crime Network Forensics Platform.",
 };
 
 export default function RootLayout({

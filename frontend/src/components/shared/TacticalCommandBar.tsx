@@ -100,7 +100,7 @@ export function TacticalCommandBar() {
         <div className="flex items-center gap-2 text-xs">
           <div className="flex items-center gap-1.5 text-[var(--text-muted)] font-medium hidden sm:flex">
             <Shield className="w-3.5 h-3.5 text-blue-500" />
-            <span>Intel Ops</span>
+            <span>Brihanmumbai Police</span>
             <ChevronRight className="w-3 h-3 text-[var(--text-muted)] opacity-60" />
           </div>
           <span className="text-[var(--text)] font-medium truncate max-w-[200px] sm:max-w-none">

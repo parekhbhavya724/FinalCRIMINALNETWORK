@@ -75,16 +75,16 @@ export function Sidebar() {
             {/* Brand Header */}
             <div className="flex items-center justify-between pb-4 mb-4 border-b border-[var(--border)]">
               <Link href="/" className="flex items-center gap-3 group">
-                <div className="w-9 h-9 rounded-lg bg-[var(--surface-2)] border border-[var(--border)] flex items-center justify-center text-[var(--text)] font-sans font-bold text-xs group-hover:border-blue-500/50 transition-colors">
-                  SID
+                <div className="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center font-sans font-bold text-xs shadow-md">
+                  BP
                 </div>
                 {(!isCollapsed || isMobileOpen) && (
                   <div className="transition-opacity duration-200">
                     <h1 className="font-bold text-xs text-[var(--text)] uppercase tracking-wider font-sans">
-                      Special Intel Division
+                      BRIHANMUMBAI POLICE
                     </h1>
                     <p className="text-[10px] text-[var(--text-muted)] font-sans">
-                      Intel Ops Mesh
+                      Special Intelligence Division
                     </p>
                   </div>
                 )}
