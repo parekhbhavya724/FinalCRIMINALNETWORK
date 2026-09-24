@@ -148,14 +148,14 @@ export default function GangsPage() {
       </div>
 
       {/* Filter Tabs & Search Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-4 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-xs text-white">
-        <div className="flex items-center gap-1.5 bg-slate-950 p-1 rounded-lg border border-slate-800">
+      <div className="flex flex-wrap items-center justify-between gap-4 bg-[var(--surface)] p-3 rounded-xl border border-[var(--border)] font-mono text-xs text-[var(--text)] shadow-sm">
+        <div className="flex items-center gap-1.5 bg-[var(--surface-2)] p-1 rounded-lg border border-[var(--border)]">
           {(["ALL", "CONFIRMED", "CANDIDATE", "DISMISSED"] as const).map((st) => (
             <button
               key={st}
               onClick={() => setStatusFilter(st)}
               className={`px-3 py-1.5 rounded-md font-bold transition-all ${
-                statusFilter === st ? "bg-purple-600 text-white shadow" : "text-slate-400 hover:text-white"
+                statusFilter === st ? "bg-purple-600 text-white shadow" : "text-[var(--text-muted)] hover:text-[var(--text)]"
               }`}
             >
               {st === "ALL" ? "All Gangs" : st}
@@ -165,13 +165,13 @@ export default function GangsPage() {
 
         <div className="flex items-center gap-3 flex-1 max-w-md">
           <div className="relative flex-1">
-            <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <Search className="w-3.5 h-3.5 text-[var(--text-muted)] absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Filter Gang 1, Gang 2, leader name, or suspect..."
-              className="w-full bg-slate-950 border border-slate-800 rounded-lg pl-9 pr-3 py-1.5 text-xs text-white placeholder-slate-500 font-mono focus:border-purple-500 focus:outline-none"
+              className="w-full bg-[var(--surface-2)] border border-[var(--border)] rounded-lg pl-9 pr-3 py-1.5 text-xs text-[var(--text)] placeholder-[var(--text-muted)] font-mono focus:border-purple-500 focus:outline-none"
             />
           </div>
           <Button
@@ -187,25 +187,25 @@ export default function GangsPage() {
       {/* Manual Tag Entity Modal */}
       {showTagModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 font-mono">
-          <Card className="bg-slate-900 border-slate-800 text-white w-full max-w-md p-6 space-y-4 shadow-2xl">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-              <UserPlus className="w-4 h-4 text-purple-400" /> Ground Truth Gang Override
+          <Card className="bg-[var(--surface)] border-[var(--border)] text-[var(--text)] w-full max-w-md p-6 space-y-4 shadow-2xl">
+            <h3 className="text-sm font-bold text-[var(--text)] uppercase tracking-wider flex items-center gap-2">
+              <UserPlus className="w-4 h-4 text-purple-500" /> Ground Truth Gang Override
             </h3>
-            <p className="text-xs text-slate-400">
-              Manually assign a suspect entity to <strong className="text-purple-300">{selectedGang?.name}</strong> even if not clustered automatically.
+            <p className="text-xs text-[var(--text-muted)]">
+              Manually assign a suspect entity to <strong className="text-purple-600 dark:text-purple-300">{selectedGang?.name}</strong> even if not clustered automatically.
             </p>
             <input
               type="text"
               value={tagEntityName}
               onChange={(e) => setTagEntityName(e.target.value)}
               placeholder="Enter suspect name (e.g. Md. Ranbir Bhalla)..."
-              className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:border-purple-500 focus:outline-none"
+              className="w-full bg-[var(--surface-2)] border border-[var(--border)] rounded-lg px-3 py-2 text-xs text-[var(--text)] focus:border-purple-500 focus:outline-none"
             />
             <div className="flex justify-end gap-2 pt-2">
               <Button variant="outline" size="sm" onClick={() => setShowTagModal(false)}>
                 Cancel
               </Button>
-              <Button size="sm" onClick={handleTagEntity} className="bg-purple-600 hover:bg-purple-500">
+              <Button size="sm" onClick={handleTagEntity} className="bg-purple-600 hover:bg-purple-500 text-white">
                 Confirm Tagging
               </Button>
             </div>
@@ -225,8 +225,8 @@ export default function GangsPage() {
                 onClick={() => setSelectedGang(gang)}
                 className={`space-y-3 cursor-pointer transition-all border ${
                   isSelected
-                    ? "bg-slate-900 border-purple-500 shadow-xl ring-2 ring-purple-500/50"
-                    : "bg-slate-900/80 border-slate-800 hover:border-slate-700"
+                    ? "bg-[var(--surface)] border-purple-500 shadow-xl ring-2 ring-purple-500/50"
+                    : "bg-[var(--surface)] border-[var(--border)] hover:border-purple-400"
                 }`}
               >
                 <div className="flex items-center justify-between">
@@ -234,20 +234,20 @@ export default function GangsPage() {
                     <Badge variant={gang.status === "CONFIRMED" ? "critical" : "moderate"}>
                       {gang.gang_id}
                     </Badge>
-                    <h4 className="text-base font-bold text-white">{gang.name}</h4>
+                    <h4 className="text-base font-bold text-[var(--text)]">{gang.name}</h4>
                   </div>
                   <Badge variant={gang.status === "CONFIRMED" ? "critical" : "default"} className="uppercase font-mono text-[10px]">
                     {gang.status}
                   </Badge>
                 </div>
 
-                <div className="grid grid-cols-3 gap-2 font-mono text-xs p-2.5 bg-slate-950 rounded-lg border border-slate-800">
+                <div className="grid grid-cols-3 gap-2 font-mono text-xs p-2.5 bg-[var(--surface-2)] rounded-lg border border-[var(--border)]">
                   <div>
-                    <span className="text-[10px] text-slate-500 block">Members</span>
-                    <strong className="text-white text-sm">{gang.member_count}</strong>
+                    <span className="text-[10px] text-[var(--text-muted)] block">Members</span>
+                    <strong className="text-[var(--text)] text-sm">{gang.member_count}</strong>
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-500 block">Leader</span>
+                    <span className="text-[10px] text-[var(--text-muted)] block">Leader</span>
                     <strong className="text-amber-400 truncate block text-xs">{gang.ring_leader}</strong>
                   </div>
                   <div className="text-right">

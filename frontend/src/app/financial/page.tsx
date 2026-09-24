@@ -197,11 +197,11 @@ export default function FinancialIntelligencePage() {
       </div>
 
       {/* Module Navigation Tabs */}
-      <div className="flex border-b border-slate-700 bg-slate-900/80 p-1.5 rounded-lg overflow-x-auto gap-1 text-xs font-mono">
+      <div className="flex border border-[var(--border)] bg-[var(--surface)] p-1.5 rounded-lg overflow-x-auto gap-1 text-xs font-mono shadow-sm">
         <button
           onClick={() => setActiveTab("overview")}
           className={`flex items-center gap-2 px-3 py-2 rounded-md transition-all whitespace-nowrap ${
-            activeTab === "overview" ? "bg-emerald-600 text-white font-bold shadow" : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+            activeTab === "overview" ? "bg-emerald-600 text-white font-bold shadow" : "text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-[var(--surface-2)]"
           }`}
         >
           <Receipt className="w-4 h-4" /> Overview & Risk Roster
@@ -209,7 +209,7 @@ export default function FinancialIntelligencePage() {
         <button
           onClick={() => setActiveTab("shells")}
           className={`flex items-center gap-2 px-3 py-2 rounded-md transition-all whitespace-nowrap ${
-            activeTab === "shells" ? "bg-purple-600 text-white font-bold shadow" : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+            activeTab === "shells" ? "bg-purple-600 text-white font-bold shadow" : "text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-[var(--surface-2)]"
           }`}
         >
           <Building2 className="w-4 h-4" /> Shells & Nominee Proxies ({shellCompanies.length})
@@ -217,7 +217,7 @@ export default function FinancialIntelligencePage() {
         <button
           onClick={() => setActiveTab("mules")}
           className={`flex items-center gap-2 px-3 py-2 rounded-md transition-all whitespace-nowrap ${
-            activeTab === "mules" ? "bg-amber-600 text-white font-bold shadow" : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+            activeTab === "mules" ? "bg-amber-600 text-white font-bold shadow" : "text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-[var(--surface-2)]"
           }`}
         >
           <Users className="w-4 h-4" /> Mule Smurfing Rings ({muleAccounts.length})
@@ -272,28 +272,28 @@ export default function FinancialIntelligencePage() {
       {/* ========================================================================= */}
       {activeTab === "overview" && (
         <div className="space-y-6">
-          <Card className="overflow-hidden p-0 border-slate-700 bg-slate-900">
-            <div className="p-4 border-b border-slate-800 bg-slate-950/60 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+          <Card className="overflow-hidden p-0 border-[var(--border)] bg-[var(--surface)] text-[var(--text)] shadow-md">
+            <div className="p-4 border-b border-[var(--border)] bg-[var(--surface-2)] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
               <div>
-                <h3 className="text-sm font-bold font-mono text-slate-100 flex items-center gap-2">
-                  <Receipt className="w-4 h-4 text-emerald-400" /> Suspect Financial Risk Roster & UPI Trails
+                <h3 className="text-sm font-bold font-mono text-[var(--text)] flex items-center gap-2">
+                  <Receipt className="w-4 h-4 text-emerald-500" /> Suspect Financial Risk Roster & UPI Trails
                 </h3>
-                <p className="text-xs text-slate-400 font-mono">Consolidated spending metrics, wine shop payments, and threat scoring.</p>
+                <p className="text-xs text-[var(--text-muted)] font-mono">Consolidated spending metrics, wine shop payments, and threat scoring.</p>
               </div>
               <div className="relative w-full sm:w-64">
-                <Search className="w-4 h-4 absolute left-3 top-2.5 text-slate-500" />
+                <Search className="w-4 h-4 absolute left-3 top-2.5 text-[var(--text-muted)]" />
                 <input
                   type="text"
                   placeholder="Search suspect name..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3 py-1.5 text-xs font-mono bg-slate-800 border border-slate-700 rounded-md text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500"
+                  className="w-full pl-9 pr-3 py-1.5 text-xs font-mono bg-[var(--surface)] border border-[var(--border)] rounded-md text-[var(--text)] placeholder-[var(--text-muted)] focus:outline-none focus:border-emerald-500"
                 />
               </div>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs font-mono">
-                <thead className="bg-slate-950 text-slate-400 border-b border-slate-800 uppercase tracking-wider text-[10px]">
+                <thead className="bg-[var(--surface-2)] text-[var(--text-muted)] border-b border-[var(--border)] uppercase tracking-wider text-[10px]">
                   <tr>
                     <th className="p-3">Suspect Name</th>
                     <th className="p-3 text-right">Transactions</th>
@@ -304,7 +304,7 @@ export default function FinancialIntelligencePage() {
                     <th className="p-3 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800 text-slate-300">
+                <tbody className="divide-y divide-[var(--border)] text-[var(--text)]">
                   {data?.summaries
                     .filter((s) => s.suspect_name.toLowerCase().includes(searchQuery.toLowerCase()))
                     .map((s, idx) => (
