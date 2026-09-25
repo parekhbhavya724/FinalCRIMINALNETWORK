@@ -8,6 +8,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { NetworkGraph } from "@/components/NetworkGraph";
 import { api } from "@/lib/api";
+import { calculateSimulatedLeaderboard } from "@/lib/simulator";
+import { fallbackLeaderboard } from "@/lib/mockData";
 import { ThreatLeaderboardResponse, FinancialIntelligenceResponse, NocturnalAnomaliesResponse, FIRNLPResponse, IntelligenceInsightsResponse } from "@/types";
 import {
   SlidersHorizontal,
@@ -126,12 +128,26 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
     try {
       setSimulating(true);
       const res = await api.simulateThreatWeights(weights);
-      if (data) {
-        setData({
-          ...data,
-          leaderboard: res.simulated_leaderboard,
-        });
-      }
+      const currentList = data?.leaderboard && data.leaderboard.length > 0
+        ? data.leaderboard
+        : fallbackLeaderboard.leaderboard;
+
+      const newLeaderboard = res?.simulated_leaderboard && Array.isArray(res.simulated_leaderboard) && res.simulated_leaderboard.length > 0
+        ? res.simulated_leaderboard
+        : calculateSimulatedLeaderboard(weights, currentList);
+
+      setData((prev) => prev ? {
+        ...prev,
+        leaderboard: newLeaderboard,
+      } : {
+        total_suspects: 100,
+        critical_count: 3,
+        high_count: 7,
+        moderate_count: 15,
+        low_count: 75,
+        leaderboard: newLeaderboard,
+      });
+
       // Update timestamp to trigger network graph refresh
       setThreatScoresLastUpdated(Date.now());
     } catch (err: any) {
@@ -191,18 +207,19 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
   if (error) return <ErrorState message={error} onRetry={loadTab1Data} />;
 
   const filtered = (data?.leaderboard || []).filter((suspect) => {
+    if (!suspect) return false;
     const matchesSearch =
-      suspect.suspect_name.toLowerCase().includes(search.toLowerCase()) ||
-      suspect.phone_number.includes(search);
+      (suspect.suspect_name || "").toLowerCase().includes(search.toLowerCase()) ||
+      (suspect.phone_number || "").includes(search);
     if (primaryDriverFilter === 'all') return matchesSearch;
     // Compute primary driver for this suspect
     const scores: Record<string, number> = {
-      cctv: suspect.cctv_meeting_score,
-      cdr: suspect.cdr_network_score,
-      fir: suspect.fir_severity_score,
-      criminal: suspect.criminal_history_score,
-      financial: suspect.financial_risk_score,
-      surveillance: suspect.surveillance_score,
+      cctv: suspect.cctv_meeting_score || 0,
+      cdr: suspect.cdr_network_score || 0,
+      fir: suspect.fir_severity_score || 0,
+      criminal: suspect.criminal_history_score || 0,
+      financial: suspect.financial_risk_score || 0,
+      surveillance: suspect.surveillance_score || 0,
     };
     const primaryDriver = Object.keys(scores).reduce((a, b) =>
       scores[a] > scores[b] ? a : b

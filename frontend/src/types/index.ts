@@ -426,26 +426,28 @@ export interface CourtEvidenceCertificateResponse {
 }
 
 // Threat Leaderboard Module Types
+export interface SuspectThreatScore {
+  suspect_name: string;
+  phone_number: string;
+  total_threat_score: number;
+  cctv_meeting_score: number;
+  cdr_network_score: number;
+  fir_severity_score: number;
+  criminal_history_score: number;
+  financial_risk_score: number;
+  surveillance_score: number;
+  primary_driver?: string;
+  primary_driver_pct?: number;
+  driver_breakdown?: Record<string, number>;
+}
+
 export interface ThreatLeaderboardResponse {
   total_suspects: number;
   critical_count: number;
   high_count: number;
   moderate_count: number;
   low_count: number;
-  leaderboard: Array<{
-    suspect_name: string;
-    phone_number: string;
-    total_threat_score: number;
-    cctv_meeting_score: number;
-    cdr_network_score: number;
-    fir_severity_score: number;
-    criminal_history_score: number;
-    financial_risk_score: number;
-    surveillance_score: number;
-    primary_driver?: string;
-    primary_driver_pct?: number;
-    driver_breakdown?: Record<string, number>;
-  }>;
+  leaderboard: SuspectThreatScore[];
 }
 
 export interface SimulationWeightsRequest {

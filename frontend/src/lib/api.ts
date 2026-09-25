@@ -51,6 +51,8 @@ import {
   fallbackIntelligenceInsights
 } from "./mockData";
 
+import { calculateSimulatedLeaderboard } from "./simulator";
+
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
 async function fetchAPI<T>(endpoint: string, options?: RequestInit, fallbackData?: T): Promise<T> {
@@ -75,7 +77,7 @@ async function fetchAPI<T>(endpoint: string, options?: RequestInit, fallbackData
     }
 
     const data = await res.json();
-    if (data && (data.error === "BACKEND_OFFLINE" || data.status === "DEMO_FALLBACK")) {
+    if (data && (data.error === "BACKEND_OFFLINE" || data.status === "DEMO_FALLBACK" || (data.message && !data.simulated_leaderboard && endpoint.includes("simulate")))) {
       if (fallbackData !== undefined) return fallbackData;
     }
     return data;
@@ -102,14 +104,17 @@ export const api = {
   getThreatLeaderboard: () =>
     fetchAPI<ThreatLeaderboardResponse>("/api/threat/leaderboard", undefined, fallbackLeaderboard),
 
-  simulateThreatWeights: (weights: SimulationWeightsRequest) =>
-    fetchAPI<SimulationResponse>("/api/threat/simulate", {
+  simulateThreatWeights: (weights: SimulationWeightsRequest) => {
+    const simulated = calculateSimulatedLeaderboard(weights, fallbackLeaderboard.leaderboard);
+    const totalWeight = weights.cctv_weight + weights.cdr_weight + weights.fir_weight + weights.criminal_weight + weights.financial_weight + weights.surveillance_weight;
+    return fetchAPI<SimulationResponse>("/api/threat/simulate", {
       method: "POST",
       body: JSON.stringify(weights),
     }, {
-      total_weight: weights.cctv_weight + weights.cdr_weight + weights.fir_weight + weights.criminal_weight + weights.financial_weight + weights.surveillance_weight,
-      simulated_leaderboard: fallbackLeaderboard.leaderboard
-    }),
+      total_weight: totalWeight,
+      simulated_leaderboard: simulated
+    });
+  },
 
   // Module 2: CDR Interaction Network
   getCDRPairs: () =>

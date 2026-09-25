@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { generateCopilotResponse } from "@/lib/copilotEngine";
+import { calculateSimulatedLeaderboard } from "@/lib/simulator";
+import { fallbackLeaderboard } from "@/lib/mockData";
 
 export async function GET(
   request: NextRequest,
@@ -100,6 +102,15 @@ export async function POST(
       answer_markdown: answer,
       suggested_queries,
       metadata: { entities, suggestedActions: suggested_queries }
+    });
+  }
+
+  if (path.includes("threat/simulate")) {
+    const simulated = calculateSimulatedLeaderboard(body, fallbackLeaderboard.leaderboard);
+    const totalWeight = (body.cctv_weight || 30) + (body.cdr_weight || 20) + (body.fir_weight || 15) + (body.criminal_weight || 15) + (body.financial_weight || 10) + (body.surveillance_weight || 10);
+    return NextResponse.json({
+      total_weight: totalWeight,
+      simulated_leaderboard: simulated,
     });
   }
 
