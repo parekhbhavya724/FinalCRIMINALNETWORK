@@ -48,6 +48,61 @@ export default function ThreatIntelligenceCenter() {
     financial_weight: 10,
     surveillance_weight: 10,
   });
+
+  const handleWeightChange = (key: keyof typeof weights, rawValue: number) => {
+    const val = Math.min(60, Math.max(0, Math.round(rawValue)));
+    const remaining = 100 - val;
+    const otherKeys = (Object.keys(weights) as Array<keyof typeof weights>).filter(k => k !== key);
+    const otherSum = otherKeys.reduce((acc, k) => acc + weights[k], 0);
+
+    const nextWeights = { ...weights, [key]: val };
+
+    if (otherSum > 0) {
+      let currentTotal = val;
+      otherKeys.forEach((k, idx) => {
+        if (idx === otherKeys.length - 1) {
+          nextWeights[k] = Math.max(0, 100 - currentTotal);
+        } else {
+          const share = Math.max(0, Math.round((weights[k] / otherSum) * remaining));
+          nextWeights[k] = share;
+          currentTotal += share;
+        }
+      });
+    } else {
+      const defaultRatios: Record<string, number> = {
+        cctv_weight: 30,
+        cdr_weight: 20,
+        fir_weight: 15,
+        criminal_weight: 15,
+        financial_weight: 10,
+        surveillance_weight: 10,
+      };
+      const defOtherSum = otherKeys.reduce((acc, k) => acc + defaultRatios[k], 0);
+      let currentTotal = val;
+      otherKeys.forEach((k, idx) => {
+        if (idx === otherKeys.length - 1) {
+          nextWeights[k] = Math.max(0, 100 - currentTotal);
+        } else {
+          const share = Math.max(0, Math.round((defaultRatios[k] / defOtherSum) * remaining));
+          nextWeights[k] = share;
+          currentTotal += share;
+        }
+      });
+    }
+
+    setWeights(nextWeights);
+  };
+
+  const resetWeights = () => {
+    setWeights({
+      cctv_weight: 30,
+      cdr_weight: 20,
+      fir_weight: 15,
+      criminal_weight: 15,
+      financial_weight: 10,
+      surveillance_weight: 10,
+    });
+  };
   const [simulating, setSimulating] = useState(false);
   const [selectedSuspect, setSelectedSuspect] = useState<ThreatLeaderboardResponse['leaderboard'][0] | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
@@ -275,19 +330,28 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                 <SlidersHorizontal className="w-4 h-4 text-[var(--text)]" />
                 <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-[var(--text)]">Dynamic Weight Simulator</h3>
               </div>
-              <span className="text-xs font-mono text-[var(--text-muted)]">
-                Total Weight: <strong className="text-emerald-700 font-bold">{Object.values(weights).reduce((a, b) => a + b, 0)}%</strong>
-              </span>
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={resetWeights}
+                  className="text-xs font-mono font-bold text-slate-500 hover:text-slate-900 dark:hover:text-white underline transition-colors"
+                >
+                  Reset Standard Weights (100%)
+                </button>
+                <span className="text-xs font-mono text-[var(--text-muted)]">
+                  Total Weight: <strong className="text-emerald-700 font-bold">{Object.values(weights).reduce((a, b) => a + b, 0)}%</strong>
+                </span>
+              </div>
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3">
               {[
-                { key: "cctv_weight", label: "📹 CCTV Sightings", desc: "Physical Co-Location", max: 30 },
-                { key: "cdr_weight", label: "📞 CDR Network", desc: "Degree & Nocturnal Calls", max: 20 },
-                { key: "fir_weight", label: "⚖️ FIR Severity", desc: "IPC Offense Charges", max: 15 },
-                { key: "criminal_weight", label: "🚔 Criminal Record", desc: "Prior Convictions", max: 15 },
-                { key: "financial_weight", label: "💸 Financial Trail", desc: "PMLA / Hawala Flows", max: 10 },
-                { key: "surveillance_weight", label: "👁️ Surveillance", desc: "Field Observations", max: 10 },
+                { key: "cctv_weight", label: "📹 CCTV Sightings", desc: "Physical Co-Location" },
+                { key: "cdr_weight", label: "📞 CDR Network", desc: "Degree & Nocturnal Calls" },
+                { key: "fir_weight", label: "⚖️ FIR Severity", desc: "IPC Offense Charges" },
+                { key: "criminal_weight", label: "🚔 Criminal Record", desc: "Prior Convictions" },
+                { key: "financial_weight", label: "💸 Financial Trail", desc: "PMLA / Hawala Flows" },
+                { key: "surveillance_weight", label: "👁️ Surveillance", desc: "Field Observations" },
               ].map((w) => (
                 <div key={w.key} className="bg-[var(--surface-2)] border border-[var(--border)] rounded-lg p-3 space-y-2">
                   <div className="flex items-center justify-between gap-1">
@@ -300,9 +364,9 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
                   <input
                     type="range"
                     min="0"
-                    max={w.max}
+                    max="60"
                     value={(weights as any)[w.key]}
-                    onChange={(e) => setWeights({ ...weights, [w.key]: parseFloat(e.target.value) })}
+                    onChange={(e) => handleWeightChange(w.key as any, parseFloat(e.target.value))}
                     className="w-full h-1.5 bg-[var(--surface-2)] rounded-lg appearance-none cursor-pointer accent-slate-900"
                   />
                 </div>
@@ -311,11 +375,16 @@ Co-accused Md. Teerth Bhargava involved in money laundering through multiple ban
 
             <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-[var(--border)] pt-3">
               <span className="text-xs font-mono text-[var(--text-muted)]">
-                Adjust the risk vector sliders above and recalculate to simulate scenario shifts.
+                Adjust the risk vector sliders above — weights automatically auto-balance to maintain 100% total.
               </span>
-              <Button size="sm" onClick={handleSimulate} disabled={simulating} className="font-mono text-xs">
-                {simulating ? "Simulating..." : "Recalculate Scores"}
-              </Button>
+              <div className="flex items-center gap-2">
+                <Button size="sm" variant="outline" onClick={resetWeights} className="font-mono text-xs">
+                  Reset Standard
+                </Button>
+                <Button size="sm" onClick={handleSimulate} disabled={simulating} className="font-mono text-xs">
+                  {simulating ? "Simulating..." : "Recalculate Scores"}
+                </Button>
+              </div>
             </div>
           </Card>
 
