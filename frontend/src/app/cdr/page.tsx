@@ -748,7 +748,7 @@ export default function CDRNetworkPage() {
             POLICE INTELLIGENCE
           </Badge>
           <div>
-            <h1 className="text-sm font-bold tracking-wider text-[var(--text)]">NETSENTINEL AI v2.0 // DEEP GRAPH FORENSICS</h1>
+            <h1 className="text-sm font-bold tracking-wider text-[var(--text)]">BRIHANMUMBAI POLICE AI v2.0 // DEEP GRAPH FORENSICS</h1>
             <p className="text-[10px] text-[var(--text-muted)]">Brihanmumbai Police Criminal Interaction Mesh</p>
           </div>
         </div>

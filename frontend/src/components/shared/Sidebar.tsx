@@ -161,7 +161,7 @@ export function Sidebar() {
                 <Zap className="w-3 h-3 text-[var(--text-muted)]" />
               </div>
               <p className="text-[11px] text-[var(--text-muted)] font-sans leading-tight">
-                NetSentinel v2.4 Security Mesh Active
+                Brihanmumbai Police Tactical Intel Mesh Active
               </p>
             </div>
           ) : (
