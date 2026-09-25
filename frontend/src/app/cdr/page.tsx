@@ -1819,43 +1819,43 @@ export default function CDRNetworkPage() {
               </div>
 
               {/* Bridge/Gatekeeper Analysis Section */}
-              <div className="space-y-4 pt-3 border-t border-slate-800">
+              <div className="space-y-4 pt-3 border-t border-[var(--border)]">
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-                    <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-                      <ShieldAlert className="h-4 w-4 text-amber-400" />
+                  <div className="flex items-center justify-between border-b border-[var(--border)] pb-2">
+                    <h3 className="text-sm font-extrabold font-mono uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
+                      <ShieldAlert className="h-4 w-4 text-amber-600 dark:text-amber-400" />
                       Network Centrality & Gatekeeper Analysis
                     </h3>
                   </div>
                   <div className="space-y-2">
                     {selectedNode ? (
-                      <div className="space-y-1 text-xs font-mono">
-                        <div className="flex justify-between">
-                          <span>Betweenness Centrality:</span>
-                          <span className="font-mono text-emerald-600">
+                      <div className="space-y-2 text-xs font-mono text-slate-800 dark:text-slate-200 font-semibold">
+                        <div className="flex items-center justify-between p-2 bg-[var(--surface-2)] border border-[var(--border)] rounded">
+                          <span className="text-slate-700 dark:text-slate-300 font-semibold">Betweenness Centrality:</span>
+                          <span className="font-mono font-bold text-emerald-700 dark:text-emerald-400">
                             {(selectedNode.betweenness_centrality || 0).toFixed(3)}
                           </span>
                         </div>
-                        <div className="flex justify-between">
-                          <span>Degree Centrality:</span>
-                          <span className="font-mono text-emerald-600">
+                        <div className="flex items-center justify-between p-2 bg-[var(--surface-2)] border border-[var(--border)] rounded">
+                          <span className="text-slate-700 dark:text-slate-300 font-semibold">Degree Centrality:</span>
+                          <span className="font-mono font-bold text-emerald-700 dark:text-emerald-400">
                             {(selectedNode.degree_centrality || 0).toFixed(3)}
                           </span>
                         </div>
-                        <div className="flex justify-between">
-                          <span>PageRank Estimate:</span>
-                          <span className="font-mono text-emerald-600">
+                        <div className="flex items-center justify-between p-2 bg-[var(--surface-2)] border border-[var(--border)] rounded">
+                          <span className="text-slate-700 dark:text-slate-300 font-semibold">PageRank Estimate:</span>
+                          <span className="font-mono font-bold text-emerald-700 dark:text-emerald-400">
                             {(selectedNode.betweenness_centrality ? (selectedNode.betweenness_centrality * 10 + 1) : 1).toFixed(2)}
                           </span>
                         </div>
-                        <div className="flex justify-between mt-2">
-                          <span>Role Classification:</span>
-                          <span className={`px-2 py-0.5 rounded text-xs font-medium ${
+                        <div className="flex items-center justify-between p-2 bg-[var(--surface-2)] border border-[var(--border)] rounded mt-2">
+                          <span className="text-slate-700 dark:text-slate-300 font-semibold">Role Classification:</span>
+                          <span className={`px-2 py-0.5 rounded text-xs font-mono font-bold ${
                             (selectedNode.betweenness_centrality || 0) > 0.05
-                              ? "bg-blue-500/20 border-blue-400 text-blue-300"
+                              ? "bg-blue-500/20 border border-blue-400 text-blue-700 dark:text-blue-300"
                               : selectedNode.threat_score > 75
-                                ? "bg-red-500/20 border-red-400 text-red-300"
-                                : "bg-emerald-500/20 border-emerald-400 text-emerald-300"
+                                ? "bg-red-500/20 border border-red-400 text-red-700 dark:text-red-300"
+                                : "bg-emerald-500/20 border border-emerald-400 text-emerald-700 dark:text-emerald-300"
                           }`}>
                             {(selectedNode.betweenness_centrality || 0) > 0.05
                               ? "BRIDGE / GATEKEEPER"
@@ -1866,8 +1866,8 @@ export default function CDRNetworkPage() {
                         </div>
                       </div>
                     ) : (
-                      <div className="text-center p-4 text-xs font-mono text-[var(--text-muted)]">
-                        Select a node to view centrality analysis
+                      <div className="text-center p-4 text-xs font-mono font-bold text-slate-700 dark:text-slate-300 bg-[var(--surface-2)] border border-[var(--border)] rounded-lg">
+                        Select a node in the graph above to view centrality & gatekeeper analysis
                       </div>
                     )}
                   </div>
