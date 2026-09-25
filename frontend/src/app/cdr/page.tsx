@@ -842,14 +842,14 @@ export default function CDRNetworkPage() {
 
         {/* Suspicious Patterns Panel (Added below filters) */}
         {suspiciousPatterns && (
-          <div className="border-t border-slate-800 pt-4">
+          <div className="border-t border-[var(--border)] pt-4">
             <div className="space-y-3">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-                <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-                  <AlertTriangle className="h-4 w-4 text-red-400" />
+              <div className="flex items-center justify-between border-b border-[var(--border)] pb-2">
+                <h3 className="text-sm font-extrabold font-mono uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
+                  <AlertTriangle className="h-4 w-4 text-red-600 dark:text-red-400" />
                   Suspicious Communication Pattern Detection
                 </h3>
-                <p className="text-xs text-slate-400">
+                <p className="text-xs font-mono font-bold text-slate-700 dark:text-slate-300">
                   {filteredSuspiciousPatterns.length} suspicious patterns detected
                 </p>
               </div>
@@ -863,19 +863,19 @@ export default function CDRNetworkPage() {
                     return (
                       <div
                         key={pattern.type + idx}
-                        className={`p-3 bg-slate-950 border-l-2 border-${riskCfg.label.toLowerCase()}/40 rounded`}
+                        className={`p-3 bg-[var(--surface-2)] border border-[var(--border)] border-l-4 border-l-red-500 rounded-lg shadow-sm`}
                       >
                         <div className="flex items-start justify-between gap-3">
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 mb-1">
-                              <Icon className="h-3 w-3" />
-                              <span className="font-medium text-white">{pattern.type.replace(/_/g, " ")}</span>
-                              <span className={`ml-2 px-2 py-0.5 rounded text-xs font-medium ${riskCfg.bg} ${riskCfg.cls}`}>
+                              <Icon className="h-3.5 w-3.5 text-red-600 dark:text-red-400" />
+                              <span className="font-mono font-extrabold text-slate-900 dark:text-white text-xs">{pattern.type.replace(/_/g, " ")}</span>
+                              <span className={`ml-2 px-2 py-0.5 rounded text-[11px] font-mono font-bold ${riskCfg.bg} ${riskCfg.cls}`}>
                                 {pattern.risk_level}
                               </span>
                             </div>
 
-                            <p className="text-xs text-slate-300 leading-relaxed">
+                            <p className="text-xs font-mono text-slate-800 dark:text-slate-200 leading-relaxed font-semibold">
                               {pattern.description}
                             </p>
                           </div>
@@ -898,7 +898,7 @@ export default function CDRNetworkPage() {
                   })}
                 </div>
               ) : (
-                <div className="text-center py-4 text-slate-400">
+                <div className="text-center py-4 font-mono text-xs font-bold text-slate-700 dark:text-slate-300">
                   No suspicious patterns detected in the current dataset.
                 </div>
               )}
@@ -1729,85 +1729,85 @@ export default function CDRNetworkPage() {
                 ) : (
                   <>
                     <div className="space-y-3">
-                      <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-                        <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-                          <Zap className="h-4 w-4 text-yellow-400" />
+                      <div className="flex items-center justify-between border-b border-[var(--border)] pb-2">
+                        <h3 className="text-sm font-extrabold font-mono uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
+                          <Zap className="h-4 w-4 text-amber-600 dark:text-yellow-400" />
                           Cross-Domain Convergence Matrix
                         </h3>
-                        <span className="text-xs text-slate-400">
+                        <span className="text-xs font-mono font-bold text-slate-700 dark:text-slate-300">
                           {convergenceEvents.length} convergence events detected
                         </span>
                       </div>
                       <div className="space-y-2">
                         {convergenceEvents.map((event, idx) => (
-                          <div key={event.id} className="p-3 bg-slate-950 border border-slate-800 rounded">
+                          <div key={event.id} className="p-3 bg-[var(--surface-2)] border border-[var(--border)] rounded-lg shadow-sm">
                             <div className="flex items-center justify-between mb-2">
-                              <span className="font-bold text-white">Convergence Event #{idx + 1}</span>
-                              <span className={`px-2 py-0.5 rounded text-xs font-medium ${riskColor(event.risk_level).bg} ${riskColor(event.risk_level).cls}`}>
+                              <span className="font-mono font-extrabold text-slate-900 dark:text-white text-xs">Convergence Event #{idx + 1}</span>
+                              <span className={`px-2 py-0.5 rounded text-[11px] font-mono font-bold ${riskColor(event.risk_level).bg} ${riskColor(event.risk_level).cls}`}>
                                 {event.risk_level}
                               </span>
                             </div>
-                            <div className="space-y-1 text-xs font-mono">
-                              <div className="justify-between">
-                                <span>Timestamp (IST):</span>
-                                <span className="font-mono">{new Date(event.timestamp).toLocaleTimeString('en-IN', {hour12: false})}</span>
+                            <div className="space-y-1 text-xs font-mono text-slate-800 dark:text-slate-200 font-semibold">
+                              <div className="flex items-center justify-between">
+                                <span className="text-slate-700 dark:text-slate-300 font-semibold">Timestamp (IST):</span>
+                                <span className="font-mono font-bold text-slate-900 dark:text-white">{new Date(event.timestamp).toLocaleTimeString('en-IN', {hour12: false})}</span>
                               </div>
-                              <div className="justify-between">
-                                <span>Confidence Score:</span>
-                                <span className="font-bold text-emerald-600">
+                              <div className="flex items-center justify-between">
+                                <span className="text-slate-700 dark:text-slate-300 font-semibold">Confidence Score:</span>
+                                <span className="font-bold text-emerald-700 dark:text-emerald-400 font-mono">
                                   {(event.confidence_score * 100).toFixed(1)}%
                                 </span>
                               </div>
-                              <div className="justify-between">
-                                <span>Risk Level:</span>
-                                <span className={`text-${riskColor(event.risk_level).cls}`}>
+                              <div className="flex items-center justify-between">
+                                <span className="text-slate-700 dark:text-slate-300 font-semibold">Risk Level:</span>
+                                <span className={`font-bold font-mono ${riskColor(event.risk_level).cls}`}>
                                   {event.risk_level}
                                 </span>
                               </div>
                             </div>
-                            <div className="mt-2 p-3 bg-slate-900/50 rounded">
-                              <h4 className="text-xs font-mono font-bold text-slate-400 mb-1">
+                            <div className="mt-2 p-2.5 bg-[var(--surface)] border border-[var(--border)] rounded-md space-y-1">
+                              <h4 className="text-xs font-mono font-extrabold text-slate-900 dark:text-white mb-1">
                                 Event Details:
                               </h4>
-                              <div className="space-y-1 text-xs">
+                              <div className="space-y-1 text-xs font-mono">
                                 {event.events.cdr && (
-                                  <div className="flex items-center justify-between">
-                                    <span className="text-slate-400">CDR Call:</span>
-                                    <span className="font-mono text-blue-400">
+                                  <div className="flex flex-wrap items-center justify-between gap-1">
+                                    <span className="text-slate-700 dark:text-slate-300 font-semibold">CDR Call:</span>
+                                    <span className="font-mono font-bold text-blue-700 dark:text-blue-400">
                                       {event.events.cdr.caller} → {event.events.cdr.receiver}
                                     </span>
-                                    <span className="text-xs text-slate-400 ml-2">
+                                    <span className="text-[11px] font-medium text-slate-600 dark:text-slate-400 ml-2">
                                       ({event.events.cdr.duration_seconds}s @ {new Date(event.events.cdr.timestamp).toLocaleTimeString('en-IN', {hour12: false})})
                                     </span>
                                   </div>
                                 )}
                                 {event.events.cctv && (
-                                  <div className="flex items-center justify-between">
-                                    <span className="text-slate-400">CCTV Sighting:</span>
-                                    <span className="font-mono text-blue-400">
+                                  <div className="flex flex-wrap items-center justify-between gap-1">
+                                    <span className="text-slate-700 dark:text-slate-300 font-semibold">CCTV Sighting:</span>
+                                    <span className="font-mono font-bold text-blue-700 dark:text-blue-400">
                                       {event.events.cctv.camera_id} @ {event.events.cctv.camera_location}
                                     </span>
-                                    <span className="text-xs text-slate-400 ml-2">
+                                    <span className="text-[11px] font-medium text-slate-600 dark:text-slate-400 ml-2">
                                       ({(event.events.cctv.confidence * 100).toFixed(1)}% confidence @ {new Date(event.events.cctv.timestamp).toLocaleTimeString('en-IN', {hour12: false})})
                                     </span>
                                   </div>
                                 )}
                                 {event.events.financial && (
-                                  <div className="flex items-center justify-between">
-                                    <span className="text-slate-400">Financial Transfer:</span>
-                                    <span className="font-mono text-blue-400">
+                                  <div className="flex flex-wrap items-center justify-between gap-1">
+                                    <span className="text-slate-700 dark:text-slate-300 font-semibold">Financial Transfer:</span>
+                                    <span className="font-mono font-bold text-emerald-700 dark:text-emerald-400">
                                       ₹{event.events.financial.amount_inr.toLocaleString()} {event.events.financial.sender} → {event.events.financial.receiver}
                                     </span>
-                                    <span className="text-xs text-slate-400 ml-2">
-                                      @ {new Date(event.events.financial.timestamp).toLocaleTimeString('en-IN', {hour12: false})}
+                                    <span className="text-[11px] font-medium text-slate-600 dark:text-slate-400 ml-2">
+                                      ({new Date(event.events.financial.timestamp).toLocaleTimeString('en-IN', {hour12: false})})
                                     </span>
                                   </div>
                                 )}
                               </div>
                             </div>
-                            <div className="mt-2 p-2 bg-slate-900/30 rounded">
-                              <p className="text-xs font-mono text-[var(--text-muted)]">
-                                <strong>Narrative:</strong> {event.description}
+                            <div className="mt-2 p-2.5 bg-[var(--surface)] border border-[var(--border)] rounded-md">
+                              <p className="text-xs font-mono text-slate-800 dark:text-slate-200 font-medium">
+                                <strong className="text-slate-900 dark:text-white font-extrabold">Narrative:</strong> {event.description}
                               </p>
                             </div>
                           </div>
