@@ -95,8 +95,8 @@ export default function CommandCenterPage() {
     {
       title: "4. Crime syndicates",
       badge: "Graph Partition",
-      desc: "Community clustering, underworld hierarchy, and syndicate rings.",
-      href: "/crime-rings",
+      desc: "Community clustering, underworld hierarchy, and syndicate gangs.",
+      href: "/gangs",
       icon: Layers,
     },
     {
@@ -175,7 +175,7 @@ export default function CommandCenterPage() {
       {/* KPI Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         <KPICard label="Suspects profiled" value={totalSuspects} accent="blue" icon={Flame} subtext="Active surveillance mesh" />
-        <KPICard label="Active crime rings" value={rings?.total_rings ?? "—"} accent="purple" icon={Layers} subtext="Syndicate clusters detected" />
+        <KPICard label="Active crime gangs" value={rings?.total_rings ?? "—"} accent="purple" icon={Layers} subtext="Syndicate clusters detected" />
         <KPICard label="Critical risk tiers" value={criticalCount} accent="red" icon={ShieldAlert} subtext="Requires immediate warrant" />
         <KPICard label="CCTV encounters" value={cctv?.total_encounters ?? "—"} accent="amber" icon={Camera} subtext={`${cctv?.avg_confidence_pct ?? 0}% avg match confidence`} />
         <KPICard label="Night hotspots" value={nocturnal?.hotspots_count ?? "—"} accent="cyan" icon={Moon} subtext={`${nocturnal?.total_anomalies ?? 0} nocturnal anomalies`} />
@@ -190,7 +190,7 @@ export default function CommandCenterPage() {
                 <span className="px-2 py-0.5 rounded text-[10px] font-sans font-semibold bg-red-950/20 text-red-500 border border-red-800/40">
                   Critical threat priority · Red notice
                 </span>
-                <span className="text-xs font-sans text-[var(--text-muted)]">Syndicate lead: Ring-01</span>
+                <span className="text-xs font-sans text-[var(--text-muted)]">Syndicate lead: Gang-01</span>
                 <span className="text-xs text-[var(--text-muted)]">·</span>
                 <span className="text-xs font-mono text-[var(--text-muted)]">MOB #MB-101</span>
               </div>

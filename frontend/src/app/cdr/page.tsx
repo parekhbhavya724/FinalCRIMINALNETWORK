@@ -1007,7 +1007,7 @@ export default function CDRNetworkPage() {
                   className="w-full bg-[var(--surface-2)] border border-[var(--border)] rounded-lg px-3 py-2 text-xs text-[var(--text)] dark:text-slate-100 font-mono font-bold focus:border-blue-500 focus:outline-none"
                 >
                   <option value="ALL">All Detected Roles</option>
-                  <option value="KINGPIN">Kingpin / Ring Leader</option>
+                  <option value="KINGPIN">Kingpin / Gang Leader</option>
                   <option value="BRIDGE">Bridge Connector</option>
                 </select>
               </div>

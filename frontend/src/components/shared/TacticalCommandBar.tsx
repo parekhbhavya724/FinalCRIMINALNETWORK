@@ -24,7 +24,6 @@ const ROUTE_NAMES: Record<string, string> = {
   "/cdr": "Module 2 — CDR network graph & forensics",
   "/cctv": "Module 3 — CCTV co-location encounters",
   "/gangs": "Module 4 — Gangs & crime syndicates",
-  "/crime-rings": "Module 4 & 5 — Crime rings detection",
   "/financial": "Module 5 — Financial & PMLA forensics",
   "/nocturnal": "Module 6 — Nocturnal calling anomalies",
   "/surveillance": "Module 7 — Field surveillance & heatmaps",
