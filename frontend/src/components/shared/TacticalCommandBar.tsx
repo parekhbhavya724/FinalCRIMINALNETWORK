@@ -30,7 +30,6 @@ const ROUTE_NAMES: Record<string, string> = {
   "/dossiers": "Module 8 — Suspect dossier generator",
   "/social-media": "Module 9 — Social media intelligence",
   "/criminal-history": "Module 10 — Master criminal history register",
-  "/architecture": "System architecture & flowchart",
 };
 
 export function TacticalCommandBar() {

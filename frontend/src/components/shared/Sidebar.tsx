@@ -35,7 +35,6 @@ const NAV_ITEMS = [
   { label: "8. Suspect dossiers", href: "/dossiers", icon: FileText },
   { label: "9. Social media intel", href: "/social-media", icon: Radio },
   { label: "10. Criminal history", href: "/criminal-history", icon: Gavel },
-  { label: "System architecture", href: "/architecture", icon: Workflow },
 ];
 
 export const TOTAL_MODULES = NAV_ITEMS.filter((item) => item.href !== "/").length;
