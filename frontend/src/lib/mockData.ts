@@ -7078,8 +7078,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-02",
+      "name": "Syndicate RING-02",
       "status": "CONFIRMED",
       "member_count": 4,
       "members": [
@@ -7099,8 +7099,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-03",
+      "name": "Syndicate RING-03",
       "status": "CONFIRMED",
       "member_count": 4,
       "members": [
@@ -7120,8 +7120,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-04",
+      "name": "Syndicate RING-04",
       "status": "CONFIRMED",
       "member_count": 4,
       "members": [
@@ -7141,8 +7141,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-05",
+      "name": "Syndicate RING-05",
       "status": "CONFIRMED",
       "member_count": 6,
       "members": [
@@ -7164,8 +7164,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-06",
+      "name": "Syndicate RING-06",
       "status": "CONFIRMED",
       "member_count": 4,
       "members": [
@@ -7185,8 +7185,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-07",
+      "name": "Syndicate RING-07",
       "status": "CONFIRMED",
       "member_count": 4,
       "members": [
@@ -7206,8 +7206,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-08",
+      "name": "Syndicate RING-08",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7225,8 +7225,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-09",
+      "name": "Syndicate RING-09",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7244,8 +7244,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-10",
+      "name": "Syndicate RING-10",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7263,8 +7263,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-11",
+      "name": "Syndicate RING-11",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7282,8 +7282,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-12",
+      "name": "Syndicate RING-12",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7301,8 +7301,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-13",
+      "name": "Syndicate RING-13",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7320,8 +7320,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-14",
+      "name": "Syndicate RING-14",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7339,8 +7339,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-15",
+      "name": "Syndicate RING-15",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7358,8 +7358,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-16",
+      "name": "Syndicate RING-16",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7377,8 +7377,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-17",
+      "name": "Syndicate RING-17",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7396,8 +7396,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-18",
+      "name": "Syndicate RING-18",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7415,8 +7415,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-19",
+      "name": "Syndicate RING-19",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7434,8 +7434,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-20",
+      "name": "Syndicate RING-20",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7453,8 +7453,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-21",
+      "name": "Syndicate RING-21",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7472,8 +7472,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-22",
+      "name": "Syndicate RING-22",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7491,8 +7491,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-23",
+      "name": "Syndicate RING-23",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7510,8 +7510,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-24",
+      "name": "Syndicate RING-24",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7529,8 +7529,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-25",
+      "name": "Syndicate RING-25",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7548,8 +7548,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-26",
+      "name": "Syndicate RING-26",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7567,8 +7567,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-27",
+      "name": "Syndicate RING-27",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7586,8 +7586,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-28",
+      "name": "Syndicate RING-28",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7605,8 +7605,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-29",
+      "name": "Syndicate RING-29",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7624,8 +7624,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-30",
+      "name": "Syndicate RING-30",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7643,8 +7643,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-31",
+      "name": "Syndicate RING-31",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7662,8 +7662,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-32",
+      "name": "Syndicate RING-32",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7681,8 +7681,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-33",
+      "name": "Syndicate RING-33",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7700,8 +7700,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-34",
+      "name": "Syndicate RING-34",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7719,8 +7719,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-35",
+      "name": "Syndicate RING-35",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7738,8 +7738,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-36",
+      "name": "Syndicate RING-36",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7757,8 +7757,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-37",
+      "name": "Syndicate RING-37",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7776,8 +7776,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-38",
+      "name": "Syndicate RING-38",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7795,8 +7795,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-39",
+      "name": "Syndicate RING-39",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7814,8 +7814,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-40",
+      "name": "Syndicate RING-40",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7833,8 +7833,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-41",
+      "name": "Syndicate RING-41",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7852,8 +7852,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-42",
+      "name": "Syndicate RING-42",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7871,8 +7871,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-43",
+      "name": "Syndicate RING-43",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7890,8 +7890,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-44",
+      "name": "Syndicate RING-44",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7909,8 +7909,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-45",
+      "name": "Syndicate RING-45",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7928,8 +7928,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-46",
+      "name": "Syndicate RING-46",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7947,8 +7947,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-47",
+      "name": "Syndicate RING-47",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7966,8 +7966,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-48",
+      "name": "Syndicate RING-48",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -7985,8 +7985,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-49",
+      "name": "Syndicate RING-49",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8004,8 +8004,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-50",
+      "name": "Syndicate RING-50",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8023,8 +8023,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-51",
+      "name": "Syndicate RING-51",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8042,8 +8042,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-52",
+      "name": "Syndicate RING-52",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8061,8 +8061,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-53",
+      "name": "Syndicate RING-53",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8080,8 +8080,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-54",
+      "name": "Syndicate RING-54",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8099,8 +8099,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-55",
+      "name": "Syndicate RING-55",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8118,8 +8118,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-56",
+      "name": "Syndicate RING-56",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8137,8 +8137,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-57",
+      "name": "Syndicate RING-57",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8156,8 +8156,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-58",
+      "name": "Syndicate RING-58",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8175,8 +8175,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-59",
+      "name": "Syndicate RING-59",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8194,8 +8194,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-60",
+      "name": "Syndicate RING-60",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8213,8 +8213,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-61",
+      "name": "Syndicate RING-61",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8232,8 +8232,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-62",
+      "name": "Syndicate RING-62",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8251,8 +8251,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-63",
+      "name": "Syndicate RING-63",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8270,8 +8270,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-64",
+      "name": "Syndicate RING-64",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8289,8 +8289,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-65",
+      "name": "Syndicate RING-65",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8308,8 +8308,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-66",
+      "name": "Syndicate RING-66",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8327,8 +8327,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-67",
+      "name": "Syndicate RING-67",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8346,8 +8346,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-68",
+      "name": "Syndicate RING-68",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8365,8 +8365,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-69",
+      "name": "Syndicate RING-69",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8384,8 +8384,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-70",
+      "name": "Syndicate RING-70",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8403,8 +8403,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-71",
+      "name": "Syndicate RING-71",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8422,8 +8422,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-72",
+      "name": "Syndicate RING-72",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8441,8 +8441,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-73",
+      "name": "Syndicate RING-73",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8460,8 +8460,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-74",
+      "name": "Syndicate RING-74",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8479,8 +8479,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-75",
+      "name": "Syndicate RING-75",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8498,8 +8498,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-76",
+      "name": "Syndicate RING-76",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8517,8 +8517,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-77",
+      "name": "Syndicate RING-77",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8536,8 +8536,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-78",
+      "name": "Syndicate RING-78",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8555,8 +8555,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-79",
+      "name": "Syndicate RING-79",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8574,8 +8574,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-80",
+      "name": "Syndicate RING-80",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8593,8 +8593,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-81",
+      "name": "Syndicate RING-81",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8612,8 +8612,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-82",
+      "name": "Syndicate RING-82",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8631,8 +8631,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-83",
+      "name": "Syndicate RING-83",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8650,8 +8650,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-84",
+      "name": "Syndicate RING-84",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8669,8 +8669,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-85",
+      "name": "Syndicate RING-85",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8688,8 +8688,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-86",
+      "name": "Syndicate RING-86",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8707,8 +8707,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-87",
+      "name": "Syndicate RING-87",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
@@ -8726,8 +8726,8 @@ export const fallbackGangs: GangListResponse = {
       "date_first_detected": "2026-01-10"
     },
     {
-      "gang_id": "RING-01",
-      "name": "Syndicate RING-01",
+      "gang_id": "RING-88",
+      "name": "Syndicate RING-88",
       "status": "CONFIRMED",
       "member_count": 2,
       "members": [
