@@ -387,29 +387,38 @@ export default function GangsPage() {
                 <Badge variant={selectedGang ? "critical" : "default"}>
                   {selectedGang ? `${subGraph?.total_nodes || selectedGang.member_count} Members` : `${subGraph?.total_nodes || 200} Suspects`}
                 </Badge>
-                {selectedGang && (
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={handleResetToFullCDR}
-                    className="bg-slate-900 border-purple-500/50 text-purple-300 hover:bg-purple-950 text-xs px-2.5 py-1 h-7 flex items-center gap-1.5 font-mono shadow-sm"
-                    title="Reset view to Full System CDR Network"
-                  >
-                    <RotateCcw className="w-3.5 h-3.5 text-purple-400" />
-                    <span>Reset View</span>
-                  </Button>
-                )}
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={handleResetToFullCDR}
+                  className={`font-mono text-xs px-2.5 py-1 h-7 flex items-center gap-1.5 shadow-sm transition-all ${
+                    selectedGang
+                      ? "bg-purple-900/50 border-purple-500/60 text-purple-200 hover:bg-purple-800 hover:text-white"
+                      : "bg-slate-900 border-slate-700 text-slate-400 hover:text-white"
+                  }`}
+                  title="Reset View to Full System CDR Network"
+                >
+                  <RotateCcw className="w-3.5 h-3.5 text-purple-400" />
+                  <span>{selectedGang ? "Reset to Full CDR" : "Full CDR View"}</span>
+                </Button>
               </div>
             </div>
 
             {/* Subgraph Canvas */}
             <div className="flex-1 relative bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] min-h-[540px] flex items-center justify-center overflow-hidden">
+              {!selectedGang && (
+                <div className="absolute top-3 left-3 z-20 font-mono text-[10px] text-purple-300 bg-purple-950/80 px-2.5 py-1 rounded border border-purple-800/60 backdrop-blur-sm shadow flex items-center gap-1.5">
+                  <Network className="w-3 h-3 text-purple-400" />
+                  <span>Full System CDR Mesh. Click any Gang card on left to drill down.</span>
+                </div>
+              )}
+
               <svg className="w-full h-full absolute inset-0 pointer-events-none">
                 {(subGraph?.nodes || []).map((node, i) => {
                   const numNodes = subGraph?.nodes.length || 1;
-                  const radius = Math.min(180, 40 + numNodes * 12);
-                  const cx = 280;
-                  const cy = 250;
+                  const radius = numNodes <= 6 ? 130 : numNodes <= 12 ? 160 : numNodes <= 20 ? 190 : 210;
+                  const cx = 270;
+                  const cy = 260;
                   const x1 = cx + radius * Math.cos((2 * Math.PI * i) / numNodes);
                   const y1 = cy + radius * Math.sin((2 * Math.PI * i) / numNodes);
 
@@ -437,9 +446,9 @@ export default function GangsPage() {
               <div className="relative w-full h-full min-h-[540px]">
                 {(subGraph?.nodes || []).map((node, idx) => {
                   const numNodes = subGraph?.nodes.length || 1;
-                  const radius = Math.min(180, 40 + numNodes * 12);
-                  const cx = 280;
-                  const cy = 250;
+                  const radius = numNodes <= 6 ? 130 : numNodes <= 12 ? 160 : numNodes <= 20 ? 190 : 210;
+                  const cx = 270;
+                  const cy = 260;
                   const x = cx + radius * Math.cos((2 * Math.PI * idx) / numNodes) - 20;
                   const y = cy + radius * Math.sin((2 * Math.PI * idx) / numNodes) - 20;
 
@@ -449,7 +458,7 @@ export default function GangsPage() {
                     <div
                       key={node.id}
                       style={{ left: `${x}px`, top: `${y}px` }}
-                      className="absolute group flex flex-col items-center justify-center z-10"
+                      className="absolute group flex flex-col items-center justify-center z-10 transition-all duration-300"
                     >
                       <div
                         className={`w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all ${
@@ -457,7 +466,7 @@ export default function GangsPage() {
                         }`}
                       >
                         <span className="text-white font-bold font-mono text-[9px]">
-                          {node.threat_score.toFixed(0)}
+                          {(node.threat_score || 70).toFixed(0)}
                         </span>
                       </div>
 
