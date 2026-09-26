@@ -13650,21 +13650,63 @@ export const fallbackTimeline: TimelineResponse = {
 export const fallbackSocial: SocialMediaResponse = {
   total_monitored_suspects: 10,
   total_flagged_posts: 48,
-  total_location_clusters: 6,
+  total_location_clusters: 8,
   location_clusters: [
     {
-      approximate_location: "Byculla / Mazgaon",
-      suspect_count: 4,
-      platforms_used: "Telegram, Instagram, X",
-      devices_used: "iPhone 15 Pro, Samsung Galaxy S23",
-      suspects: ["Md. Ranbir Bhalla", "Md. Teerth Bhargava", "Md. Vedant Padmanabhan", "Md. Pranit Arya"]
+      approximate_location: "Kalachowki, Mumbai",
+      suspect_count: 25,
+      platforms_used: "WhatsApp, Facebook, Instagram, X / Twitter",
+      devices_used: "Desktop Browser, Android Mobile, iPhone",
+      suspects: ["Md. Gabriel Raj", "Md. Thomas Batta", "Md. Brijesh Bahri", "Md. Rushil Magar", "Md. Hredhaan Purohit"]
     },
     {
-      approximate_location: "Dongri / JJ Marg",
-      suspect_count: 3,
-      platforms_used: "WhatsApp, Signal, Telegram",
-      devices_used: "OnePlus 12, Redmi Note 13",
-      suspects: ["Md. Laban Prakash", "Md. Hardik Kant", "Md. Peter Barad"]
+      approximate_location: "Agripada, Mumbai",
+      suspect_count: 24,
+      platforms_used: "WhatsApp, Instagram, Facebook, X / Twitter",
+      devices_used: "Android Mobile, iPhone, Desktop Browser",
+      suspects: ["Md. Hardik Kant", "Md. Gabriel Warrior", "Md. Darsh Jaggi", "Md. Rudra Rana", "Md. Anthony Batta"]
+    },
+    {
+      approximate_location: "Byculla West, Mumbai",
+      suspect_count: 24,
+      platforms_used: "X / Twitter, WhatsApp, Instagram, Facebook",
+      devices_used: "Desktop Browser, Android Mobile, iPhone",
+      suspects: ["Md. Brijesh Bahri", "Md. Gavin Chada", "Md. Yagnesh Srinivasan", "Md. Dev Sani", "Md. Max Narayan"]
+    },
+    {
+      approximate_location: "Dadar, Mumbai",
+      suspect_count: 23,
+      platforms_used: "WhatsApp, X / Twitter, Facebook, Instagram",
+      devices_used: "Desktop Browser, iPhone, Android Mobile",
+      suspects: ["Md. Hardik Kant", "Md. Rudra Rana", "Md. Hredhaan Purohit", "Md. Rishi Kumer", "Md. Arin Hegde"]
+    },
+    {
+      approximate_location: "Lower Parel, Mumbai",
+      suspect_count: 23,
+      platforms_used: "WhatsApp, Facebook, X / Twitter, Instagram",
+      devices_used: "Android Mobile, iPhone, Desktop Browser",
+      suspects: ["Md. Hardik Kant", "Md. Matthew Nayar", "Md. Mohammed Badani", "Md. Ranbir Tella", "Md. Darsh Jaggi"]
+    },
+    {
+      approximate_location: "Grant Road, Mumbai",
+      suspect_count: 22,
+      platforms_used: "X / Twitter, WhatsApp, Instagram, Facebook",
+      devices_used: "iPhone, Desktop Browser, Android Mobile",
+      suspects: ["Md. Brijesh Bahri", "Md. Gavin Chada", "Md. Anthony Batta", "Md. Chendren Setty", "Md. Jeremiah Date"]
+    },
+    {
+      approximate_location: "Worli, Mumbai",
+      suspect_count: 22,
+      platforms_used: "WhatsApp, Facebook, X / Twitter, Instagram",
+      devices_used: "Desktop Browser, Android Mobile, iPhone",
+      suspects: ["Md. Gabriel Warrior", "Md. Thomas Batta", "Md. Yagnesh Srinivasan", "Md. Harsh Balan", "Md. Harrison Ravi"]
+    },
+    {
+      approximate_location: "Nagpada, Mumbai",
+      suspect_count: 18,
+      platforms_used: "WhatsApp, X / Twitter, Instagram, Facebook",
+      devices_used: "Android Mobile, iPhone, Desktop Browser",
+      suspects: ["Md. Gabriel Raj", "Md. Ranbir Tella", "Md. Thomas Batta", "Md. Azad Apte", "Md. Hredhaan Purohit"]
     }
   ],
   suspects: [
