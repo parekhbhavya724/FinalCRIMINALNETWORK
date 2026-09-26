@@ -22,7 +22,8 @@ import {
   Network,
   ArrowRight,
   Search,
-  Radio
+  Radio,
+  RotateCcw
 } from "lucide-react";
 
 export default function GangsPage() {
@@ -42,11 +43,14 @@ export default function GangsPage() {
 
   useEffect(() => {
     loadGangs();
+    loadFullCDRGraph();
   }, []);
 
   useEffect(() => {
     if (selectedGang) {
       loadSubGraph(selectedGang);
+    } else {
+      loadFullCDRGraph();
     }
   }, [selectedGang]);
 
@@ -55,15 +59,36 @@ export default function GangsPage() {
       setLoading(true);
       const res = await api.getGangs();
       setGangsData(res);
-      if (res?.gangs && res.gangs.length > 0) {
-        setSelectedGang(res.gangs[0]);
-      }
+      // Keep selectedGang null initially so full CDR graph is displayed by default
     } catch (err: any) {
       setError(err.message || "Failed to load gang detection data");
     } finally {
       setLoading(false);
     }
   }
+
+  async function loadFullCDRGraph() {
+    try {
+      const res = await api.getCDRGraph();
+      if (res && res.nodes) {
+        setSubGraph({
+          gang_id: "ALL",
+          gang_name: "FULL SYSTEM CDR",
+          total_nodes: res.nodes.length,
+          total_edges: res.edges.length,
+          nodes: res.nodes.slice(0, 16) as any,
+          edges: res.edges as any
+        });
+      }
+    } catch (err: any) {
+      console.error("Failed to load full CDR graph:", err);
+    }
+  }
+
+  const handleResetToFullCDR = () => {
+    setSelectedGang(null);
+    loadFullCDRGraph();
+  };
 
   async function loadSubGraph(targetGang: GangRecord) {
     try {
@@ -351,12 +376,30 @@ export default function GangsPage() {
         {/* Right Column: Gang Internal Network Sub-Graph Visualizer (Cols 6) */}
         <div className="lg:col-span-6 space-y-4">
           <Card className="bg-slate-950 border-slate-800 p-0 relative overflow-hidden min-h-[600px] flex flex-col shadow-2xl">
-            <div className="p-3 border-b border-slate-800 bg-slate-900/90 flex justify-between items-center text-xs font-mono">
+            <div className="p-3 border-b border-slate-800 bg-slate-900/90 flex flex-wrap justify-between items-center gap-2 text-xs font-mono">
               <div className="flex items-center gap-2">
                 <Network className="w-4 h-4 text-purple-400" />
-                <span className="font-bold text-white uppercase tracking-wider">{subGraph?.gang_name || selectedGang?.name} Network Mesh</span>
+                <span className="font-bold text-white uppercase tracking-wider">
+                  {selectedGang ? `${selectedGang.name} NETWORK MESH` : "FULL SYSTEM CDR NETWORK MESH"}
+                </span>
               </div>
-              <Badge variant="critical">{subGraph?.total_nodes || 0} Members</Badge>
+              <div className="flex items-center gap-2">
+                <Badge variant={selectedGang ? "critical" : "default"}>
+                  {selectedGang ? `${subGraph?.total_nodes || selectedGang.member_count} Members` : `${subGraph?.total_nodes || 200} Suspects`}
+                </Badge>
+                {selectedGang && (
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={handleResetToFullCDR}
+                    className="bg-slate-900 border-purple-500/50 text-purple-300 hover:bg-purple-950 text-xs px-2.5 py-1 h-7 flex items-center gap-1.5 font-mono shadow-sm"
+                    title="Reset view to Full System CDR Network"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5 text-purple-400" />
+                    <span>Reset View</span>
+                  </Button>
+                )}
+              </div>
             </div>
 
             {/* Subgraph Canvas */}
