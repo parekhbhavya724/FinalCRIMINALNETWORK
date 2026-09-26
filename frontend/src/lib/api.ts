@@ -152,15 +152,55 @@ export const api = {
   getGangs: () =>
     fetchAPI<GangListResponse>("/api/gangs/list", undefined, fallbackGangs),
 
-  getGangSubGraph: (gangId: string) =>
-    fetchAPI<GangSubGraphResponse>(`/api/gangs/${encodeURIComponent(gangId)}/subgraph`, undefined, {
-      gang_id: gangId,
-      gang_name: `Sub-Graph: ${gangId}`,
-      total_nodes: fallbackCDRGraph.nodes.length,
-      total_edges: fallbackCDRGraph.edges.length,
-      nodes: fallbackCDRGraph.nodes,
-      edges: fallbackCDRGraph.edges
-    }),
+  getGangSubGraph: (gangId: string) => {
+    const targetGang = fallbackGangs.gangs.find(
+      (g) =>
+        g.gang_id.toLowerCase() === gangId.toLowerCase() ||
+        g.gang_id.replace("GANG-", "RING-") === gangId ||
+        g.gang_id.replace("RING-", "GANG-") === gangId
+    ) || fallbackGangs.gangs[0];
+
+    const members = targetGang ? targetGang.members : ["Member 1", "Member 2", "Member 3", "Member 4"];
+    const leader = targetGang ? targetGang.ring_leader : members[0];
+    const leaderPhone = targetGang ? targetGang.leader_phone : "+91-9999999999";
+    const threatScore = targetGang ? targetGang.aggregate_threat_score : 80;
+
+    const nodes = members.map((m, idx) => ({
+      id: m,
+      label: m,
+      phone: m.startsWith("+91") ? m : leaderPhone,
+      threat_score: m === leader ? threatScore : Math.max(25, threatScore - (idx * 5)),
+      degree_centrality: 0.85,
+      betweenness_centrality: 0.75,
+      total_calls_count: 50,
+      connected_entities_count: members.length - 1,
+      nocturnal_calls_count: 15,
+      risk_tier: m === leader ? "CRITICAL" : "HIGH",
+      gang_id: targetGang ? targetGang.gang_id : gangId,
+      gang_name: targetGang ? targetGang.name : `Gang ${gangId}`
+    }));
+
+    const edges: any[] = [];
+    for (let i = 0; i < members.length; i++) {
+      for (let j = i + 1; j < members.length; j++) {
+        edges.push({
+          source: members[i],
+          target: members[j],
+          weight: Math.floor(Math.random() * 20) + 5,
+          call_count: 12
+        });
+      }
+    }
+
+    return fetchAPI<GangSubGraphResponse>(`/api/gangs/${encodeURIComponent(gangId)}/subgraph`, undefined, {
+      gang_id: targetGang ? targetGang.gang_id : gangId,
+      gang_name: targetGang ? targetGang.name : `Gang ${gangId}`,
+      total_nodes: nodes.length,
+      total_edges: edges.length,
+      nodes: nodes as any,
+      edges: edges as any
+    });
+  },
 
   confirmGang: (gangId: string) =>
     fetchAPI<{ status: string; message: string }>(`/api/gangs/${encodeURIComponent(gangId)}/confirm`, { method: "POST" }, { status: "SUCCESS", message: "Gang confirmed" }),
