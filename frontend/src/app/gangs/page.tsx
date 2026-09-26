@@ -260,14 +260,14 @@ export default function GangsPage() {
                 <div className="font-mono text-xs space-y-1">
                   <span className="text-[10px] text-[var(--text-muted)] uppercase tracking-widest block">Roster Entities</span>
                   <div className="flex flex-wrap gap-1">
-                    {gang.members.slice(0, 5).map((m, idx) => (
+                    {(gang.members || []).slice(0, 5).map((m, idx) => (
                       <span key={idx} className="px-2 py-0.5 bg-slate-800 border border-slate-700 rounded text-[10px] text-slate-300">
                         {m}
                       </span>
                     ))}
-                    {gang.members.length > 5 && (
+                    {(gang.members || []).length > 5 && (
                       <span className="px-2 py-0.5 bg-slate-800/60 rounded text-[10px] text-[var(--text-muted)]">
-                        +{gang.members.length - 5} more
+                        +{(gang.members || []).length - 5} more
                       </span>
                     )}
                   </div>

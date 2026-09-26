@@ -298,12 +298,29 @@ export const api = {
       method: "POST",
       body: JSON.stringify({ fir_text: firText, fir_number: firNumber || "" })
     }, {
+      fir_id: "FIR-0254/2026",
       fir_number: firNumber || "FIR-0254/2026",
-      suspects_extracted: ["Md. Ranbir Bhalla", "Md. Teerth Bhargava"],
-      co_accused_extracted: ["Md. Vedant Padmanabhan"],
-      locations_extracted: ["Byculla", "Station Road Footpath", "Venus Wine Shop"],
-      ipc_sections: ["IPC 384", "IPC 307"],
-      modus_operandi_tags: ["Extortion", "Armed Intimidation"],
+      raw_text: firText,
+      entities: [
+        { text: "Md. Ranbir Bhalla", category: "SUSPECT", confidence: 0.96 },
+        { text: "Md. Teerth Bhargava", category: "SUSPECT", confidence: 0.94 },
+        { text: "Md. Vedant Padmanabhan", category: "CO_ACCUSED", confidence: 0.91 },
+        { text: "Byculla", category: "LOCATION", confidence: 0.98 }
+      ],
+      suspects: ["Md. Ranbir Bhalla", "Md. Teerth Bhargava"],
+      suspect_details: [
+        { name: "Md. Ranbir Bhalla", raw_mention: "Md. Ranbir Bhalla", matched_in_database: true, confidence: 0.96, phone_number: "+91-2236381844", inferred_role: "Main Accused" }
+      ],
+      co_accused: ["Md. Vedant Padmanabhan"],
+      locations: ["Byculla", "Station Road Footpath", "Venus Wine Shop"],
+      weapons: ["Firearm"],
+      vehicles: [],
+      aliases: [],
+      statutes: [
+        { raw_section: "IPC Section 384", code: "IPC 384", title: "Extortion", bns_equivalent: "BNS Section 308", severity_score: 8.5, category: "Extortion", bailable: false, confidence: 0.95 }
+      ],
+      suggested_statutes: [],
+      crime_types: ["Extortion", "Armed Intimidation"],
       confidence_score: 0.94
     } as any),
 

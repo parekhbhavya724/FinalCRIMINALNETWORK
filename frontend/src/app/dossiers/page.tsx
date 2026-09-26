@@ -69,26 +69,26 @@ function FIRParserTool() {
         <div className="space-y-3 pt-3 border-t border-[var(--border)] font-mono text-xs">
           <div className="flex flex-wrap gap-2">
             <span className="px-2 py-1 bg-purple-50 text-purple-700 border border-purple-200 rounded font-bold">
-              Primary Suspects ({result.suspects.length}): {result.suspects.join(", ") || "None"}
+              Primary Suspects ({(result.suspects || []).length}): {(result.suspects || []).join(", ") || "None"}
             </span>
             <span className="px-2 py-1 bg-amber-50 text-amber-800 border border-amber-200 rounded font-bold">
-              Co-Accused ({result.co_accused.length}): {result.co_accused.join(", ") || "None"}
+              Co-Accused ({(result.co_accused || []).length}): {(result.co_accused || []).join(", ") || "None"}
             </span>
             <span className="px-2 py-1 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded font-bold">
-              Locations ({result.locations.length}): {result.locations.join(", ") || "None"}
+              Locations ({(result.locations || []).length}): {(result.locations || []).join(", ") || "None"}
             </span>
             <span className="px-2 py-1 bg-red-50 text-red-800 border border-red-200 rounded font-bold">
-              M.O. Crimes ({result.crime_types.length}): {result.crime_types.join(", ") || "None"}
+              M.O. Crimes ({(result.crime_types || []).length}): {(result.crime_types || []).join(", ") || "None"}
             </span>
           </div>
 
           {/* Extracted Entities Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-            {result.entities.map((e, idx) => (
+            {(result.entities || []).map((e, idx) => (
               <div key={idx} className="p-2 bg-[var(--surface-2)] rounded border border-[var(--border)] space-y-0.5 text-[11px]">
                 <span className="text-[9px] font-bold text-[var(--text-muted)] uppercase">{e.category}</span>
                 <p className="font-bold text-[var(--text)] truncate">{e.text}</p>
-                <span className="text-[9px] text-emerald-600">{(e.confidence * 100).toFixed(0)}% Match</span>
+                <span className="text-[9px] text-emerald-600">{((e.confidence || 0) * 100).toFixed(0)}% Match</span>
               </div>
             ))}
           </div>
@@ -139,7 +139,8 @@ function EnhancedForensicTimeline({ suspectName }: { suspectName: string }) {
   }
 
   // Sort events by timestamp for chronological view
-  const sortedEvents = [...timeline.events].sort((a, b) =>
+  const events = timeline?.events || [];
+  const sortedEvents = [...events].sort((a, b) =>
     new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
   );
 
@@ -876,9 +877,9 @@ function DossiersContent() {
                   <span>Total Matches: <strong className="text-emerald-700 font-bold">{searchResults.total_matches}</strong></span>
                 </div>
                 <div className="grid grid-cols-3 gap-2 text-xs font-mono">
-                  <div className="p-2 bg-[var(--surface-2)] rounded border border-[var(--border)]">FIR Matches: {searchResults.fir_matches.length}</div>
-                  <div className="p-2 bg-[var(--surface-2)] rounded border border-[var(--border)]">CDR Matches: {searchResults.cdr_matches.length}</div>
-                  <div className="p-2 bg-[var(--surface-2)] rounded border border-[var(--border)]">CCTV Matches: {searchResults.cctv_matches.length}</div>
+                  <div className="p-2 bg-[var(--surface-2)] rounded border border-[var(--border)]">FIR Matches: {(searchResults.fir_matches || []).length}</div>
+                  <div className="p-2 bg-[var(--surface-2)] rounded border border-[var(--border)]">CDR Matches: {(searchResults.cdr_matches || []).length}</div>
+                  <div className="p-2 bg-[var(--surface-2)] rounded border border-[var(--border)]">CCTV Matches: {(searchResults.cctv_matches || []).length}</div>
                 </div>
               </div>
             )}
